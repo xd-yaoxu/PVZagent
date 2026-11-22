@@ -1,0 +1,166 @@
+{
+  "version": 5,
+  "date": "2026-10-23",
+  "source": "User request in current chat",
+  "status": "specified_not_implemented",
+  "required_for_first_release": true,
+  "release_scope": "Basic usable sidebar, tactical timeline and integrated LLM failure-attribution panel are required; stable gameplay has priority and later versions deepen these features.",
+  "product_requirements_reference": "config/product-requirements.json",
+  "sidebar": {
+    "placement_preference": "right_of_game",
+    "collapsible": true,
+    "must_not_occlude_game": true,
+    "must_not_resize_game_without_layout_review": true,
+    "content": [
+      "real_request_status",
+      "observed_situation",
+      "current_goal",
+      "proposed_action",
+      "brief_public_decision_summary",
+      "actual_execution_result",
+      "decision_history",
+      "phase_priority_focus",
+      "active_goal",
+      "brief_goal_change_reason",
+      "brief_layout_tradeoff_summary"
+    ],
+    "reasoning_display": "model_explicit_public_decision_summary",
+    "summary_sentences_target": [
+      1,
+      3
+    ],
+    "waiting_behavior": "Show actual request state and elapsed time; do not fabricate model reasoning.",
+    "action_sources": [
+      "llm",
+      "emergency_rule",
+      "human"
+    ],
+    "layout_preference": "低威胁时尽量对称美观，防守和阶段目标优先",
+    "day03_measured_space_reference": "evidence/day03/sidebar-space.json",
+    "compact_width_dip": 228
+  },
+  "tactical_timeline": {
+    "layout": "vertical_scroll_in_sidebar",
+    "initial_phase_labels": [
+      "开局经济期",
+      "前期发育期",
+      "中期转型期",
+      "后期收尾期"
+    ],
+    "unknown_phase_label": "阶段待确认",
+    "segmentation_basis": "Observed battle events and sustained state/action changes; no fixed-minute boundaries.",
+    "segments_may_repeat_or_be_absent": true,
+    "clock": "per_run_monotonic_elapsed_time; video_import_uses_video_timestamps",
+    "segment_fields": [
+      "segment_id",
+      "phase",
+      "start_time",
+      "end_time",
+      "status",
+      "transition_basis",
+      "evidence_refs",
+      "decision_refs",
+      "action_refs"
+    ],
+    "click_behavior": "Inspect evidence/history without changing live gameplay or control mode.",
+    "preserve_online_boundaries": true,
+    "postgame_revision_must_be_labeled": true,
+    "goal_changes_are_events": true
+  },
+  "integration_days": {
+    "3": [
+      "Check sidebar space when measuring game window"
+    ],
+    "6-8": [
+      "Timestamped observation/event/action IDs",
+      "Preserve timestamped evidence and action sources for failure reviews"
+    ],
+    "9-12": [
+      "Pass phase-dependent priorities into LLM input",
+      "Record active goal, public summary, and actual action results",
+      "Link request timing, public decisions, validation and execution results for attribution"
+    ],
+    "17": [
+      "Sidebar and basic timeline UI"
+    ],
+    "18-20": [
+      "Semantic segmentation, evidence navigation, replay integration",
+      "Failure attribution panel, video keyframes and verified timeline links"
+    ],
+    "21": [
+      "Regression before feature freeze",
+      "Failure review regression including missing logs, partial video and unverified outcomes"
+    ],
+    "22-26": [
+      "Review user-provided failed-run videos, prioritize fixes and retest with evidence"
+    ]
+  },
+  "requirements_document": "docs/侧边栏与战术时间轴.md",
+  "tactical_priorities_reference": "config/tactical-priorities.json",
+  "failure_attribution": {
+    "status": "specified_not_implemented",
+    "required_for_first_release": true,
+    "input": "User-provided failed-run video; runtime logs optional",
+    "analysis_provider": "LLM integrated into the software; chat-only manual analysis does not fulfill final scope",
+    "placement": "postgame_review_tab_in_right_sidebar",
+    "layers": [
+      {
+        "id": "L0",
+        "name": "失败表现"
+      },
+      {
+        "id": "L1",
+        "name": "阵型与资源"
+      },
+      {
+        "id": "L2",
+        "name": "战术与目标选择"
+      },
+      {
+        "id": "L3",
+        "name": "感知与状态理解"
+      },
+      {
+        "id": "L4",
+        "name": "决策时序与调度"
+      },
+      {
+        "id": "L5",
+        "name": "输入执行与结果验证"
+      },
+      {
+        "id": "L6",
+        "name": "环境与交互"
+      }
+    ],
+    "conclusion_statuses": [
+      "confirmed",
+      "hypothesis",
+      "unresolved"
+    ],
+    "content": [
+      "outcome_and_coverage",
+      "failure_summary",
+      "primary_and_contributing_factors",
+      "causal_links",
+      "layer_findings",
+      "timestamped_evidence",
+      "prioritized_fixes_and_retest_conditions",
+      "unresolved_questions"
+    ],
+    "evidence_policy": "Video-only analysis is supported. Internal system causes need matching logs or explicit hypothesis/unresolved labels. Preserve original video and SHA256; do not invent decisions, inputs or certain counterfactual wins.",
+    "timeline_linking": "Link video timestamps and keyframes; align runtime IDs only with verified clock anchors, preserving offset and uncertainty.",
+    "record_ids": [
+      "review_id",
+      "run_id",
+      "finding_id",
+      "segment_id",
+      "state_id",
+      "request_id",
+      "decision_id",
+      "action_id"
+    ],
+    "missing_link_policy": "Nullable links; never fabricate runtime IDs",
+    "requirements_document": "docs/失败归因面板.md"
+  }
+}

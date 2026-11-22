@@ -1,0 +1,2590 @@
+{
+  "version": 2,
+  "source_video_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+  "split_note": "One video, temporal blocked holdout t>=240; development t<=230. Correlated frames: not independent games. Never use held-out crops as training templates.",
+  "samples": [
+    {
+      "id": "D05-V001",
+      "image": "data/day05/images-v2/video-0010.00s.png",
+      "sha256": "fbd72e6dfa4b76350eec70990a42436f1b459e772d7cb9b9272a1c225846d8ad",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 10,
+      "presented_media_time": 10,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "nonplaying",
+        "sun": 50,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "......___",
+          "......___",
+          ".????.___",
+          ".????.___",
+          "......___",
+          "......___"
+        ],
+        "scene_note": "Start overlay or reward; no gameplay action eligibility."
+      }
+    },
+    {
+      "id": "D05-V002",
+      "image": "data/day05/images-v2/video-0011.50s.png",
+      "sha256": "705ace23999b251e5368ab425eb328f7b872f88b71cf4bb9c8dd3514bed88258",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 11.5,
+      "presented_media_time": 11.5,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 0,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "s.....___",
+          "......___",
+          "......___",
+          "......___",
+          "......___",
+          "......___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V003",
+      "image": "data/day05/images-v2/video-0016.00s.png",
+      "sha256": "ab262139ffc1daaa2b6d17ead9f9002ffa33ece547b1e9dde1a93d273542b815",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 16,
+      "presented_media_time": 16,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 0,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "s.....___",
+          "......___",
+          "......___",
+          "......___",
+          "......___",
+          "......___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V004",
+      "image": "data/day05/images-v2/video-0024.50s.png",
+      "sha256": "49b2046f82f057c2a3420ab974a126e65439a35b5fae2c77355b5adce36d503e",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 24.5,
+      "presented_media_time": 24.5,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 25,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ss....___",
+          "......___",
+          "......___",
+          "......___",
+          "......___",
+          "......___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V005",
+      "image": "data/day05/images-v2/video-0030.00s.png",
+      "sha256": "076d9f174d39b1930f8e77257d262ad1b06d5f4bc0e7ff849dfa6bd7a63f3299",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 30,
+      "presented_media_time": 30,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 75,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ss....___",
+          "......___",
+          "......___",
+          "......___",
+          "......___",
+          "......___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V006",
+      "image": "data/day05/images-v2/video-0040.00s.png",
+      "sha256": "7eb31f73bcaf480b1e76396bfa6dd6eeed1d074ca876ee7b6995cd66cbd6b2be",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 40,
+      "presented_media_time": 40,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 50,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ss....___",
+          "s...m.___",
+          "......___",
+          "......___",
+          "......___",
+          "......___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V007",
+      "image": "data/day05/images-v2/video-0050.00s.png",
+      "sha256": "58315b7e3cffd54b916c816c537addf037f72750252b57042a5dc80165d2115a",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 50,
+      "presented_media_time": 50,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 25,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ss....___",
+          "ss..m.___",
+          "......___",
+          "......___",
+          "s.....___",
+          "......___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V008",
+      "image": "data/day05/images-v2/video-0060.00s.png",
+      "sha256": "c3c5316c4fd388395c1764e8bea57d9e2e213cd02d0938a09d682ffe6bd6a946",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 60,
+      "presented_media_time": 60,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 75,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "bright",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "ss....___",
+          "ss....___",
+          "......___",
+          "......___",
+          "ss....___",
+          "......___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V009",
+      "image": "data/day05/images-v2/video-0070.00s.png",
+      "sha256": "a9b729ef3e20ca79a543a4d4aba1c6dc33eac56d7cbfae331201294ed569efa9",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 70,
+      "presented_media_time": 70,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 50,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ss....___",
+          "ss....___",
+          "......___",
+          "......___",
+          "ssp...___",
+          "s.....___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V010",
+      "image": "data/day05/images-v2/video-0080.00s.png",
+      "sha256": "9da50a8a91b04c3dd1eb85d04050e70d91f1c2fcd320804044e4ce082259b320",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 80,
+      "presented_media_time": 80,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 25,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp...___",
+          "ss....___",
+          "......___",
+          "......___",
+          "ssp...___",
+          "ss....___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V011",
+      "image": "data/day05/images-v2/video-0084.00s.png",
+      "sha256": "a3d36001f58e211f7f6ef6f238268267de387d1eaf07ea5a604cd4ed05eb3b32",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 84,
+      "presented_media_time": 84,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 0,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp...___",
+          "ss....___",
+          "S.....___",
+          "......___",
+          "ssp...___",
+          "ss....___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V012",
+      "image": "data/day05/images-v2/video-0090.00s.png",
+      "sha256": "771a7a4a236f11dcdc2936f5c6eb27171c95817897dac173bf362e52df83792e",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 90,
+      "presented_media_time": 90,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 75,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "unknown",
+          "unknown"
+        ],
+        "occupancy_rows": [
+          "ssp...___",
+          "ss....___",
+          "S.....___",
+          "......___",
+          "ssp...___",
+          "ss....___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V013",
+      "image": "data/day05/images-v2/video-0100.00s.png",
+      "sha256": "e99d9481629cabd4e9c677e05e7b6167f45da847fc32e10d4c9ded4f22344fa1",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 100,
+      "presented_media_time": 100,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 50,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp...___",
+          "ssp...___",
+          "SS....___",
+          "l.....___",
+          "ssp...___",
+          "ss....___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V014",
+      "image": "data/day05/images-v2/video-0110.00s.png",
+      "sha256": "c279917d4127d68c7b129bb9063e3ca809a907c9b8c4b8b559224a9fe4063ffb",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 110,
+      "presented_media_time": 110,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 0,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "unknown",
+          "unknown",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp...___",
+          "ssp..n___",
+          "SS....___",
+          "Sl....___",
+          "ssp...___",
+          "ss....___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V015",
+      "image": "data/day05/images-v2/video-0120.00s.png",
+      "sha256": "0296c9738ccf8233a3fca48719afa70852fca2ec66efa0084922a811e889ae67",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 120,
+      "presented_media_time": 120,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 150,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "unknown",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "ssp...___",
+          "ssp..n___",
+          "SS....___",
+          "SS....___",
+          "ssp...___",
+          "ss....___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V016",
+      "image": "data/day05/images-v2/video-0130.00s.png",
+      "sha256": "634f30de5f132c24894ea14f1b6452a23f1cfa1021d6804f19eacbe3edb8bd15",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 130,
+      "presented_media_time": 130,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 200,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp...___",
+          "ssp..n___",
+          "SSl...___",
+          "SS....___",
+          "ssp...___",
+          "ssp...___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V017",
+      "image": "data/day05/images-v2/video-0140.00s.png",
+      "sha256": "b68a88a12452fb2e75fbceb177d08dbc6c3caf5c102ef42b28d2e4fbe89b28cc",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 140,
+      "presented_media_time": 140,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 175,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "ssp...___",
+          "ssp..n___",
+          "SSP...___",
+          "SSl...___",
+          "ssp...___",
+          "ssp...___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V018",
+      "image": "data/day05/images-v2/video-0150.00s.png",
+      "sha256": "db3fd714a476fc1d5585d72da4b071522a0585c4b11ea6742d98241ed0ddedca",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 150,
+      "presented_media_time": 150,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "ssp...___",
+          "ssp..n___",
+          "SSP...___",
+          "SSl...___",
+          "sspp..___",
+          "ssp...___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V019",
+      "image": "data/day05/images-v2/video-0160.00s.png",
+      "sha256": "659282f745e2555c115b13f48dcda5601784d37e8add4c4557a64b30019c0f9c",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 160,
+      "presented_media_time": 160,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 275,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp..n___",
+          "ssp.pn___",
+          "SSP...___",
+          "SSP...___",
+          "sspp..___",
+          "ssp...___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V020",
+      "image": "data/day05/images-v2/video-0170.00s.png",
+      "sha256": "173cd36b95aa7742c6e7aa10a3112ee287c86849e5cd72f82c99e5aa0bc2dda3",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 170,
+      "presented_media_time": 170,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 200,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp..n___",
+          "ssp.pn___",
+          "SSP...___",
+          "SSP...___",
+          "ssppp.___",
+          "ssp...___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V021",
+      "image": "data/day05/images-v2/video-0180.00s.png",
+      "sha256": "185ddf06d826efbbdf9650a8c490c3e1232a92e03a3a059a1e6d51fab6350042",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 180,
+      "presented_media_time": 180,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 175,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp..n___",
+          "ssp.pn___",
+          "SSP...___",
+          "SSP.l.___",
+          "ssppp.___",
+          "ssp...___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V022",
+      "image": "data/day05/images-v2/video-0190.00s.png",
+      "sha256": "4b7b7b33d48aa7ed2d9922e17259035124a55dc9c6a5ddc593821b533236d702",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 190,
+      "presented_media_time": 190,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "ssp..n___",
+          "ssp.pn___",
+          "SSP...___",
+          "SSP.P.___",
+          "ssppp.___",
+          "ssp...___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V023",
+      "image": "data/day05/images-v2/video-0200.00s.png",
+      "sha256": "6dfff72c36c6253c1fc9bb636f3654c4270543a4488f5589e1a0172f05e43bf0",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 200,
+      "presented_media_time": 200,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp..n___",
+          "ssp.pn___",
+          "SSP.P.___",
+          "SSP.P.___",
+          "ssppp.___",
+          "ssp...___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V024",
+      "image": "data/day05/images-v2/video-0210.00s.png",
+      "sha256": "479263d50a3000774cf5c241629120ace283072719e54d87b4ecd97d6fe67b45",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 210,
+      "presented_media_time": 210,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 125,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp..n___",
+          "ssp.pn___",
+          "SSP.P.___",
+          "SSP.P.___",
+          "sspppn___",
+          "ssp...___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V025",
+      "image": "data/day05/images-v2/video-0220.00s.png",
+      "sha256": "84ac726f3e1cbdee5d1b1e384a4da97fcd6a038f3135d2b54bd478e7dbc52e98",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 220,
+      "presented_media_time": 220,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 75,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp.pn___",
+          "ssp.pn___",
+          "SSP.P.___",
+          "SSP.P.___",
+          "sspppn___",
+          "ssp...___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V026",
+      "image": "data/day05/images-v2/video-0230.00s.png",
+      "sha256": "15a8c52ae14ef4a819eb939c63cc35e158ce610abbf08249e3d73eb0cd2a2f96",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 230,
+      "presented_media_time": 230,
+      "collection_group": "day02-human-gameplay",
+      "split": "development",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 0,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "ssp.pn___",
+          "ssp.pn___",
+          "SSP.Pl___",
+          "SSP.P.___",
+          "sspppn___",
+          "ssp.p.___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V027",
+      "image": "data/day05/images-v2/video-0240.00s.png",
+      "sha256": "7864c88c764afd5522e5d42999fa0f1ad1fe389ab6e0130eb45ff72adcc8f908",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 240,
+      "presented_media_time": 240,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "ssp.pn___",
+          "ssp.pn___",
+          "SSP.PN___",
+          "SSP.P.___",
+          "sspppn___",
+          "ssp.p.___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V028",
+      "image": "data/day05/images-v2/video-0250.00s.png",
+      "sha256": "b30f9847bed4875a5070c8e54c6bcdbfccdd365dd15c560813d06644272c6824",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 250,
+      "presented_media_time": 250,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "ssp.pn___",
+          "sspppn___",
+          "SSP.PN___",
+          "SSP.Pl___",
+          "sspppn___",
+          "ssp.p.___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V029",
+      "image": "data/day05/images-v2/video-0260.00s.png",
+      "sha256": "ed655ee4c7c564c8831ef1d054373eabb1ce928c9469e4f0f352e410ff75deb5",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 260,
+      "presented_media_time": 260,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 100,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPlPN___",
+          "SSP.Pl___",
+          "sspppn___",
+          "ssp.p.___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V030",
+      "image": "data/day05/images-v2/video-0270.00s.png",
+      "sha256": "8fe26309c946d7109641f80d1afe7a3b24a30aff0d3496d345142139c04ebae0",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 270,
+      "presented_media_time": 270,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 100,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPlPN___",
+          "SSPlPN___",
+          "sspppn___",
+          "ssppp.___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V031",
+      "image": "data/day05/images-v2/video-0280.00s.png",
+      "sha256": "4068da75c88877d2879aeb79ed90149367b23a4b4c420c46609a97b8780c031f",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 280,
+      "presented_media_time": 280,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 125,
+        "sun_readable": true,
+        "cards": [
+          "unknown",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPlPN___",
+          "sspppn___",
+          "ssppp.___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V032",
+      "image": "data/day05/images-v2/video-0290.00s.png",
+      "sha256": "5fe48df682815b60270a1fa331934aa71f2146a49c8ae3249d9331f60ea21dd0",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 290,
+      "presented_media_time": 290,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 225,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "ssppp.___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V033",
+      "image": "data/day05/images-v2/video-0300.00s.png",
+      "sha256": "15fff38ab26ca1044a5da627eba027d6e765eae451223ffdd841e6bdcb55c854",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 300,
+      "presented_media_time": 300,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 200,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V034",
+      "image": "data/day05/images-v2/video-0310.00s.png",
+      "sha256": "72cffee16eaaf488e3b262b251138a001f393d1476346158d9451f085d84a9f6",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 310,
+      "presented_media_time": 310,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 50,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V035",
+      "image": "data/day05/images-v2/video-0320.00s.png",
+      "sha256": "1141991c838866a821953702e7b82f1daba1df6897778a75d70ca56814af160e",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 320,
+      "presented_media_time": 320,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 150,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V036",
+      "image": "data/day05/images-v2/video-0330.00s.png",
+      "sha256": "c99a8cc4861dab857fb0debb5f68f9bf47199e2949a4274b32ba42f4b013d9a5",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 330,
+      "presented_media_time": 330,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 125,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SS????___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V037",
+      "image": "data/day05/images-v2/video-0340.00s.png",
+      "sha256": "6abd219cdf4962908c0d46e48f3af4eff86fec50d530c352150c62beee575138",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 340,
+      "presented_media_time": 340,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 225,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "unknown",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "ssp.pn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V038",
+      "image": "data/day05/images-v2/video-0350.00s.png",
+      "sha256": "3d7daa851343ca9d7dfcf4605f3738433b14bfe50f0ec0c0b0f57bd86c705b47",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 350,
+      "presented_media_time": 350,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 225,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V039",
+      "image": "data/day05/images-v2/video-0360.00s.png",
+      "sha256": "4b8f01ea7a60133176bce00af8a615dee7ed2d89171904b2246d7e54b50e714f",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 360,
+      "presented_media_time": 360,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V040",
+      "image": "data/day05/images-v2/video-0370.00s.png",
+      "sha256": "71f0609472878d72e1b4a80d67112f4a0cc598705f7d65ad01b5b82ae2ef9e5e",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 370,
+      "presented_media_time": 370,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 200,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V041",
+      "image": "data/day05/images-v2/video-0380.00s.png",
+      "sha256": "183e5cb3b172ae9db33f6e0e0dadcf855d088616871b5a77cb5979ddba96c22f",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 380,
+      "presented_media_time": 380,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 75,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V042",
+      "image": "data/day05/images-v2/video-0390.00s.png",
+      "sha256": "8b1553676c75b1e967a4a983e8d5b01189cfcbe7211836aa53c1f70652864685",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 390,
+      "presented_media_time": 390,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 150,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V043",
+      "image": "data/day05/images-v2/video-0400.00s.png",
+      "sha256": "60ec6174d91efa9469bfed07ba7e855ac37ae64bce0ebeeae58fe94025f35600",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 400,
+      "presented_media_time": 400,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 150,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V044",
+      "image": "data/day05/images-v2/video-0410.00s.png",
+      "sha256": "aa8791d2129ca89ed6150b3d3d856a72a933a0e1395f57b3ee13c83f8ebc1948",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 410,
+      "presented_media_time": 410,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "dim",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V045",
+      "image": "data/day05/images-v2/video-0420.00s.png",
+      "sha256": "ec6c1c760a62f4804330611509a4d04f83426c3c413ead594b459ab5522b6176",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 420,
+      "presented_media_time": 420,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 175,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "bright",
+          "bright",
+          "unknown",
+          "unknown"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V046",
+      "image": "data/day05/images-v2/video-0430.00s.png",
+      "sha256": "6fa1e9e8bd89429365b3c03466c1f4005df7289ec987a274ef4319a882c3f374",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 430,
+      "presented_media_time": 430,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 25,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V047",
+      "image": "data/day05/images-v2/video-0440.00s.png",
+      "sha256": "acbf87226ad8bd6b36f6d904ae6ae0299c7e79a7eb3be48a158089efaf1ead6f",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 440,
+      "presented_media_time": 440,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 0,
+        "sun_readable": true,
+        "cards": [
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim",
+          "dim"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V048",
+      "image": "data/day05/images-v2/video-0450.00s.png",
+      "sha256": "6e4daf26665d6dc2d34fe2509a97b2ad04a7bf5cc691e62376f9cab5c015d85e",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 450,
+      "presented_media_time": 450,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 125,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SS????___",
+          "SSP???___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V049",
+      "image": "data/day05/images-v2/video-0460.00s.png",
+      "sha256": "50fb1fea049f847d37953b8252a798df780e10be5a6714d38f81e5854df0ff20",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 460,
+      "presented_media_time": 460,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "sun": 100,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "bright",
+          "dim",
+          "bright",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ]
+      }
+    },
+    {
+      "id": "D05-V050",
+      "image": "data/day05/images-v2/video-0470.00s.png",
+      "sha256": "1d71baa663d99263e16cd1a3a626da42359acb57a1f258eee82f287a626abed1",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "timestamp_seconds": 470,
+      "presented_media_time": 470,
+      "collection_group": "day02-human-gameplay",
+      "split": "held_out",
+      "normalization": {
+        "source_crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "output_pixels": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "nonplaying",
+        "sun": 275,
+        "sun_readable": true,
+        "cards": [
+          "bright",
+          "bright",
+          "bright",
+          "bright",
+          "dim",
+          "dim",
+          "bright",
+          "bright",
+          "bright",
+          "bright"
+        ],
+        "occupancy_rows": [
+          "sspppn___",
+          "sspppn___",
+          "SSPPPN___",
+          "SSPPPN___",
+          "sspppn___",
+          "sspppn___"
+        ],
+        "scene_note": "Start overlay or reward; no gameplay action eligibility."
+      }
+    },
+    {
+      "id": "D05-N001",
+      "image": "evidence/day04/actions/00a85ba6ef3346b1bd4ac5992f14e9ac/captures/day04-before-2026-10-21T14-32-10-331390+00-00-d44686.png",
+      "sha256": "531ebc22410ed51b81eebdf95006b0b0f734f45930b91639e22209ce70fbfe36",
+      "source": "evidence/day04/actions/00a85ba6ef3346b1bd4ac5992f14e9ac/captures/day04-before-2026-10-21T14-32-10-331390+00-00-d44686.png",
+      "timestamp_seconds": null,
+      "collection_group": "day04-native-single-action-tests",
+      "split": "development",
+      "labels": {
+        "scene": "nonplaying",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated"
+        ],
+        "occupancy_rows": [
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________"
+        ]
+      }
+    },
+    {
+      "id": "D05-N011",
+      "image": "evidence/day04/actions/2a0062b716984b9894e7b70b4ce52fdf/captures/day04-after-2026-10-21T14-25-07-889722+00-00-a9660d.png",
+      "sha256": "3b0ff442030ae6c0b20414c5fc1791e0308d196271abc1cf19bda6eae6460815",
+      "source": "evidence/day04/actions/2a0062b716984b9894e7b70b4ce52fdf/captures/day04-after-2026-10-21T14-25-07-889722+00-00-a9660d.png",
+      "timestamp_seconds": null,
+      "collection_group": "day04-native-single-action-tests",
+      "split": "development",
+      "labels": {
+        "scene": "nonplaying",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated"
+        ],
+        "occupancy_rows": [
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________"
+        ]
+      }
+    },
+    {
+      "id": "D05-N026",
+      "image": "evidence/day04/actions/a2576d6e580f402baad2fc463723f793/captures/day04-after-2026-10-21T14-34-14-118700+00-00-60a2c0.png",
+      "sha256": "803dd08a8a19f5e65c4249d78bd9217202eda364634d455e00dd9c068acec7bc",
+      "source": "evidence/day04/actions/a2576d6e580f402baad2fc463723f793/captures/day04-after-2026-10-21T14-34-14-118700+00-00-60a2c0.png",
+      "timestamp_seconds": null,
+      "collection_group": "day04-native-single-action-tests",
+      "split": "development",
+      "labels": {
+        "scene": "nonplaying",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated"
+        ],
+        "occupancy_rows": [
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________"
+        ]
+      }
+    },
+    {
+      "id": "D05-N024",
+      "image": "evidence/day04/actions/83cf2abc0b6e4f5fae2965bb1eb17cdb/captures/day04-before-2026-10-21T14-28-40-097086+00-00-77997a.png",
+      "sha256": "0370f3b36dd7fff918419ec785087de0d2be54d0d0f41dc4d164589a3292bb04",
+      "source": "evidence/day04/actions/83cf2abc0b6e4f5fae2965bb1eb17cdb/captures/day04-before-2026-10-21T14-28-40-097086+00-00-77997a.png",
+      "timestamp_seconds": null,
+      "collection_group": "day04-native-single-action-tests",
+      "split": "challenge",
+      "labels": {
+        "scene": "nonplaying",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated"
+        ],
+        "occupancy_rows": [
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________"
+        ]
+      }
+    },
+    {
+      "id": "D05-N027",
+      "image": "evidence/day04/actions/a2576d6e580f402baad2fc463723f793/captures/day04-before-2026-10-21T14-34-13-083639+00-00-75eb89.png",
+      "sha256": "49ebab37534a5d763509dd5e717d540f333c4b3de2f53783002a45c9fb5cafee",
+      "source": "evidence/day04/actions/a2576d6e580f402baad2fc463723f793/captures/day04-before-2026-10-21T14-34-13-083639+00-00-75eb89.png",
+      "timestamp_seconds": null,
+      "collection_group": "day04-native-single-action-tests",
+      "split": "challenge",
+      "labels": {
+        "scene": "nonplaying",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated"
+        ],
+        "occupancy_rows": [
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________"
+        ]
+      }
+    },
+    {
+      "id": "D05-N065",
+      "image": "evidence/day04/diagnostics/day04-diagnostic-2026-10-21T14-24-43-988542+00-00-37d53d.png",
+      "sha256": "a029a19bc8d0492ba26e16342c11220431424f15da7551dc3238b26d55f99967",
+      "source": "evidence/day04/diagnostics/day04-diagnostic-2026-10-21T14-24-43-988542+00-00-37d53d.png",
+      "timestamp_seconds": null,
+      "collection_group": "day04-native-single-action-tests",
+      "split": "challenge",
+      "labels": {
+        "scene": "nonplaying",
+        "sun": null,
+        "sun_readable": false,
+        "cards": [
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated",
+          "not_annotated"
+        ],
+        "occupancy_rows": [
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________",
+          "_________"
+        ]
+      }
+    }
+  ],
+  "annotation": {
+    "reviewer": "assistant_visual_review",
+    "review_basis": "Nine annotation-views-v2 contact sheets reviewed after requestVideoFrameCallback decoding; corrected 24.5-second frame, independent of predictions.",
+    "coverage": "Sun value and ten visual card appearances on all 50 frames; only first six columns of six rows audited for occupancy. Columns 7-9 intentionally unannotated. ? marks occluded/unresolved; not an empty cell.",
+    "legend": {
+      ".": "empty",
+      "s": "ground plant",
+      "p": "ground plant",
+      "n": "ground plant",
+      "m": "ground plant",
+      "l": "visible lily pad only",
+      "S": "visible lily pad plus plant",
+      "P": "visible lily pad plus plant",
+      "N": "visible lily pad plus plant",
+      "?": "unknown or obscured"
+    }
+  },
+  "schema": "pvz-perception-dataset/1",
+  "annotation_revision": {
+    "version": 5,
+    "post_prediction": true,
+    "scope": "Full HUD card review after v5/v7 predictions; sun, scenes and cell labels unchanged.",
+    "definition": "bright: no visible gray cover over art; dim: partial or complete gray cover; unknown: occluded or unreadable.",
+    "limitations": "One visual reviewer; partial cover is not a measured cooldown or readiness label.",
+    "review": "2x card crops plus bright-art comparison; first contact-sheet review v4 had 40 remaining label mistakes.",
+    "caution": "Prediction-guided review by one annotator; known-source regression, no independent accuracy claim."
+  }
+}

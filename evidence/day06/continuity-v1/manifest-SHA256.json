@@ -1,0 +1,2270 @@
+{
+  "schema": "sha256-manifest/1",
+  "created_at": "2026-10-24T11:02:37.600935+00:00",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "2fb79fb31787381ff2b8c9820177923ecebd54ab9d2dd66928379f92552126cb"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/AGENTS.md",
+      "sha256": "b483924326d7a4f011e9af2163045eef0642f6478ce2831fb7753e533922d18f"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/config/environment.json",
+      "sha256": "209f4a99984c2a6face8eee5ac372ca2384107e9513fa0e844262b98a00f8959"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/docs/第六天任务.md",
+      "sha256": "f3222aca6817b2aaf8e3ca70a758b771b506c6ab31ce874182c3eac37ca31487"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/docs/项目上下文恢复.json",
+      "sha256": "5b37bb0819829e51312b11fa2df6d3f9ba6df20ed0b28c59de9f82aeeb14a802"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/pre-final-progress/AGENTS.md",
+      "sha256": "cd5632275d47d3069058f485c4e02fd4f6e778745c4ba0c0691c6284d7a637cb"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/pre-final-progress/config/environment.json",
+      "sha256": "d25f609f97a8dcf97fe6eb5b0b0aed3418e1650f7ee8017c1c8f6aad0d628a89"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/pre-final-progress/docs/第六天任务.md",
+      "sha256": "93a922eaa802d504d42224a451a195a4b83fac246c345c1ed476399ded11315c"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/pre-final-progress/docs/项目上下文恢复.json",
+      "sha256": "8e7a4f41ca2d82b1043d199c6a60b55b7bc0e121cdb6ffa1003de1618e4bcea6"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/pre-final-progress/historical-hash-transition.json",
+      "sha256": "8c497fed520d35db4628346764a49aa9f9eea0e11abf79c8fb5b6e088c52be33"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/pre-final-progress/README.md",
+      "sha256": "71b97d792e15c28c2c05713d54b7ab97ee0eada11d787c6ea46cb450e5cf22c4"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/previous-handoff-files.json",
+      "sha256": "63da85c0de42ffefb6178af91988291cabf21203916df063e3d4cbb50980c930"
+    },
+    {
+      "path": "backups/day06-continuity-pre-handoff/README.md",
+      "sha256": "9717acd4ba68d99326dfa0c0866ba53043c579a0e52b74ad6ee3077d17291bfc"
+    },
+    {
+      "path": "config/environment.json",
+      "sha256": "89f4ff89209353b5bdcd5459d22b41fded2fa3d2f9723b09e6d764c398335109"
+    },
+    {
+      "path": "docs/第六天任务.md",
+      "sha256": "aef2a32a66869fed3895c38b0c452169f26957d78301a5e32467db3b07c83075"
+    },
+    {
+      "path": "docs/第六天连续性接线与窗口采集提速.md",
+      "sha256": "b4a1645e771726666fc309ea956c743d277afdc713ea3b24b916914ac678c3c9"
+    },
+    {
+      "path": "docs/项目上下文恢复.json",
+      "sha256": "b3201fbd6e84e67986d5905f4e77aec9efb8e3f8dbcdaf25c0c8a4e89254c6d0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/audit.json",
+      "sha256": "47fbb3bef68151f65818136606a40411f4f314c09ca0ff44f6403714e3efa5c4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/freeze-pinned-v1.json",
+      "sha256": "adc7bdc3302af6bef457c0cae599b5fa4b34f60454a8d4dbb4616e54f415e11d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/freeze.json",
+      "sha256": "b37143e615915d24bf8032e63253cf9ac55bc7c4c4cc34b44ade6ef401a6c196"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/historical-hash-transition.json",
+      "sha256": "0ed8b9e3a3738f3ebb2bff06a3598ff5a357aee2208c4e12d99b94d2bd45f504"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-46-547388+00-00-b516fa-display.png",
+      "sha256": "0d79a0c02a95229f1b83254740cb3562c12bd9b268adfa19630c5826faf97a13"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-46-547388+00-00-b516fa.json",
+      "sha256": "37d74e2b8e20deccd3b81cfcba7bb0bc30c92ddfeb8d789b4dce2900411f9079"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-46-547388+00-00-b516fa.png",
+      "sha256": "4f0dd624a6ecd54d1a51ae30b5013562899d78dae3e9c53651e85cddc6d02797"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-47-634753+00-00-3cd7c7-display.png",
+      "sha256": "c18c25264e270d8cd39cbdbd89c5e459856dbbfcd7015bdd7d0aecd59483ee58"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-47-634753+00-00-3cd7c7.json",
+      "sha256": "1d36ef071d69a2e780f7da25583fd52e77df58d460bff6147009ea72e58c822d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-47-634753+00-00-3cd7c7.png",
+      "sha256": "0981c816de59d2c04ada808b7744555033a37bb9c7ecd19f67c341e8fcb8bc4b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-48-600767+00-00-a33595-display.png",
+      "sha256": "dff810a5c9de33f295dc1509b1cdce305c5419f6045c039181aa1fa51961d595"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-48-600767+00-00-a33595.json",
+      "sha256": "eea26b6357aedbb136d2a6660a6d09c5633d46e4718bdc63759cb456b362aab3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-48-600767+00-00-a33595.png",
+      "sha256": "dd5acf9e4101c1840c01347e0c2ea4f951dcf3b900c4a1f0d3ddb771c9cce7f7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-49-598471+00-00-03241f-display.png",
+      "sha256": "a56c5613d650801c83df17348fb32e486c90bffee5ec461c05d5c637c77ac883"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-49-598471+00-00-03241f.json",
+      "sha256": "098197a25715f11635231a39a6496f40e06a677da778626daae93199ba65c82d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-49-598471+00-00-03241f.png",
+      "sha256": "12d95f5fb1b349b4e7fb90cab41f95a796b00099f04af7defc99a65b0ff30a35"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-50-607786+00-00-23117f-display.png",
+      "sha256": "86690bedcfa4d66c0a07e930ad02d0c5bb5bb011ed5b594d3c78b70f9ba33fb0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-50-607786+00-00-23117f.json",
+      "sha256": "523a5eed1ba616f1500e4aacb3cf9ae367d5cb12a20f42220347142df25dfc83"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-50-607786+00-00-23117f.png",
+      "sha256": "be807514135b83b5fe6127224e4dd76d3e967c35a52033bfbf2b8c93f8712b1f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-51-647680+00-00-d61d9d-display.png",
+      "sha256": "4dc89284fd42f8d259e1bce58d2285d2f8ca80dba89545cba9bacf396833d1fd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-51-647680+00-00-d61d9d.json",
+      "sha256": "fbd93aeacaa74afb5bdcad2b12803fff5659b0b70cb619aeaec16272fea3d16a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-51-647680+00-00-d61d9d.png",
+      "sha256": "d4da0ee7d96d108cb2bcadc078467921ecabb2cd3007c0ba02592d66274f0160"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-52-642772+00-00-49ec7e-display.png",
+      "sha256": "3d6e8316d5915d4e8f7edc63170a023e5c22bd7fdaa73e277b975f1f9c79526d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-52-642772+00-00-49ec7e.json",
+      "sha256": "bfc5aeb0e1348df6b1355fd444862d32f60e49ce81aad36c259bedcc81312dbd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-52-642772+00-00-49ec7e.png",
+      "sha256": "a4372b237ec27e9dd992d85dcef073d74cf97beaf8e1f3bfff5118e026502f2c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-53-603753+00-00-ff88f1-display.png",
+      "sha256": "ea29c2e2c13f0e8e6129599134fec0bbd761de5d534310b99f70aeec2bdc5d39"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-53-603753+00-00-ff88f1.json",
+      "sha256": "ce590902ed01639ce9aa5e98dbbe9cb13a7447c883ca4a8a7de3755af75b8476"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-53-603753+00-00-ff88f1.png",
+      "sha256": "506f329ca3785c1d01b2c1520c0fa8594d2e99ab903dad061198fe1152a2de65"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-54-580401+00-00-61a054-display.png",
+      "sha256": "6f9a6a57585a344ba5f5a46931d38cb379b47363a66af73b13730a58edf1b3a5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-54-580401+00-00-61a054.json",
+      "sha256": "b2ee582c8a496124e9ab1ab159ec00cc07a6db9adc1bdc07e303d84ca637d4e8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-54-580401+00-00-61a054.png",
+      "sha256": "aaaf87185855824c58b74d3a392fcc4372a07b0a435b0a6ebff70922a3a4afb2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-55-527730+00-00-82bc47-display.png",
+      "sha256": "ed5eb871c1373e93fd3b19c98fe28706a6133a329d05b255c39a2c676fbc9afc"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-55-527730+00-00-82bc47.json",
+      "sha256": "516b557c4484c9a2b9537cce79613831e6ead26f8c5bf65d6d5ae5b49ee1b339"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-55-527730+00-00-82bc47.png",
+      "sha256": "7da6551d319061472626444cefbb38bc13db6da5716488704767f21973c53937"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-56-559600+00-00-524187-display.png",
+      "sha256": "9cb85b092e0ec2e718ea7443959261709856c7f1abd4923befb041b6a2842f75"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-56-559600+00-00-524187.json",
+      "sha256": "bbefef39cac225d19731123788061fa7d7f53f050c8fcde8b0e6653024b88a3e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-56-559600+00-00-524187.png",
+      "sha256": "430c11fb80596d1475cdd4a8a237a98f2abc6648405bbe56ac3174c133f38431"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-57-633154+00-00-a900f0-display.png",
+      "sha256": "a1a082f8ae8a3ded61b94e1ca2ea017752b036de04200d668a2971b9c9dbae10"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-57-633154+00-00-a900f0.json",
+      "sha256": "bcd12ec57505e0b37f4eb7223bc77d4c7ace09108487f31021813e448667dae0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-57-633154+00-00-a900f0.png",
+      "sha256": "34486022a0891d637facb836bf7c36341f1b12ac9d88565c4104c2ee854f264b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-58-591346+00-00-360407-display.png",
+      "sha256": "272c6bef0e9ba85a7fbb430cfdeb0cb1946f06b5f2e87013cb33ba2008c1a3e0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-58-591346+00-00-360407.json",
+      "sha256": "81c5323f4de3e3ddbc18bd28a9f62c83cb95e76e82bafee1d47f8d614a9cb868"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-58-591346+00-00-360407.png",
+      "sha256": "0f29f6d8830a7ad6ce8d2eac502eac5b38dcb9c0b81dd511e02c0162267e6088"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-59-612658+00-00-21e0cd-display.png",
+      "sha256": "9384892fd4e1683091979958b1d654d6a1aec8c8ed5174bbd6f3b5f60e63e9f6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-59-612658+00-00-21e0cd.json",
+      "sha256": "283e07a277ec306b9cee238a892fbced56a466696390961ea6614bcfcd54c1fc"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-37-59-612658+00-00-21e0cd.png",
+      "sha256": "be2712d4801083ba96b995b60ee8d93bb060cdbf20810ff56c9638c14e1af213"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-00-599088+00-00-ff9b90-display.png",
+      "sha256": "1f4d53f060dfa7d79b54053d41c24d661576494b3a5b99d6717499cc13ef1f82"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-00-599088+00-00-ff9b90.json",
+      "sha256": "014a06c3b7c0646c951eb2cb0c710fea85111226cbbc1c978449dbd86fa7d6e7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-00-599088+00-00-ff9b90.png",
+      "sha256": "cdbc29ffaa3a6f821f30acd04b1bf26b000423a31522fff6fc25aa39b4865f09"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-01-623304+00-00-f62c75-display.png",
+      "sha256": "1a103fc3cf88417f1a178db9eacba9d54830202a5c405b277dd6a20023ee0e55"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-01-623304+00-00-f62c75.json",
+      "sha256": "1e77593b80e273965a0b59bcc2a8198932ee2d8d7d90ebc332d83d9a9f66832f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-01-623304+00-00-f62c75.png",
+      "sha256": "017afa54cef7adc4d7c94ede96d9221898814bde9123e3e15924c6856b2aa3cb"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-02-655993+00-00-e24561-display.png",
+      "sha256": "b6d1309f3ecddfe4aa76275740a33c43ad1febf20756776071dd2b884f950777"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-02-655993+00-00-e24561.json",
+      "sha256": "4942c78ef3e772dd6be43fcc445590103ce122c78328e178178ac9b6b8eb29ce"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-02-655993+00-00-e24561.png",
+      "sha256": "865b16e760f87f80a1ee9632eedbdf122f7a5e997ed85fe8553078aad98bb078"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-03-691306+00-00-fc1590-display.png",
+      "sha256": "7fc3f518455cf26a31ffc2af891558d34a3b11c053fef8eb9d403c27c5cf881e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-03-691306+00-00-fc1590.json",
+      "sha256": "044b86fcf43fdc33aa081f6c1ca321ce490b72e3f9ee3a9be15d38f88d94c15e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-03-691306+00-00-fc1590.png",
+      "sha256": "c24ee206dfcc1fc73e2edda5957ec8b438ca230f856d3cfae54c4407483009fe"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-04-633469+00-00-1216ba-display.png",
+      "sha256": "48767889475b69632c68b6bdbda6bd0faa268b99c0ddec0e10d75ab5166efc41"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-04-633469+00-00-1216ba.json",
+      "sha256": "19aa9475ed125106d9b7761a7e98a68a4c10386647f66202ab78882f854b9088"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-04-633469+00-00-1216ba.png",
+      "sha256": "85a5c270a66d065920128d3c6e06ec60027561484bf10b4d85afc115a47b286e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-05-646230+00-00-0354b6-display.png",
+      "sha256": "22d82430373e313009a723a1db510ba9fd0abfb54951458411d49131f0ae7e13"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-05-646230+00-00-0354b6.json",
+      "sha256": "d6e6fd60fc217cabaeb2c6f25a9f8365b90efbbba1871250dd647808538295e4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-05-646230+00-00-0354b6.png",
+      "sha256": "9cb1f4877d91095ef977a4aa53e4edbc9b4d041c72579b987f061f28d2e8ed5c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-06-601818+00-00-1eb22e-display.png",
+      "sha256": "6863e51946247bc40560fce7ab17cf8f657c7ef88ccbd979af9355344001df0d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-06-601818+00-00-1eb22e.json",
+      "sha256": "c2a1bb8a1e2e3db0cbc339ba80b3da319be9a1e41d8475b65f173b23ba8936cf"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-06-601818+00-00-1eb22e.png",
+      "sha256": "9ef444f87ab75bc56b7463e04b75fe7c1ffcbb720cc3a4d9f814b5813b0a8590"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-07-639920+00-00-cad0dd-display.png",
+      "sha256": "d7b53b58b9d6648b82f83467b6e961aa098dff0a2b26090189b4de554c5e370d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-07-639920+00-00-cad0dd.json",
+      "sha256": "7fbed6e8462e12b128e24cefb1527eb95dff6ce521cab63df8bb2cfad311465a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-07-639920+00-00-cad0dd.png",
+      "sha256": "7d02aa4bedcd8b2d507d2b550aae44f7d54c5371090031eaf27a0c71d530d8fb"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-08-647140+00-00-1b2842-display.png",
+      "sha256": "42e7db05993b5d6ba975ca0971d832700817eeac4c7d4897da366de60d04c4ee"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-08-647140+00-00-1b2842.json",
+      "sha256": "5a350b45b8073edb632402364b32a033212d269947b1bc60777f8c13797875a2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-08-647140+00-00-1b2842.png",
+      "sha256": "a0ec7c255b31e8b1189b46a94460b2d208dcf02e28d5cb9523cd9c0baf68ee6f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-09-645940+00-00-f8b29a-display.png",
+      "sha256": "1762faf4811966ae96b65211c6b491a913d14135e13286457135335985530094"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-09-645940+00-00-f8b29a.json",
+      "sha256": "35cf3b56eb2bf38a2597afd0430cafd02587c400a0c2646a4a3115b5bd5cff1a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-09-645940+00-00-f8b29a.png",
+      "sha256": "a9304976b5f2a397195348a5f80ef3f89570a181249452f2e9ad6a9f9dab7fe7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-10-696266+00-00-c8f305-display.png",
+      "sha256": "7bf8667f042649905371212a13264901c98718162ebac3abb60ed682f891ee38"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-10-696266+00-00-c8f305.json",
+      "sha256": "1e9c57eb28831ca9b03910329413daa8f69844281c8815044ef080c3dfa25721"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-10-696266+00-00-c8f305.png",
+      "sha256": "294962cf4c6a5444de94f90becea73cb15b881d4d94e583239f1c5aed918ddf9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-11-627442+00-00-d28153-display.png",
+      "sha256": "3dacf6e389ef64994e6b505d0a7554d3a6999ddbdb3e620e64198a3f6b39b848"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-11-627442+00-00-d28153.json",
+      "sha256": "a911afba997c462179f884588bb9113c7d375410396430f3fa028b3e903fb7b4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-11-627442+00-00-d28153.png",
+      "sha256": "545db46e87fc430b15ba1c937c1fc2258599944d82bd8a145d171e722cf21b64"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-12-651613+00-00-379a17-display.png",
+      "sha256": "35215e82fd1a978c90c6cfb81116e35ff566b4ee184187dbfb1d5bb3541269a4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-12-651613+00-00-379a17.json",
+      "sha256": "bf9cc86256a412ef7e8818297931eaf63b7fa17940f039e5ca174aaf385135d9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-12-651613+00-00-379a17.png",
+      "sha256": "ca4fec6b5bf08d58362be7ace74f41b5618430f8430f3254c00aadf9b10f0ddb"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-13-687537+00-00-1789d3-display.png",
+      "sha256": "9c01b742d3b3d3c9846278e21a60e3d52a3a132549a4b11c035aeb4e8d9b2e53"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-13-687537+00-00-1789d3.json",
+      "sha256": "d72fbba1796260336fe5cedcb85e279a81122373f0cf155d5093d0c2879b00e3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-13-687537+00-00-1789d3.png",
+      "sha256": "427bcb9988e049c6e47aada2d952f6375b06d00648122a06757ab32b1f1a3222"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-14-647411+00-00-0531e7-display.png",
+      "sha256": "9a206638e1c4dbf8f891090704e94e3988bd7e0d96178e1b409060e87590d90d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-14-647411+00-00-0531e7.json",
+      "sha256": "3410f9780aa495c16e1e4cdd29fa44cb34b6c429b4c4753c43dcdf182a74e850"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-14-647411+00-00-0531e7.png",
+      "sha256": "2d78fe0bebd2fa98cac4fafd8653001fa7a09b3a414f52b3232eb4f616cbd886"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-15-692460+00-00-a3838c-display.png",
+      "sha256": "f36c80b3e7a7ee3f501d05692f9be89aff18f5b93e199a13290b2a8453eea6a9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-15-692460+00-00-a3838c.json",
+      "sha256": "b4c7cba80ea368845f61311d8258d45f09171b6f5390131a05ac556195d91272"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-15-692460+00-00-a3838c.png",
+      "sha256": "3448bced0783c37ff8a0c3731b16b058927c950c0ea422d94ccc0400f06d19a6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-16-677062+00-00-fd5f70-display.png",
+      "sha256": "e79789ec3132fa026dcbdc6277ee255e8dcf5a9bf1669efc79765bd9fb2060e0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-16-677062+00-00-fd5f70.json",
+      "sha256": "622d627f2687eb982696b45a8c4771301f2fbe09545904ac872cca7f865cb2c4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-16-677062+00-00-fd5f70.png",
+      "sha256": "6c74a9ba8f8528fc26e69cde1a3a756630df02f86e1cb8f96b84c0577b84f73b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-17-607786+00-00-d24e0b-display.png",
+      "sha256": "dd498ee68191655e21dfec70159f44a4a5d6ff258cb469fc61ae19f1fc2f0bc7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-17-607786+00-00-d24e0b.json",
+      "sha256": "7b68463c679132468a5c8538bffd092a7a410e983a6a802e3f0730037807816b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-17-607786+00-00-d24e0b.png",
+      "sha256": "8cb1b451f1004e9d445c73df5aa6b511f084e64c9e9ae207e3bc6acec4c74507"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-18-601249+00-00-0b516a-display.png",
+      "sha256": "68431ffe973adca3d10467c6330210a8a68c239125f1b34f900b1f2e1165b2e0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-18-601249+00-00-0b516a.json",
+      "sha256": "f4e85c62e68f3be8b66a2bbd1f3d29740876dddd55ac4ebc535aa7f40b978868"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-18-601249+00-00-0b516a.png",
+      "sha256": "cf8dcaef08aec7a0b4c437f7babaf839e5e6949f29713f9fd52877d567940e42"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-19-662255+00-00-d1834e-display.png",
+      "sha256": "c7a27ab0b6433d4a4e03ffa57e19fe32a900ee2665a526a34d0b698ef54d7ee4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-19-662255+00-00-d1834e.json",
+      "sha256": "9cc573a8ae76d5fc2f43b866ab6e9e2e045021e2ea1a6c6a493412b77ae498c5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-19-662255+00-00-d1834e.png",
+      "sha256": "62cfe466c4bb2ac65b73adff19b05f8868be802eb0d056efa1119c95c133798a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-20-462654+00-00-63f6e7-display.png",
+      "sha256": "d52b55ee0fa22dc306c87af37a9e43a828c0e1c7418c247174f486eed42b030a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-20-462654+00-00-63f6e7.json",
+      "sha256": "d8f452673d903cdfdca70f5ce947171ff92fc1f13a832ea2aa11d98df28bf60f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-20-462654+00-00-63f6e7.png",
+      "sha256": "53fc8f401323a24c8e16476c286da1aa45a4c27eee9e1d3eda0d120a0565de52"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-21-429995+00-00-14c756-display.png",
+      "sha256": "0ab701cfadd8520e5886b215734e1a5042a0ae3d29ac77a8e01bcb49546d00af"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-21-429995+00-00-14c756.json",
+      "sha256": "0320348be76eab3970071cbde1cf2cbd0058e8594ee87d287441736eb08e8bfd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-21-429995+00-00-14c756.png",
+      "sha256": "e4dbff79c579553dcf381238fadc29a4c0820edddf7a94ca186e3103fed8cf20"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-22-413583+00-00-0cb6ae-display.png",
+      "sha256": "43b89f6414d742bee668965a53492055fff799e624a667d03a7f1db5066c3aa1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-22-413583+00-00-0cb6ae.json",
+      "sha256": "2053e51f334f8c3f53feb375597646f681c2a375b8c84d8b4fb072f6ccf84497"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-22-413583+00-00-0cb6ae.png",
+      "sha256": "4e80d61120de6d079bd7487162c5fbedbc6ee4ecb6679325b2173c6f3f5840da"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-23-433124+00-00-b96180-display.png",
+      "sha256": "9915854855d4721f795db2050b5c786f7df53a621609efec10d9ae3d486bd737"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-23-433124+00-00-b96180.json",
+      "sha256": "cae235511d424b200c516c3b92030f52acb41d796a6fd371336c1c29570770a8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-23-433124+00-00-b96180.png",
+      "sha256": "7f453e33bd01f8b5f898c16582a7522238244c4e4bf901130ae5fe1bde758ec6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-24-431591+00-00-68299d-display.png",
+      "sha256": "87c35ef1be4fa04367373fb763c940618b2744272485f08ef1d06e87583d0ef9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-24-431591+00-00-68299d.json",
+      "sha256": "ad8dfc07d8b17ed611bac1fa170e4e1c1a04870784cb4124c9bd8ade96ba225f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-24-431591+00-00-68299d.png",
+      "sha256": "99fbcbdc188168a4f57c10474ff0ada56574036679aec512f5586db3dd3df471"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-25-418020+00-00-22110a-display.png",
+      "sha256": "e0e607671e2c57a0c350c2795f3e99096071ca281a0574bec34f5393c96b91db"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-25-418020+00-00-22110a.json",
+      "sha256": "7c7e470aa266bd71b0b077be756aa7a7af9fe386c06476663c6f301dd3b0ee03"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-25-418020+00-00-22110a.png",
+      "sha256": "bfe51c60d71f56cd79e5479c5d36c9e974b37949e2b5b0f80023779e6690879f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-26-428371+00-00-28e647-display.png",
+      "sha256": "36460e86ed8b66277114a44f74b288104705d4911e24c45353e41aa0e996b504"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-26-428371+00-00-28e647.json",
+      "sha256": "0aa8029a32825277ff154703ff454d1583435433ee8fae7cdcc80bbee568b25d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-26-428371+00-00-28e647.png",
+      "sha256": "2ec30c49b277a2a5cb8a5ef4549cf6f378f9036ef2f50d322dd6a0e03fbbb017"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-27-423335+00-00-3ad086-display.png",
+      "sha256": "ca96d652ddfc51e8186e972da6cd181abe9548a522b6a4b73f873d10ecaa1c60"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-27-423335+00-00-3ad086.json",
+      "sha256": "bb28eba3ee602c5c0d47332a50845a69766d58b6140917eed3bc0f97de4b5be5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-27-423335+00-00-3ad086.png",
+      "sha256": "74b23387b0d402bcfbbce873f14a13823966e69ae9ca208ea9dfe8c737757759"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-28-432138+00-00-afcca7-display.png",
+      "sha256": "74b75991d95c861d2681dc6e08590f3955e21347f1e8beba855d8ad0c2046eb2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-28-432138+00-00-afcca7.json",
+      "sha256": "8a6a3fddd32a6bb5e9b83bb23ac45375af4c57354bf5c0bfc2e0dfe67de9da9c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-28-432138+00-00-afcca7.png",
+      "sha256": "fe32f82c3fb5e3629541447de36b9a44a6d585d31450fb3f84f903bca80deb14"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-29-413819+00-00-ffafea-display.png",
+      "sha256": "8a3a824854e239b33a62bfbb9311903a665998d5d28735c387e24fcbc900fb92"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-29-413819+00-00-ffafea.json",
+      "sha256": "657c13d0d856a94329af7508d14618f1c3aa49e16efbc478caeceb559fd554f4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-29-413819+00-00-ffafea.png",
+      "sha256": "fce59cb2ea729a0121a24d96a3015a619b516089bd697061944845c9c4200b61"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-30-434213+00-00-bf2a7d-display.png",
+      "sha256": "37d9b6501dc5fd4651ee00271083eda11185f37ac48df41ec5c57106cdf9e329"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-30-434213+00-00-bf2a7d.json",
+      "sha256": "92a8a0276f8df2358d71e6cb665d2d6a9794fa195e31aa5e3c1b68aae69aff16"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-30-434213+00-00-bf2a7d.png",
+      "sha256": "f18d2aae9d7cd7626323f6a027c8ff460c07f3f8a262ae4919560388228c273a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-31-435344+00-00-5ca0cc-display.png",
+      "sha256": "0fab4d560802fd6f83e1b89b3c136a2e90d33d5617d0d00954c10be7cbcbb3a8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-31-435344+00-00-5ca0cc.json",
+      "sha256": "5210adbf20bcbcdc9d6fa034d90e2964fdf4e9bd971780085c37734fe8b9de02"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-31-435344+00-00-5ca0cc.png",
+      "sha256": "ccf4ee6ea477e0bf40b1e0e3fc1e8c13c43d9de14ca1bcea4358323cdc367ec3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-32-398280+00-00-9d30e7-display.png",
+      "sha256": "a90d4a3a3a903f0356c335b4e384aef857b08840fff67999d4d10fe335c7a853"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-32-398280+00-00-9d30e7.json",
+      "sha256": "824ac6a417dd794e2beefbdd5e1486c9bc09825d39110629fea26c57ca5b20a4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-32-398280+00-00-9d30e7.png",
+      "sha256": "6e48d5b9641ea38b506d53ff3ae375c07881a6dfaf648d0b271a928f1acd2f69"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-33-399250+00-00-00fdef-display.png",
+      "sha256": "2139cfabd3901ffa98edf44533225fff499897a9486c104f3be0f52692c548b6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-33-399250+00-00-00fdef.json",
+      "sha256": "29875ede5a0d90a14bf17c656c4f14089a8f73eb773d3b4585a1be9e5831e71e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-33-399250+00-00-00fdef.png",
+      "sha256": "c75fe38202af34b6b59b6072d0fac52464b655b2e739a073e9a45eab4cedb7ca"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-34-434144+00-00-a8e624-display.png",
+      "sha256": "a27435c755b6d145c123d560321b7eb1f658f301b7ac67e20396223dccb617a6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-34-434144+00-00-a8e624.json",
+      "sha256": "45eabc937cd0801269f5ecb60cdb0b0fc1cc27bfcbbcbfb56935b7314f21ab6b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-34-434144+00-00-a8e624.png",
+      "sha256": "d5d16e5b1443fbf3f66d498b6a7ea7b4699ade15d7878b4d2a6727c097f38b0c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-35-447512+00-00-644571-display.png",
+      "sha256": "4044088b933695a903e3b372fa90567d83aa801c2f9a4d41fe891ce6de62aafb"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-35-447512+00-00-644571.json",
+      "sha256": "0128e6900e842f2657f86183fdf414b9b7ad3b7a30699712e428907c3cfc3339"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-35-447512+00-00-644571.png",
+      "sha256": "38c7d9deffccb3fa7fe71aada8ca20b4d0be5a3895814268712aa7c4afccd16b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-36-402685+00-00-f63747-display.png",
+      "sha256": "d70c7111d3329a6cf6629df4914830982ed3d2b6fd3ed224613b5709a7b154f1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-36-402685+00-00-f63747.json",
+      "sha256": "c3ad8a078439251fce345149c36d29c0f4890f23a56568b57c990972cf6c28e4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-36-402685+00-00-f63747.png",
+      "sha256": "11df1b55691400b95540592f93d5df85fd663850b044d8ff9df229092cfeadc3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-37-449654+00-00-2b84b4-display.png",
+      "sha256": "e9c655102c7df27ec9e158d56d9748bfe00036aff86260cfd29003fdded51444"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-37-449654+00-00-2b84b4.json",
+      "sha256": "ef39a1f115d0906aef23c64e8915ee5dcc50b652daada12b19e42f6ec1ffb48b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-37-449654+00-00-2b84b4.png",
+      "sha256": "427d3b11ae76ec386e36a2140fd38774b489473df59dbaf0dd081a369e3fe266"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-38-386498+00-00-28bcfa-display.png",
+      "sha256": "ce07d461272813b2125162cd1bb1247e7b62b60caa85e9e29eb021583441113c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-38-386498+00-00-28bcfa.json",
+      "sha256": "3d6aa22cc981caef7b7aba3b46fcf2f16d008c57af6fa5c287214064c37254ae"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-38-386498+00-00-28bcfa.png",
+      "sha256": "8d3022f6d62e498ba680cf5ee8fb4c307b9edc962ef5fc9bde958c933ed0733c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-39-408169+00-00-b16bbc-display.png",
+      "sha256": "ab3cb9c7bb8b6509df254a3ac133f3d2a4a6604fa557c91605843126fbd790ae"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-39-408169+00-00-b16bbc.json",
+      "sha256": "c321c09cbc004572191227fc5d1789e34bf7ba3fcdafeb737abcffccdd3fc12f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-39-408169+00-00-b16bbc.png",
+      "sha256": "db9fd47d5393fc82820b79984652e2fc2ac4a7ae097ef53e8f21ae32b0d7774b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-40-372498+00-00-ec95e1-display.png",
+      "sha256": "8a6e9ad87fbf0a19246ac86052f433eb34679e4d208ad870b164fd944b7ef38f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-40-372498+00-00-ec95e1.json",
+      "sha256": "4be2ea84091c201e2c88b29149bc5f0a624abf91794546ac455a46b873757140"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-40-372498+00-00-ec95e1.png",
+      "sha256": "ce0a138186a3e61deda8406d85810e9ff84ef23050ea95802dd459980373b9f9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-41-377492+00-00-04f49f-display.png",
+      "sha256": "36feb4cf50a42bc1efa85d48c21723a59c8799f97a44af8f499dac01e89ee37a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-41-377492+00-00-04f49f.json",
+      "sha256": "d783cd6b53058a22be081accbc342a33f696762129f69b2bd76017605f55fab4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-41-377492+00-00-04f49f.png",
+      "sha256": "62887cda4352b96ac1c1d55c45358157849cfbdfcf1f8153a55ee0e42e014bd8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-42-385118+00-00-4c581f-display.png",
+      "sha256": "3294f6c485c1156f4cf8e4546c0477c8a56fad29d39e62db3a5ae34ce2e5f15f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-42-385118+00-00-4c581f.json",
+      "sha256": "68e7a148a11cee8c56ad90d528b10769f66d997cd3fbaed281300d59a75295b5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-42-385118+00-00-4c581f.png",
+      "sha256": "b0836c378bbb3072a8067b5a1c2f77bc41a88f1527a8a71202c0ca168d23d45e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-43-377898+00-00-acb84b-display.png",
+      "sha256": "581c85c152a7ecedf68a5d781e91bf3f4225ab182839fa880302a8560d8daee0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-43-377898+00-00-acb84b.json",
+      "sha256": "eb3f0dc9fbe09a948d5bf859eda291edf208cee762a094b8943b1fdcf3bc885e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-43-377898+00-00-acb84b.png",
+      "sha256": "90ea271789033c3f8618602c915cca48c45566f107246e123720ade1d8276200"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-44-372541+00-00-3825c7-display.png",
+      "sha256": "4f46acd649c2ccc981e0f1c33923f008ead39ac2912cb1f12b0e93bd7326bcb1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-44-372541+00-00-3825c7.json",
+      "sha256": "83bf869d9c62c4c4853d72ab02250f7d37c39fbca5a596a217797ab0dc7a7bb0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-44-372541+00-00-3825c7.png",
+      "sha256": "424a5d205bddd4a9b5b8edee041983aa9163f80077a1df6daf3560f36133672f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-45-384750+00-00-0bd98b-display.png",
+      "sha256": "22b4b92e191c93a7930dd9665a0f3d7f79d62ececc1ff6ea8ba5119daf5e65aa"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-45-384750+00-00-0bd98b.json",
+      "sha256": "ccfe9a6ca5f93e766487c4387d648a04e954afb20b3c81fc9995cef8c72489dc"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/captures/longrun-2026-10-24T10-38-45-384750+00-00-0bd98b.png",
+      "sha256": "12d72046ccae604b253ac5c5947b116820d87c60d98c02ea9eccd60c8957c5ee"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/journal.jsonl",
+      "sha256": "b85688f6fa4a410b0941b1c6ae8548bd1ed3a6639b95244ed920dd4b43a08534"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-46-547388+00-00-b516fa.json",
+      "sha256": "845c43571c04767816587a8852360922e6e0033530a0e3ac1ec2873e30215678"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-47-634753+00-00-3cd7c7.json",
+      "sha256": "f9946596c28d3b457d111ab799861827fc94a2d4842dbf46402880d2e1c94d0d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-48-600767+00-00-a33595.json",
+      "sha256": "034336230f3c319a5e300c9c04a3c940d0f70e66ccc3a789179b9245c2029018"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-49-598471+00-00-03241f.json",
+      "sha256": "4a04df112086342546189b7edb08598176e36376b752c0838a6e3153efa484a2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-50-607786+00-00-23117f.json",
+      "sha256": "677e00c04456c991f1f3673a0e8cd1a05353918e805c0278d9cbda372338c8d2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-51-647680+00-00-d61d9d.json",
+      "sha256": "e06221726bdf226d5de5ce688f47b824251dff3768041f09cb80f02da6f9121a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-52-642772+00-00-49ec7e.json",
+      "sha256": "07704d443a33ac203236a98a72a995ade836171207489b15400defe7f72870f7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-55-527730+00-00-82bc47.json",
+      "sha256": "af0c19c59a557f116316c3efad64856a58aca9be3da502a1bdfbebe97980fb56"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-56-559600+00-00-524187.json",
+      "sha256": "b216c11ee435e0a4fecff992bb205bd9f83679a149d98bd56802665f0c6c8fcb"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-57-633154+00-00-a900f0.json",
+      "sha256": "ac72624739fe7b7e7262176be237ac83916664e92daa128177f0b26b8b8eb451"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-58-591346+00-00-360407.json",
+      "sha256": "1278d988c8ce2f5e87ec6f0e3778a2caf641a1fad88d322e89a9bb156f987e30"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-37-59-612658+00-00-21e0cd.json",
+      "sha256": "d547d382a067518fd1f8e37ee8e61fccfb493eb5c6b3507509e5a272a153d7d3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-00-599088+00-00-ff9b90.json",
+      "sha256": "d8f2224496a6a87d5998b3b36fedddd8eb72af017e08394b0d86d52c734ac8c8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-01-623304+00-00-f62c75.json",
+      "sha256": "96e33836fbe49b841ba63d113f87666770362fa605164880afc938ca8aea7fcd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-03-691306+00-00-fc1590.json",
+      "sha256": "865abf872a86221cdab82d70d7d2b49a70f70138840899d636ce6f827c1a51a6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-04-633469+00-00-1216ba.json",
+      "sha256": "a009828270ef3ed0a78d1cfafee35d30978193d3a65cbe5c25ce8225fc722f3a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-05-646230+00-00-0354b6.json",
+      "sha256": "ffdb9e15382ada69866cf9f3e3098f8ab5e13863fa0945c4ffeaa438b6f7e969"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-06-601818+00-00-1eb22e.json",
+      "sha256": "a0ce01785cc6242feb05bdeabcd7c4d5ea7efc9f2acd76cf657e719e05771abb"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-07-639920+00-00-cad0dd.json",
+      "sha256": "c132b2eadd6ecc76680cb92b258daa4916e83a8a22e5ce0e5c6505e7bc0a9f56"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-08-647140+00-00-1b2842.json",
+      "sha256": "ad658e5972768083c7bb52784f739debba7630e8bdf02f16a6a0dbcc01a45009"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-10-696266+00-00-c8f305.json",
+      "sha256": "bef3652978ae565d34dcb7ad34ab7cce3373b7a9f9e3b5ed5744a3475518e36e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-11-627442+00-00-d28153.json",
+      "sha256": "0acd75e74e79c3b45dab572e258d2e578c4d30b12d30402eea9f0003a4ee601a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-12-651613+00-00-379a17.json",
+      "sha256": "feec6b2f701fbff8a4d64de2a5a0b739f6e989fa7ed1b2e6cff707a6a1454678"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-13-687537+00-00-1789d3.json",
+      "sha256": "0ca99f0cbed76b460e4a5f80af772fb46727032802a7794614fef6885d90a2a2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-14-647411+00-00-0531e7.json",
+      "sha256": "c2b8304ccd295a633311be073b7b32e127ec0201ef12f189f5ad5b540c91ab5e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-16-677062+00-00-fd5f70.json",
+      "sha256": "4b0edc7632cbc2d806d631f780b134b920ceb546324ae6393681f7498943ab19"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-17-607786+00-00-d24e0b.json",
+      "sha256": "dc3e95db42996a980f65e2d9a222fb67062d775764ab118d3a0c822ed15b4112"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-18-601249+00-00-0b516a.json",
+      "sha256": "0a59632a9db403c962ffde5f4fa636130c7af703fc0af7d6d8d4f82d14a5d5dd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/states/longrun-2026-10-24T10-38-19-662255+00-00-d1834e.json",
+      "sha256": "57714a993d3c5ec470d3a127a46d2bc53c6579e9360619d6f32c33b5d207ade6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-01/summary.json",
+      "sha256": "4ad8dc75414b3ccc74c23c276fdbc467b5fc0e6e92847f098b9e746059993e1e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-46-576723+00-00-e7ce09-display.png",
+      "sha256": "01f18b7ad132a05bb4f0e0abd431924dbc3386f6da85fab4ba07ebaedca3b1a0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-46-576723+00-00-e7ce09.json",
+      "sha256": "1080387909227b69c5b6957e79683997d3aae91f8e1fb122316d9337bcbbb152"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-46-576723+00-00-e7ce09.png",
+      "sha256": "3922fa425f4bfc5e2a0897138bd52dd1107e4e71d1b6134bdf4be3be6fca0a72"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-47-454512+00-00-23a8ad-display.png",
+      "sha256": "5139d25f8c3257e2613cc7364d20065803f17dde2408a263c199f3cd7eb093e7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-47-454512+00-00-23a8ad.json",
+      "sha256": "197cef8135eaadf47a0885c4b91fa1419dc7b78f2b472951c15ccbc2f5fe18a3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-47-454512+00-00-23a8ad.png",
+      "sha256": "ba5a87b1f9d9bb6e5f3dca34c34369712af2fe8e2506607d2d56034583fe133a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-48-451451+00-00-2e541a-display.png",
+      "sha256": "f9c7fc02b487d174f1b6d7b6b0cf551e97c340bff6f21086d56062f7a5b0e6aa"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-48-451451+00-00-2e541a.json",
+      "sha256": "525881bb29eff7e467eee47782e3d57a2a6957dbea9818bc29a5c471f95ba2e8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-48-451451+00-00-2e541a.png",
+      "sha256": "13af181991034b7107a85181dd9faf6c3a81d489446cb9c7a20ac90e26317bc8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-49-447113+00-00-488b64-display.png",
+      "sha256": "547779924cc4b8743d4b44a8eb971a7e77506a0fe803330108db70cfb9860a05"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-49-447113+00-00-488b64.json",
+      "sha256": "2128472cd011e1d15da3b1e299f142fc11613351a34b3f6214c7896f1852ab23"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-49-447113+00-00-488b64.png",
+      "sha256": "8389524c77dd045a4c8bc814fa2a440dea1f6e3bcec0c6d283b414c5d2843834"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-50-459869+00-00-3539ab-display.png",
+      "sha256": "bd9525f083cf37055c590054b1b41c465fe06fa1321d4c50d214dfeb0cc4fcac"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-50-459869+00-00-3539ab.json",
+      "sha256": "2e2ffa4232a12a2d9932f7de124f75338a3f93ed3dfcfff3efced2c1c2c54710"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-50-459869+00-00-3539ab.png",
+      "sha256": "f3ee9753b1af895877bf96a241715ff5f138b3bebfb6f913edd8f9dd3f5fa996"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-51-455382+00-00-459f50-display.png",
+      "sha256": "1a9ec45f4fc28f399c55abf8b75c98e98b6b172684451139736f9320114a402b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-51-455382+00-00-459f50.json",
+      "sha256": "aa715e143f00b1396d5ec1fcf66f29da3566160ccc218997aafc7f3b86cb5206"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-51-455382+00-00-459f50.png",
+      "sha256": "328429089390fe8a8d2ff65e6f29cc61261c4f7492c5f2a59fb198f235fcc46d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-52-439794+00-00-4f2fef-display.png",
+      "sha256": "a07bdcd1748a85afa9cd1ef2de0012dd3a137bea4449fdb6d95df7500d76ef52"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-52-439794+00-00-4f2fef.json",
+      "sha256": "3247093205ba12cc52aec4c627e58c42524332d6404e53952dd97a5fd204af97"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-52-439794+00-00-4f2fef.png",
+      "sha256": "5352ae9e0ccf55ecfc1f9aaf45e20ad79d734c4205ac8e882353dff8988d111f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-53-437649+00-00-0b9864-display.png",
+      "sha256": "296daadced93ff32ef7d8f8e1dc618bca8ebca119e3e2f1c63be59a59706ed53"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-53-437649+00-00-0b9864.json",
+      "sha256": "8c99785f49b68d32e53d571de346166670b3d41b163ce594f076426dc4e45ee6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-53-437649+00-00-0b9864.png",
+      "sha256": "397fad5e8c802291c573f9ffbf28f98a713205d90da6a3ceb3cc2e2a6a97e237"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-54-447707+00-00-3d3867-display.png",
+      "sha256": "482be2c2c88debd2a4b8c7f6d1a9bb4c8880f75142ebba4ac0d24039d213e6fe"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-54-447707+00-00-3d3867.json",
+      "sha256": "a4e3b23310cb6baae1ddf0bd640e097306d99be346012bdbd89d87e2a6f333cc"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-54-447707+00-00-3d3867.png",
+      "sha256": "df3da4b7a580f986b8043381cbfceb982b0b0e4ad2bb7f7aaeb4c6850b7996c6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-55-434831+00-00-d0e540-display.png",
+      "sha256": "99b6b05d80fce0d842e4ad169748fea0d7f2ee54be05de29cba30c0fb7cd75a7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-55-434831+00-00-d0e540.json",
+      "sha256": "a2dea1a32fcc13c607099adeb912b2efff067b9037ec089fd3c4df784fe7f3b5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-55-434831+00-00-d0e540.png",
+      "sha256": "e97a5ed2499aac198c6b03da48c86c0458026525299b6c871eb4a0d283118ed3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-56-446214+00-00-ff210b-display.png",
+      "sha256": "6395abc31722a606edc9d993bb8bf498248e03d4250d247cbe1ccbd234848a35"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-56-446214+00-00-ff210b.json",
+      "sha256": "192c8f694c2181b8f1b5ba4cb70489ecdedc0d1e7ebdf18e0da39a62fa9e2984"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-56-446214+00-00-ff210b.png",
+      "sha256": "0365de4c254bae473354c598126ab86a501ca9a4ff2d0ba6557194466e7d82b3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-57-456807+00-00-0dfd81-display.png",
+      "sha256": "056fa2d14cbc1d2ea35f4ee03a1f918c832eacc964415cd3e078cba3e2829827"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-57-456807+00-00-0dfd81.json",
+      "sha256": "a52c9f641eee679e37dd08ae36bee9dbe6725fffd85e246fe9a490eb9f887abb"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-57-456807+00-00-0dfd81.png",
+      "sha256": "b2f20cd38c94ac76451391432c226a57cc1e1c4365c0b5872253be5172e35e6c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-58-434840+00-00-59efa4-display.png",
+      "sha256": "70a258f707031e3309a23a7a81f4905180750771ad56dd435348fb4a6c874f34"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-58-434840+00-00-59efa4.json",
+      "sha256": "ce15b6ccebc55cf8eef0d0322d6cc64a4a078a3b4e229c8bca2aa270e814e96c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-58-434840+00-00-59efa4.png",
+      "sha256": "4724beed3787b093b5032e6b334d58c9c1b50cc33879880e4cb151c865c9a918"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-59-447230+00-00-6164e1-display.png",
+      "sha256": "f48723fda19e42e99162c569b172394722063f31c7d8da9fa343844d6ea5b4a5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-59-447230+00-00-6164e1.json",
+      "sha256": "b30de5385e364e53b0c1fa316cefa8e386a45fcedc7cd767f047c6185ed5dc5f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-56-59-447230+00-00-6164e1.png",
+      "sha256": "1383e38f6c2433ab9bd6d0f096f0b3afca915f019ef34635ec1d8f093176dd6d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-00-448298+00-00-03f558-display.png",
+      "sha256": "328c03ca9c6f3fc988e707bf06f9fea1e4d12f74a366905923271ad763d75563"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-00-448298+00-00-03f558.json",
+      "sha256": "6873893f7f5c994e06b83c16a00095d657d45e1cd097e918619cd3f21b0de5ff"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-00-448298+00-00-03f558.png",
+      "sha256": "3c58e78da64599766a389c1ca1dc46ae3d83e9218b0e76b0c81b57af0f4285ba"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-01-442452+00-00-6ed64c-display.png",
+      "sha256": "ad37c96a057a0f4e02900b9a873ec0f3f82c903279ed523f349a6352931fdd93"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-01-442452+00-00-6ed64c.json",
+      "sha256": "5d3f21381b7130d5a3cf9700901f24e7129058c602d0f7d5c8b3b742ed608cd7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-01-442452+00-00-6ed64c.png",
+      "sha256": "e0ce7168175fd7a7ce2af722686635c43dc5e6e282b779ef703d159d29be1079"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-02-449356+00-00-c2282e-display.png",
+      "sha256": "73d6df961d1ddfe54e5ea68386f2468985ff01869254599b949703b9f3c5dc88"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-02-449356+00-00-c2282e.json",
+      "sha256": "587e38574e78509cfa1e73941bd035dc3e0f08ada623db4497ebf9726635d0d2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-02-449356+00-00-c2282e.png",
+      "sha256": "62b3e900c43c01e7ef5c5ff093dad1c3607519f5cabddd5a76343fd65807c2eb"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-03-442770+00-00-6bb6fd-display.png",
+      "sha256": "36e59872d8779e3c85325fb6362a91354fb0d0fa384f916c7aaf2f49d17e5f2f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-03-442770+00-00-6bb6fd.json",
+      "sha256": "6b0798e8e511692dac9a764baee43adb4a69ab6ca226990475325c65692e52d0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-03-442770+00-00-6bb6fd.png",
+      "sha256": "c6c305c66eee7abe90326051a867400c022f3fdecf90f2ed245df63c56965494"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-04-458734+00-00-fec250-display.png",
+      "sha256": "14e12406b9b4afef127865e6a28c7352c024cc6bfdbf22f06f13d871360f6d2c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-04-458734+00-00-fec250.json",
+      "sha256": "15c8195fe3baeafba36b3a7f40b6dd5256771cdf8b979117eb6b4eb0f2b9af67"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-04-458734+00-00-fec250.png",
+      "sha256": "ba155eb1d2e317ccb3843a5c1f8862566d2a222dbdc0fbf49a01aa0cf6c5d945"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-05-454587+00-00-7d175a-display.png",
+      "sha256": "5ce8b0c90e526aa5c29c30631b185ef763b708ffe12e1186dbe4bab02e1bfea1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-05-454587+00-00-7d175a.json",
+      "sha256": "b30fb7206a713c1ac40a86ac3207b98d0692abfc6138b50be042dad5864bee7f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-05-454587+00-00-7d175a.png",
+      "sha256": "06915f8f2c7ddc12310a043c5e376116c4c27d7dffc70fe12966dd8d54ca3798"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-06-450539+00-00-3bd2f5-display.png",
+      "sha256": "bd136e3beb8ccab090d46a024bcaebfdd97563a2b2963698e18beb781419895b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-06-450539+00-00-3bd2f5.json",
+      "sha256": "8a096de08a0beea968f78b2956b0fdcd08635da5a0afd8cfb04663651876aa1e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-06-450539+00-00-3bd2f5.png",
+      "sha256": "3b464c4481d2149a9352110d7b8a53b0827359e66a4e273dac2ba31befefc946"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-07-444864+00-00-37a24b-display.png",
+      "sha256": "8acfec89abddaf0d8addde65e35f12e44d6d6b2b5e7561002718b887393a7b36"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-07-444864+00-00-37a24b.json",
+      "sha256": "770f8343045b886244177e764aac6320c5686174aaff0833ba2fc7e6258dc31b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-07-444864+00-00-37a24b.png",
+      "sha256": "a68fd9a131df0e22f8519d453e762f58e2e22a496a068ae989147f84ace8ecc5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-08-451365+00-00-55a4c4-display.png",
+      "sha256": "f4a5e30fcb61d3df19a0ca9ffbf8a9ea627e33815b266e32d4322337dd433387"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-08-451365+00-00-55a4c4.json",
+      "sha256": "68a3984471b054d3201c17b8a3df9ea1c21bca106cecd9e2671230d1b15170bb"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-08-451365+00-00-55a4c4.png",
+      "sha256": "1c8b0dedeeafda8b3d39efacd78de1f3f2598e191af0efecd0d93c99ce81a43e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-09-459828+00-00-932d0b-display.png",
+      "sha256": "e30db7d28962c3f310e44d4ea98d489e148c2d79b97ac851429758b1095daea8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-09-459828+00-00-932d0b.json",
+      "sha256": "f82bcb025867e6526b0af75e9a5ccfc6f3a9d2ab85244219ee80ce2029033328"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-09-459828+00-00-932d0b.png",
+      "sha256": "f7887ccbcfd5207250703996f9a81cc14d9c7aac011be909001acae6fa26b10e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-10-454899+00-00-fdc4b7-display.png",
+      "sha256": "2c40b98de29dcf05c723c17959ac63ef6954b68b856750838e6c1de787e1eb0d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-10-454899+00-00-fdc4b7.json",
+      "sha256": "43dc4a933469117a833c148ae300a3ce042f97fbebecc5a4762e36409c731257"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-10-454899+00-00-fdc4b7.png",
+      "sha256": "95aa8f196a86ba917a2d91c868320a413f2c2085537b876d8f1f9a57a74feb6b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-11-453628+00-00-9acbd4-display.png",
+      "sha256": "6464efaca0125099b4a72bc491eea0310316ceeb9f74ee8c25572f9c6d0ea63a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-11-453628+00-00-9acbd4.json",
+      "sha256": "5020b79fd817b2e75708b50951855cf6058df499c9b00985105830b73c56a2a6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-11-453628+00-00-9acbd4.png",
+      "sha256": "029f5bd6c4d61b8f615d0f8ca84207cb65fee09cebdf571fa826f22eccda5460"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-12-464866+00-00-943095-display.png",
+      "sha256": "f7757ec8cc8c0a794deeeea41e8078683c1e257a131aa7c198e7c49a6d364077"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-12-464866+00-00-943095.json",
+      "sha256": "4325dbaaf9c9e8fd0b8305dc6ea5206c7bc4a0659f72b8f16b7fc6bf573fb621"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-12-464866+00-00-943095.png",
+      "sha256": "9e93878fcfbc80c180eebc6d1bd4d7221ffb0e839715970d0df2b30d59bf594d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-13-447095+00-00-4855bf-display.png",
+      "sha256": "65036edbafb37327ad75e23776d2b1d95702910d31185486c4ee8529e367b7bc"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-13-447095+00-00-4855bf.json",
+      "sha256": "fd8b7d89cfbc6627eab8a19eb9ba431c5b7c4f56bae884cc619047cbba66bcd9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-13-447095+00-00-4855bf.png",
+      "sha256": "226df594b4ab6b4bbff432d2bd3d06ebe259cbbffa0364e77512168fb1d0ee10"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-14-452028+00-00-01662a-display.png",
+      "sha256": "7d9e2bf202e1a77259d1e5521da50528c22020a71e83931be845e08e2c131e52"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-14-452028+00-00-01662a.json",
+      "sha256": "06cdb4d4f856b12f80e882570f07a39ccc45d266c786983772ec17e7c4ad870b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-14-452028+00-00-01662a.png",
+      "sha256": "41c8fbbccfd7a1ef4fa55d96932ae21c3df371a85aeca801d569c3444674fdf3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-15-461637+00-00-14db1c-display.png",
+      "sha256": "4bd694e29e9f1c5169816e24f24ac7c3b9e4e86988b0c837d1e2a5e46ee60953"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-15-461637+00-00-14db1c.json",
+      "sha256": "acb8e28914e08701d3dca6d62d8667400f3df38ec3395c5eb0ab06a97d8d7e7f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-15-461637+00-00-14db1c.png",
+      "sha256": "50e69a584a3408ea8fd89b33b3c761707a91d608765dc813fba839dad070715a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-16-447108+00-00-dd1cae-display.png",
+      "sha256": "6110c3d133b1810ae212528c55b5888855a9d4a4d43d5b8c58239c285ac5739f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-16-447108+00-00-dd1cae.json",
+      "sha256": "f7d5673abba71bff33d4d07abaa72ec0c816c66f275462583e3130075399c6b5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-16-447108+00-00-dd1cae.png",
+      "sha256": "c3814b11a129a3c43450fb2c6e7dab3d4e92e6df524478041806dde8728a92f1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-17-465013+00-00-3cf471-display.png",
+      "sha256": "07eda4dcee795c633d0d52671cebb3bf70dbdc002b6e4ffdb2a14d67c0724d52"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-17-465013+00-00-3cf471.json",
+      "sha256": "91f795ef8e2d30205237800a15053b7a12af656ba0b84a5e7e7afe51041e0b4b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-17-465013+00-00-3cf471.png",
+      "sha256": "15c5611ba49a0a722b57839f97837dff395b7d0317a934965d240ccb9211112b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-18-481168+00-00-9571a4-display.png",
+      "sha256": "c1bfbdc10f09c4909364728a15c798b817094ead96cc9f4551e67e24d2c290c6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-18-481168+00-00-9571a4.json",
+      "sha256": "1b2278f69f2bc1e87b4ac59f7ee196f3872b95e8eda3e1d8b426b4f9e432494c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-18-481168+00-00-9571a4.png",
+      "sha256": "e69e1a613d167ebd6c8c2784a81699d6484d385b42331986e2e98c30a7f7ec61"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-19-460639+00-00-f79a0d-display.png",
+      "sha256": "ef4fb524437c985b02b4d2a131f0d82a3b994b224f23d59fd0b4c37441410ae3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-19-460639+00-00-f79a0d.json",
+      "sha256": "e604bf55837ae72e308b8d09de0759a9f643d5640af96269df4c5bdf0b19421f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-19-460639+00-00-f79a0d.png",
+      "sha256": "73661352a74374155290d55a57ffea9dc5c7c762ab6a4c1eab0c368051492859"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-20-460519+00-00-e5aa53-display.png",
+      "sha256": "4e4693c4417d3af5d9dc0fe37608a8990effe54142eb88d28d122a2665968e41"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-20-460519+00-00-e5aa53.json",
+      "sha256": "6e22fcbae7a00552f8e211804dd617568b3389e9c0ed7189cb925c74c2eaacdf"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-20-460519+00-00-e5aa53.png",
+      "sha256": "4702786baf2085659b1ab2ec1a3458688075c3ed7767f98db8e8663a799b0bc1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-21-447240+00-00-1db93a-display.png",
+      "sha256": "e8b3b7bfeaf7bf7d4dd21fed0a5deaf3385d5f61cc7f0ad4c0ff8251fab735ac"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-21-447240+00-00-1db93a.json",
+      "sha256": "8a8ba851f0331e9131143e81527a412b022a44929c05858e74e0ba3167704904"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-21-447240+00-00-1db93a.png",
+      "sha256": "d0a82fc36fedd56800814880f5d85788dc0aff922b3d443572ed44e4951a619b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-22-470493+00-00-8ca7f9-display.png",
+      "sha256": "aa57a2c691bd89f601978533ff130d1950f4a1eb2b5b34bcad691e85624c2c53"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-22-470493+00-00-8ca7f9.json",
+      "sha256": "4d0d58dd9fd01d927c780a6b684656b25921df6cb9a2d053a53b7d110bc5bc27"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-22-470493+00-00-8ca7f9.png",
+      "sha256": "69aab8a0ab61379a628309a22c7e218e9f4b20635ffcc27dadf189c020d647c1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-23-456932+00-00-c87db2-display.png",
+      "sha256": "af16d0df62b9ff6c211d16a120068b3fd1a22ab2c9ccefc1eb5eee1fd0beeac0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-23-456932+00-00-c87db2.json",
+      "sha256": "8699962bc69df9daa1aa779c38a9ae7a74ad3cd0c4f7c88881c1b1fa5905d4ce"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-23-456932+00-00-c87db2.png",
+      "sha256": "b1a12ee5a5cac63484e4287d9b69afe2eb22bed3ab0faaac6de4b600e03cccff"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-24-449807+00-00-02ac04-display.png",
+      "sha256": "74a5f2ab03215b9c9c21bc914db5f62347e08c78e8abc8b0b8b4782b67c2a3bd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-24-449807+00-00-02ac04.json",
+      "sha256": "23bc31872e93e00af4a2626f54345446a03f3993e5be7731df32933647c9bf56"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-24-449807+00-00-02ac04.png",
+      "sha256": "732a991c2303574b55cbb77365c95347e06a487047cbfec8dd52f9468c54ef2d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-25-452610+00-00-274c8c-display.png",
+      "sha256": "d6b3bdf9c3a0b6b955c24d6f5cbf4249606525d897d1c2ed246e3244d5321148"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-25-452610+00-00-274c8c.json",
+      "sha256": "8aca04229c200e3fd2aab490389164f2be295ede64697e4618953d86c5e603d2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-25-452610+00-00-274c8c.png",
+      "sha256": "78eb8809b6958746d7651b4025f1de522906e5cf9523b17c3be05ecf96360827"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-26-449448+00-00-ac6c73-display.png",
+      "sha256": "9ba2b9b672da953397f1d12f3e7e794817fbf19b868f97928bc272b4a07d416c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-26-449448+00-00-ac6c73.json",
+      "sha256": "683d84ba6768cb282b0b5babbdb27e4f1c3c42f8e8fba14f6b1879ca7fa6c92f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-26-449448+00-00-ac6c73.png",
+      "sha256": "3d96070335bafa9102dd6362094cd8605a96af5cb14a69cfe17e6dc97e50b645"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-27-441793+00-00-514f42-display.png",
+      "sha256": "51a0a6f8b5830ae6351a0fd49c388dc687d3eaf16b485ecf0b02feb09d373b4b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-27-441793+00-00-514f42.json",
+      "sha256": "d6c11e670a7e6d4ee71c18972b419d08a9468b9a831123d8726e24eae94e19c1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-27-441793+00-00-514f42.png",
+      "sha256": "a0a693e04b177e829664826ded329a8c8535af5b86aefd4c4ff1346cdb1ed0e7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-28-462142+00-00-c19482-display.png",
+      "sha256": "7f39c56100f437a9c8e247c18b679b68ae85588d65bf37a4a076eb95217a3081"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-28-462142+00-00-c19482.json",
+      "sha256": "1160c69ef166e65ccb45967574696f8c2619f7f29aaec2124e933057336201ed"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-28-462142+00-00-c19482.png",
+      "sha256": "1b72e61a010e31a75051e9a0c47fef2fdb58873268aa5b18fa5c0834a11dbb32"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-29-453688+00-00-b6d04a-display.png",
+      "sha256": "1e68082fcef16d7bfc87473add074109daaa95fb6b1b037c849e3089d363a513"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-29-453688+00-00-b6d04a.json",
+      "sha256": "f2ae2a25e40ed9c322e021630a44298616210beb67400f3e57e478eede1c53ea"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-29-453688+00-00-b6d04a.png",
+      "sha256": "5245e969c961a8df60665a7bb37d6efef13a7cbf02ca2d7aff327ae65255c913"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-30-452838+00-00-355a03-display.png",
+      "sha256": "cacdc7e100e480d028be7ab0ab439f9897ac01bc6ee70aa1bf8bd9fe5f990e99"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-30-452838+00-00-355a03.json",
+      "sha256": "d2c7bc3141b3f1257da18b4fea52cfc8780f31a197eff217e74ab7e98c50e4d1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-30-452838+00-00-355a03.png",
+      "sha256": "f5eda33ad9bc6ad1aa8b54f5ced920e28d2b8ee86048b83ba05c90754cfa7f21"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-31-463045+00-00-be3115-display.png",
+      "sha256": "3d007f1c781148ecfb494bea53773f2242fc88ff8744136050febff59a9e70ae"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-31-463045+00-00-be3115.json",
+      "sha256": "45bac950d62faac599f90780d58b31f641fc7eee5cf835708fa79d09209f8dff"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-31-463045+00-00-be3115.png",
+      "sha256": "037c101a9947cd981b362f3cbad8dc333a8dc642cf5d40836c49c5f948f113b7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-32-444260+00-00-de0493-display.png",
+      "sha256": "e4d1437292ebe470fb3f372559f57732c3f936d0de42a011d49ca2301e8f5543"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-32-444260+00-00-de0493.json",
+      "sha256": "45a49cc6ebd5e37d19605d4964cf7d2a8a43403e9e8a4453089d0780007ce9c8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-32-444260+00-00-de0493.png",
+      "sha256": "35c41b9dfcb0842b7e7abb560751b96e743306a7c0cbbeeca8b8c01187a606c3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-33-451390+00-00-bff80d-display.png",
+      "sha256": "3fcb371cc65248deb3f350fe6e91ddbe704de2c17ebaa997ec910401c219b619"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-33-451390+00-00-bff80d.json",
+      "sha256": "4e2b7322e15313f729d1e4df5f2af4c6787a8568892f1c1230ff69e8c616ba6c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-33-451390+00-00-bff80d.png",
+      "sha256": "72363e4764b43af4e5d3b68c65feec0035e5ee50df0b9a795636ce4541701e13"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-34-449362+00-00-306018-display.png",
+      "sha256": "9cd3e3963f6047695380c1cd9558743179036b6fe7665ce0be36b4b70561017b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-34-449362+00-00-306018.json",
+      "sha256": "705316b871f3ecaf60cabb48e0058814a696e373b121a0b6bda1cd6ca71edc50"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-34-449362+00-00-306018.png",
+      "sha256": "3b8faf493facee36a404df65b535b5cf27cb41ef5216476e82cbc4f6f61500c7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-35-464725+00-00-81e0ca-display.png",
+      "sha256": "f62e2558069f8f88c1af22361f0cdf535676d5fa2831c7e679d0bf6619c82fcd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-35-464725+00-00-81e0ca.json",
+      "sha256": "20342f4b56ec71519d07dafc974c061d19b0358b695d197fb39131fbe1693011"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-35-464725+00-00-81e0ca.png",
+      "sha256": "15f2264561a23ec077479dbc75c15430e91c9862d9af69dafb30ec762b011642"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-36-448697+00-00-d49d31-display.png",
+      "sha256": "9b5c045edb0542589bd42dc738045be049635d04b77638a32a673c1ac56b4ee7"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-36-448697+00-00-d49d31.json",
+      "sha256": "3c064843be74a8b93aed617fe67b47098f34a4b6638deb3af54d848ce1584e1d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-36-448697+00-00-d49d31.png",
+      "sha256": "32478eade267e79044757a4c902f3e9731c683014fc8b6a0d6f71b3850b1b1b8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-37-451777+00-00-329736-display.png",
+      "sha256": "43e347b2047924072136b36a3cb706029409c6bf0997ecd4f39db560ad7e9be5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-37-451777+00-00-329736.json",
+      "sha256": "62e5171a40ab54cb476d9b5bbc3e1c96c817ca11a9e3e8661c12b6532b7c36ff"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-37-451777+00-00-329736.png",
+      "sha256": "875d9bfb7567a3eaa7ee5d0ad693e7a6dba365abd1823fc697ee38faf882c3d1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-38-455130+00-00-02a4d2-display.png",
+      "sha256": "de6c4216c31119205323a6e59663ea6a676f2dc8ce88808687eca5982b775c91"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-38-455130+00-00-02a4d2.json",
+      "sha256": "aa51497674216f4278aa5018f38c68f57c07f3f0bdaf48ca4897b4819f51f897"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-38-455130+00-00-02a4d2.png",
+      "sha256": "4faa53c120b88d44927152d735bf70192af4ca0960ed8aaf262e2329deb0de96"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-39-443254+00-00-1df2f1-display.png",
+      "sha256": "6374ca6bc8a8b80125c0c93fadd5c9974b1cd1c6a59d0a88c6ebda9101b0f30b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-39-443254+00-00-1df2f1.json",
+      "sha256": "23e67378ed901a8c423e24946fc45345dfd4aaf71eac8a69ea1d590ebbf4e27b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-39-443254+00-00-1df2f1.png",
+      "sha256": "e9704ef83eba308a4e67e37b80c93710c91694663a7797cc1a10d193a4fa9754"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-40-441487+00-00-28d50b-display.png",
+      "sha256": "49337dfa5d1f129afc62f3397291ac0a6b8db3ed8279cf6e292654b121f4b4ac"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-40-441487+00-00-28d50b.json",
+      "sha256": "df15319e382c2b62702c0e50859d504e7ef525d205a00449334b72de8e305c5f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-40-441487+00-00-28d50b.png",
+      "sha256": "b87aacfa52bf35a21fb02b3761ea51d2f3e99259304ca305a76a62c3fa5bc02e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-41-453531+00-00-7a339a-display.png",
+      "sha256": "4f9b0d6093a5811ff521534345b86d4871cf4fb18b8db97016a6870b0d1bb9a0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-41-453531+00-00-7a339a.json",
+      "sha256": "0c8d8de53a31c6f86e0c938587d40196f35408b2b7f4a9fa6c7112e04858bb24"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-41-453531+00-00-7a339a.png",
+      "sha256": "80d71f06cedfb7f0d2e48592f61744015a3efe327fe18d834e955427b882ec84"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-42-445280+00-00-fff4d6-display.png",
+      "sha256": "b00b1759546689f4d461f7da7b5b6d82b3e17336bf60ae46f1fd606219379fd8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-42-445280+00-00-fff4d6.json",
+      "sha256": "97fdc3a9bda3ec92b3014f301996ec7a0f430a15a3f7effe79f1b1a5dad1535b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-42-445280+00-00-fff4d6.png",
+      "sha256": "6419f4e98969ed77eed50c9a4759c928336e53edb62d24d2b73eda97b0a309e8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-43-458293+00-00-e22ce7-display.png",
+      "sha256": "200486dd6472d3e6d6fb9cfe5ffd83c38eb4e9ab52213b11defcbdac6f2fc6ca"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-43-458293+00-00-e22ce7.json",
+      "sha256": "5fac63715fcc146648bea080599ef793270817c9f19bf3305b8cda30a8126345"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-43-458293+00-00-e22ce7.png",
+      "sha256": "fa7db75bea4e65bdd5ec7013576e3ac3c21614cf480ea10c2d61d672f2a94e8d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-44-457201+00-00-3c2eb9-display.png",
+      "sha256": "91f5fc52edfcf8d5eb843d97a326e94f7b835618f78d34a5c95fd2c034bd2ccc"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-44-457201+00-00-3c2eb9.json",
+      "sha256": "43ed1006bcbf32315d39d24182963aa90ba716747a608f1b1b229cf858763cb9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-44-457201+00-00-3c2eb9.png",
+      "sha256": "219662c79c49e4b44a2a96102a5f26ee931d5b04542e70e88edc5d62690716e8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-45-461146+00-00-e3f09f-display.png",
+      "sha256": "76155ee7ca25cdc01c725afa51801f1e0388e16261ed2ca95c17b4ae7a0eb657"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-45-461146+00-00-e3f09f.json",
+      "sha256": "9cdcef179233a29de441eaee1a49eec7d5c09dcffc0e1f1fd8d28142c6156eea"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/captures/longrun-2026-10-24T10-57-45-461146+00-00-e3f09f.png",
+      "sha256": "e87618ca2ae11a068c45e304beec6a29e1232d1eba5105bc78cbced5aedf719e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/journal.jsonl",
+      "sha256": "c01035e3f8710d19e800a3600e45a2dc1788f037f8ea61634a23e78914659373"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/provider-result-00.json",
+      "sha256": "5f4f6882b1c12e70648e8a6b7fdaa645fbb362537260ec202a56bc8ba484a564"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/provider-result-01.json",
+      "sha256": "489fb98a749e21156bd81d71d8488ece25834a7ac4b86a3a38b3e28ef5590595"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-46-576723+00-00-e7ce09.json",
+      "sha256": "e815bc59fe9e4a4ce820e00f1699d3a944fdc0e61714a7a536ee86e653b276b2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-47-454512+00-00-23a8ad.json",
+      "sha256": "06c54701f88d1084b42b0cb0813e35fe7875e15b50630e3dc818eead6b612531"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-48-451451+00-00-2e541a.json",
+      "sha256": "dbc05246eefb4e982fb18236b629531c122af81e05e46d5910036560982be4cd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-49-447113+00-00-488b64.json",
+      "sha256": "537b7091c9cd1a3b52c252a3d51f5af821f26490075190f1c388b7f1a14df90c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-50-459869+00-00-3539ab.json",
+      "sha256": "b93de968fb62b38bc5ae91259e432be763b7d7a1ee60d986d599dd5245fdfcff"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-51-455382+00-00-459f50.json",
+      "sha256": "75f78fd2d33264e3c79664f9f00b30b56e283fc348a92139e52ba6d6bf9a7356"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-52-439794+00-00-4f2fef.json",
+      "sha256": "51bde4cbb7cb66043945a37728891fd5c2f35ae7a8c308fca1bca1e5a2a788b2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-53-437649+00-00-0b9864.json",
+      "sha256": "d46c810ed130cff47b788276777ed8cdddd6a8e64063943586cb53d59cd93810"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-54-447707+00-00-3d3867.json",
+      "sha256": "d84506c129970a8c014dd99399d8700d752795ca7ff47ac05468f283e64f8751"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-55-434831+00-00-d0e540.json",
+      "sha256": "888c5f4835ec7ec946c6919b918c3742bb0f9e803541768e00668b4baf029970"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-56-446214+00-00-ff210b.json",
+      "sha256": "a1acb70d0b6f6710c630a1a69e86c2e250579b34400095490700a75d0a7fc8ff"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-57-456807+00-00-0dfd81.json",
+      "sha256": "e159812de333ae363aa59a4d429e654a32a50e2799678933c7b07cc3295e31c8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-58-434840+00-00-59efa4.json",
+      "sha256": "f6c91175435dbb8097fb5ea1511452e822e3621fd1814fa7e5c5fd20481020f6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-56-59-447230+00-00-6164e1.json",
+      "sha256": "4a11654a84a019f9984127ce48ee2bf74966f3d41fe2218090e77f236bf9cd79"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-00-448298+00-00-03f558.json",
+      "sha256": "74a7965bb0c260f0c40f9aa51fed86bc463f3519f8e1e211aa68ebe13dfcfb71"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-01-442452+00-00-6ed64c.json",
+      "sha256": "bd794c4ab9f4e4e9607367df8b01fb8ef856d2d8462ce86c12f0e5b740966e5a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-02-449356+00-00-c2282e.json",
+      "sha256": "27cc9551334f3bcfb0754e5f0c5bacb6c6ae0831b60f5da2fbdf3d46e630a00e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-03-442770+00-00-6bb6fd.json",
+      "sha256": "dc7c62ac434bf732001db7f11a48e17738aa42ef29e474182f38799cd340475c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-04-458734+00-00-fec250.json",
+      "sha256": "146e596393d41b35b642a6e22a0c42031084dd2dbf17376208eed53a5f119410"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-05-454587+00-00-7d175a.json",
+      "sha256": "c56fb57a694b9252481d9b587324d9718d23ca8ea0775c60507d7b4e130028b0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-06-450539+00-00-3bd2f5.json",
+      "sha256": "db022ac152548346bb2706fdfd12ca9e828f7eb630283c62b7353aec7ca5bf18"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-07-444864+00-00-37a24b.json",
+      "sha256": "6de7da9e89ed3f75ea4975ff1ce08d561478a5351853ff08d01ebdf59567ee5d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-08-451365+00-00-55a4c4.json",
+      "sha256": "8ac91338e9d00d43ad93508ce6fc24da103b92fbdf6f3e8fa4e1ae0241698e0b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-09-459828+00-00-932d0b.json",
+      "sha256": "4c54fc5c9cfe314bc1f61e32dec19c48aafbaf61ea5b8c52fbb25de8a564f20e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-10-454899+00-00-fdc4b7.json",
+      "sha256": "ff793cb822f63756a18cf71bdac2a05e78f43a0f24c417572247631598b3c3df"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-11-453628+00-00-9acbd4.json",
+      "sha256": "ceb6888ddb88d02edbbe095337d4e4af949a1ac2c4d75121b04eed19faab98a5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-12-464866+00-00-943095.json",
+      "sha256": "d7048bf0841e124cc52b8c75c405ccd92f8b925c18b3ca7c8c13093df26f91a0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-13-447095+00-00-4855bf.json",
+      "sha256": "a902cb0a669adada782790fc601ff51d2c9fb1bbb346f4059a90b613ec96caa6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-14-452028+00-00-01662a.json",
+      "sha256": "aa0bfe8c2ee3c0eafc5469c460477d37ce95631594d938d6a7e90d6cee27b768"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-15-461637+00-00-14db1c.json",
+      "sha256": "b45e53810090e58faaa5aa813bb17cae6319a894ebadf38810af22e22a39374f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-16-447108+00-00-dd1cae.json",
+      "sha256": "cf618c389313e4a0cb765dea825efe86ba3b6a492eba24beb78d9e12636e10ff"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-17-465013+00-00-3cf471.json",
+      "sha256": "37949415715d657a6341ddd255a2e2b2878e9f87af2de16d13b29e408c5c2f3a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-18-481168+00-00-9571a4.json",
+      "sha256": "56d59386904efc8f2209eb6d4751f95f40ccbda918c3b16cf1498a6e94fc2dac"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-19-460639+00-00-f79a0d.json",
+      "sha256": "b0358f6d2deb3c1663233339f0a143eba32fe124519dd7cd84224a3f41d979e5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-20-460519+00-00-e5aa53.json",
+      "sha256": "7d51d2e9f106cb326645e8252d05f0e9a22f693121dc420bfbe2b9abe32c9ac6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-21-447240+00-00-1db93a.json",
+      "sha256": "622888cbc927bda11193943ccec8ff7ec1e70241d5eab8e8444332a82d8fa851"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-22-470493+00-00-8ca7f9.json",
+      "sha256": "c90775fcfc9db7dce96016c08dd3b1092a0c1b52d4183019af2fb78a31f0dd63"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-23-456932+00-00-c87db2.json",
+      "sha256": "079e4f4deb19b01d02cf00617935bbe54de356fd913f784a018f8a2229c6a963"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-24-449807+00-00-02ac04.json",
+      "sha256": "13faf4c4b5845b48c84a57184c00b0dda14a1855592bd754eb7ded3cd53c1812"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-25-452610+00-00-274c8c.json",
+      "sha256": "ae8143db21bd59780cfa991460a3b7e6d0aae9a1d496a1723ee0c55b8c3e38ee"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-26-449448+00-00-ac6c73.json",
+      "sha256": "f5e6597f3b742508014e3415deb12ca8a8ecbf5e0ee4f1b54c00be5f73a619cd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-27-441793+00-00-514f42.json",
+      "sha256": "ff08d6bea2cd6fecccd4c6dca84fed9852397e6329ff92c79bae059da0b56261"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-28-462142+00-00-c19482.json",
+      "sha256": "7c2f7b983dc8cacfb35667b8b096b1b9af1c57f27caa0efc405a7d2cea429a01"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-29-453688+00-00-b6d04a.json",
+      "sha256": "1f45d1a314a10b5f5fbc140eed0f7fa2c033602d70606f9288b924d3ef95c445"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-30-452838+00-00-355a03.json",
+      "sha256": "1078e0246950a8b603bd4e914d0775ee00da771da4ad196b8536179478e3f60e"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-31-463045+00-00-be3115.json",
+      "sha256": "5506c2b581bba459604554930bbc818c191b4f71707656e724f330e9cdcee861"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-32-444260+00-00-de0493.json",
+      "sha256": "2458eaa5168c56a6756f3f54a41d7ba15e1e87014c9a80ac6126351dbba84bb6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-33-451390+00-00-bff80d.json",
+      "sha256": "e87b788c6463cfe2df26f4912e963bc279be3b6810210b8c17790b8c1833e0f9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-34-449362+00-00-306018.json",
+      "sha256": "da29ddd539db78a23628d0415a8b78c807e0108681ba308633c276af65268873"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-35-464725+00-00-81e0ca.json",
+      "sha256": "91ff675e788f1fd3984cae938c93d504dfaff955a5aa017ac94da09bc0b8ec1d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-36-448697+00-00-d49d31.json",
+      "sha256": "739babf06dd2d7f6b9319af85a56a534c5c1758a81b68579952c7ef1ddcb4198"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-37-451777+00-00-329736.json",
+      "sha256": "56afb3a36a1706bf3ec153ffecee96d4c82986ea07f5a6b79597049e72f89793"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-38-455130+00-00-02a4d2.json",
+      "sha256": "c80b1f8a6de37d5fa2022114840a5f9a7a7386654b7c41dd35c09b9884ab08a2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-39-443254+00-00-1df2f1.json",
+      "sha256": "584d442737f57367d6eb69398ed2c3c9f898e182bacdb2c9362ce141c2853447"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-40-441487+00-00-28d50b.json",
+      "sha256": "fd1fa2ca01ad5e3fa6a5cc6a5b18271d98fdb0e790c9c1efa2a993bc76501815"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-41-453531+00-00-7a339a.json",
+      "sha256": "2600631cf2e6ee83b8ba11e002b7c07011a6701cafe06da8091833376895be95"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-42-445280+00-00-fff4d6.json",
+      "sha256": "099a8bb259be9a75bc69ef175c0e49a82a19a567add187cbc9a237d3409d2816"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-43-458293+00-00-e22ce7.json",
+      "sha256": "b3f662fd3f82556829428b8a7de952c156549ce35a277e0405601dbbb1eb24b4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-44-457201+00-00-3c2eb9.json",
+      "sha256": "68260b5ccaea3f6bf9d19ed9dc8b757c97006d1dc56410d6e2baada03520c0d9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/states/longrun-2026-10-24T10-57-45-461146+00-00-e3f09f.json",
+      "sha256": "398747130aba22151b887d496c87da9a64796c1d61316e75b13f298d7199aa88"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-02-pinned/summary.json",
+      "sha256": "a6de5c89c2ed078943b6d43b51d8468c498c7fc52d9dca4d830d5dfd19a01440"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live-recheck-diagnosis.json",
+      "sha256": "ed24eed6764c1092e7c83b92eecf002af3db8b01e859f826d8fc606834f43e6f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/live01-attribution.json",
+      "sha256": "3564704b3599445ea63fa2137ac2a7da3ba4cbcab4ece82727275bc70323fbed"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/pinned-inspect-benchmark.json",
+      "sha256": "e5e9c17c0fb6a1e6478fc0adf0d738aee7ab617d79ec08428749c9a5ad3d1d00"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/preflight-02.json",
+      "sha256": "cb9d5fecd46e07cfb624a3aafb815644218bd9c2fa57780100454591787d7259"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/preflight.json",
+      "sha256": "29d81ba29651c5c5106295a05fb4a3fb04613e43914a6c2a38f664f4c668267b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/progress.json",
+      "sha256": "e6562f6cdf74695be7f7bcbf3af56b550c33adfdf2e81a4fd7da3aa85a86ab0f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-000.json",
+      "sha256": "a7c6adb6f93e2455299b915bab658ec7e251e1ad201f4f4b896eee1a25d75c47"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-001.json",
+      "sha256": "5676ade39e84b9d3e7f5c3042579f2d7782c552f19c2663d50a3f55d8e6b462a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-002.json",
+      "sha256": "2fb4c27c7122d640dbbccc1f26b526e70bf2f96cf77e925947b9f58bd5af3685"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-003.json",
+      "sha256": "275b5536f5a0769ae9341ec68d01c336b2aa78c1d33ab60c107e6147217083dc"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-004.json",
+      "sha256": "12203033756a916e1c63025591d79f305ebecff12715ec979e3c0108c8122d44"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-005.json",
+      "sha256": "1f56404ca087de4f213d76c70db608758541db97e8f1a989e51f7ae80276ba03"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-006.json",
+      "sha256": "e4931f49e0031e4c9001bf2467b6a63389021b8278b4fc73807d21c596eea3f9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-007.json",
+      "sha256": "878cfacb013254f86cf6a69a8a3515d2bb9245f0207cc95c9df7eb9edf9f0277"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-008.json",
+      "sha256": "56e6027277ba9fbf5f83ee4b11df96ebdfde4c43353ffbca4c852a51c2bdde5f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-009.json",
+      "sha256": "d9db47f7ee8c55edf32c0c7d2fd4927aa96775fa2dfd1a9e467f3a14a07997a0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-010.json",
+      "sha256": "30be822d26394c361a499f7b1c7a39fa84708660acb2873ff4d80b786d06204b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-011.json",
+      "sha256": "2b04adf24826a86828e4f532a65de6c9f57c78450d051b39e7910acdca9e7dd9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-012.json",
+      "sha256": "b7063d47ea499bb1079bc5b2ff80c8bc0647c111cc66f8a6e6c6c92995de0088"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-013.json",
+      "sha256": "a5e38f51de347e4e0a2903829aba52c1100642d066d0665a8d4abd09d1fa0062"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-014.json",
+      "sha256": "f6753a6f5d34daa5b5e34b68fbccfbd4c7ed2f906c7561809cb9bbe2c7873b24"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-015.json",
+      "sha256": "60922347b9f362d6f064ba33e39cfdc4f42e101a56801dd390753941d767f274"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-016.json",
+      "sha256": "12820c638c3fc448486f3dcc52920bc8fdbd277ec185b59064831ec14cc7ba4a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-017.json",
+      "sha256": "b794c13ceca86505bc6a05798476f2d6370ba49279dfd65c129aaeca11e84101"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-018.json",
+      "sha256": "a9cb099c83f0cc500baa575ab2994852534acc1c6711fb2c28dec77573648c11"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-019.json",
+      "sha256": "bf9c091ac40eecb9f2eab7ec2aaa5c3704e1e46cc522d4d7a7f2cffafb9179ae"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-020.json",
+      "sha256": "de8884c29d49873e68bc0a1e017d55bb18c64836e1e42c30fe3635968694d3d5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-021.json",
+      "sha256": "88460412cdd628d64c85a6c37ace7bac987b650ffbfb7bbb39a5c2c0d1f036bf"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-022.json",
+      "sha256": "08b6c1f4dfa391bc5f5143519d4d26fb861f5566cda3f466e3fe1d0671393a50"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-023.json",
+      "sha256": "94cf108691a6fffd27b69bcd3034801daef36ce3e25fa337515b417878100c40"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-024.json",
+      "sha256": "6a02207fc0486630014c6c4d94505b75be996ab80c28688675eb84e68fb4b503"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-025.json",
+      "sha256": "7f238eb78aee0cb87392f58710ebc4ccf6e35ed89ba5c921072a38dfbe9f1bcb"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-026.json",
+      "sha256": "92583c9f64c7fc8aa9d729d84e605a9030d280f9e76438232e8c15abacc24ffd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-027.json",
+      "sha256": "47770319bb1db884fa3fa5e580fe8646a51b44b33980e6b64ad725f190736a67"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-028.json",
+      "sha256": "016795aa56d24f1259a3d5c58fa36c44850e8657daa9458953d7926041a6d427"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/deliveries/continuity-029.json",
+      "sha256": "bfcdd9b1194c2003d6f89f47e41567a2c8bdab9a1db3fb47067acc50318533ee"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/journal.jsonl",
+      "sha256": "f7da539516481e78d03c61c0482e8c99e4a6d8949f3d42ebdd775849f1f8d5f1"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/provider-result-00.json",
+      "sha256": "36efde40b0733038c159dfd37da59a6ff21dced16b0116b6685cb3ebdb187bb2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/provider-result-01.json",
+      "sha256": "f9a0f2235abe682e32269aec39fb41b133d6241ca33210f89ccad7f762e9f1fc"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-000.json",
+      "sha256": "7444739dff1387541238ac9d8f29eb1ba9f88ecff9aa026e6e00276eba4fd3f6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-001.json",
+      "sha256": "3ed9dec65ef4487faed4f326233a663e93797eef1da60b3dcbb70b70254f3e48"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-002.json",
+      "sha256": "e412b81c71f6fca3f3e97cf736b9c8c8150fe943f9f0f9ba8d60fc1c8bb3bc35"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-003.json",
+      "sha256": "78648de304495ecb124c47ff65abbf3daec48e34a5d03ce5ee42c9b4805b87f3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-004.json",
+      "sha256": "b6d24d1efbd9eda30ef79b69b0760d70eccb8b46d1590a9b42868f91f90b0e4c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-006.json",
+      "sha256": "9cd0ce2f8d59eded10db29dbd0bc49bd61dc216f077ef7afe71e057d776f3b75"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-007.json",
+      "sha256": "a8f57c18a2cee4d194ba5a71e64f90d3972ce0f907e121037994dcb67924411b"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-008.json",
+      "sha256": "139e4253945974f8c69718ad600089123cdc94d153c4d2a263ef8561210a61c0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-009.json",
+      "sha256": "eec517006ac422596b82af6624fe493123e680c8845cc837f7f80b29037f7c86"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-010.json",
+      "sha256": "2d3b692319e7d2f69aa41e48e66a41c28185586fe6fe00b6b711a91da8ee6c47"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-011.json",
+      "sha256": "772fd3f1eb0106c0e32cfbd761eeea9aa6d7951d3447e55bb32aae1e7e14681d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-012.json",
+      "sha256": "087ce08d682b6dba23e09370feab2ea718cb31108c6b8f2b14404168ae8710d2"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-013.json",
+      "sha256": "467f12cb8c816038c4df1ec80d365e5a74d4a99ff122665b944c3d64b5b88d2a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-014.json",
+      "sha256": "fd3480f076110f34588ae7a8fcf51966a6c3d95cb00131fa759388af8efe770c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-015.json",
+      "sha256": "f0b8dbce5aed38466abe63be8592247846b0bca5abac27ff03d124a620b9360c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-016.json",
+      "sha256": "e3a19550cef517f405b7124b0959193e4754c4fb14ab75ad701892a705960e2f"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-017.json",
+      "sha256": "6ebce37e747af7ff44097d04ec1ad72e030c965124fd7e4f795ddc4de75dbfa6"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-018.json",
+      "sha256": "dab08354f35b04a0877312c671f92b0e9ed0db02977b46061ada30e589b8c5f8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-019.json",
+      "sha256": "89e08633d08af6cc4c4fd66ff42a1fb861e78559604d98673c9e7e42371921dd"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-020.json",
+      "sha256": "110bd5996359b6c0bcb6c39b52eb70c931fb4e253126953ab00af1c6a68e0a56"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-021.json",
+      "sha256": "d45a486f835568546cf70c04fe9755cf7c86d86d03747eeeb37608f4e207de9c"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-022.json",
+      "sha256": "b365f4036b52547955adc4079ecd3ca3f5eb0c45bd51e64270db5dfa90cc9dc0"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-023.json",
+      "sha256": "9fa34ca9247b9d3a78650ca8d88c69b8aa2fc191d48aeb783af292c173fc2084"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-024.json",
+      "sha256": "38cf6fe0a3473384a39ba1d409c4aa33b59bfe8bb65cfe360ad829febad816ff"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-025.json",
+      "sha256": "63c930c213b6328a979ec01f9cafd82f1404b02359fd8c037bd50a83cc8512f9"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-026.json",
+      "sha256": "68a4d53dc77a30fee2b112b8ec0cfb3095cf833dc36bc680f389dc5f8d18ea3d"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-027.json",
+      "sha256": "1f76844f88ad088d4f2191f0430563db4dd1b4406423d3596ad81bf60064cda3"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-028.json",
+      "sha256": "916421c675fd740dccbfd01c41eefb96600b9e55e0d492ca2a5958293db2af58"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/states/continuity-029.json",
+      "sha256": "eb939d7056b0db6cc701ac0f50f2cbc411193d8d109d79fb5a682f2053dbf365"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/replay-01/summary.json",
+      "sha256": "037618859c8cc855a31dcecf8692b3b9e6c6d2c2ed6ac42de32eceb34764d0e5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/status.json",
+      "sha256": "efc1d413a9bce61c88df553d3da7d0ec12201dd39282e22abbfd3c22fd877286"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/tests-pinned-v1.json",
+      "sha256": "e3670c3bd3cdf856f106f216c056e3b620cd8cfb5814c46fb322bb6ec30a1557"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/tests-pinned-v1.log",
+      "sha256": "2cbf3553e8b7f26208baaaaaa0763ce83522f147c0874d950ef9c2e111f7e4e4"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/tests.json",
+      "sha256": "64595530892b912e01c61c1e3e22406559145ace075ab836262d4003f84700c8"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/tests.log",
+      "sha256": "566656ae5437240212240b70f2f27714e5a571516ecace0f84d2380512d014bf"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/thread-diagnostic/threads-1.json",
+      "sha256": "210b6895e563d23b25565d0b1640fc8e78a1a8d92e7655e89ef9d6319df1b64a"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/thread-diagnostic/threads-32.json",
+      "sha256": "98c213422da4c06dc12e227d27f33bc4c504685161555755eb2c2434c4e1fee5"
+    },
+    {
+      "path": "evidence/day06/continuity-v1/user-focus-confirmation.json",
+      "sha256": "648894cac495f52adbb02a893872cb6a426b305e46892e86aa3ff1fabb4dc91c"
+    },
+    {
+      "path": "README.md",
+      "sha256": "7d8783d56e521419663ee094d86328669150dace8c5d30f4f4ba06279be57de1"
+    },
+    {
+      "path": "scripts/day06_continuity_experiment.py",
+      "sha256": "6ded801bf442388eafe3cf5b941857bc4ac07657c2edc92dcae17e5b91cb0ea5"
+    },
+    {
+      "path": "scripts/day06_continuity_finalize.py",
+      "sha256": "bdb45b016c42cd4a393228ebfbfaf2c69f0c3a901a2641018cb4aa9690604a40"
+    },
+    {
+      "path": "scripts/day06_continuity_pinned.py",
+      "sha256": "42703963dcb5e349b02017ec681cc38bf9ed9ac610b28c704de0a422b06d0d28"
+    },
+    {
+      "path": "scripts/day06_continuity_preflight.py",
+      "sha256": "a769f7c6df46d0ec23102fb282e24c9b5472f91108576a1bd6ed24a115e099bf"
+    },
+    {
+      "path": "scripts/day06_continuity_progress.py",
+      "sha256": "e245bbd53510ad22c60882c661baccf9e5bc12b61a30420ee4a9e7c9a70a66c8"
+    },
+    {
+      "path": "scripts/day06_continuity_threads.py",
+      "sha256": "28c12d332ee16129ad6bbbd5668da8295c312c7aca7f0bada1967c3338c9d303"
+    },
+    {
+      "path": "src/pvz_agent/continuity_frames.py",
+      "sha256": "c69de9024f77ca5467e7d732be826cc08a2cbfab4f40042d54e0318c7133d435"
+    },
+    {
+      "path": "src/pvz_agent/pinned_capture.py",
+      "sha256": "9fc4e9f76204fd7f5a7a431de1f4c3507ad8b4d22676fa967142c69f7ae53d9b"
+    },
+    {
+      "path": "src/pvz_agent/strategy_runtime.py",
+      "sha256": "5b72aa6dd6e0750e9351ca07836814f1504fc09c0eccd0e58462b566138920d4"
+    },
+    {
+      "path": "tests/test_continuity_frames.py",
+      "sha256": "8648aa8318648bff7946080dcb18c357f9d4167f327faa2e6e2b776ba82446f8"
+    },
+    {
+      "path": "tests/test_pinned_capture.py",
+      "sha256": "22cd715b2150d998aaa82da7e8787abeb228620946aff0fb09e0749a3a59b55a"
+    },
+    {
+      "path": "tests/test_strategy_runtime.py",
+      "sha256": "47e70bbc1e3c03b8dc57c607b6dc9744ef302b1558470bff0c3a92b75ede546f"
+    }
+  ]
+}

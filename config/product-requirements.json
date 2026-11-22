@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "date": "2026-10-23",
+  "source": "User decisions and follow-up answers in current chat",
+  "status": "specified_not_implemented",
+  "schedule": {
+    "target_days": 30,
+    "intent": "Complete the agreed scope within the 30-day plan; user expects current progress to allow completion.",
+    "deadline_guaranteed": false,
+    "automatic_scope_reduction_authorized": false,
+    "workbook_sync_status": "pending; original workbook has not yet been synchronized with the new requirements"
+  },
+  "model": {
+    "preferred_user_label": "gpt6.1sol",
+    "api_model_id": null,
+    "endpoint": null,
+    "connection_status": "not_connected",
+    "availability_status": "verify_at_integration",
+    "budget": "No user-specified limit currently; track actual usage and costs.",
+    "note": "Preference is recorded; no assumption that the display label is an API model ID."
+  },
+  "decision_policy": {
+    "preference": "Model should make as many gameplay decisions as practical, including urgent responses.",
+    "mechanical_controls": [
+      "freshness_and_legality_checks",
+      "serialized_input",
+      "visual_result_verification",
+      "stop_hotkey"
+    ],
+    "fallback_policy": "Minimize strategic rule takeover; any fallback must be explicit, logged and counted separately from model decisions.",
+    "shovel_allowed_for_tactical_need": true,
+    "shovel_implementation_status": "not_implemented",
+    "aesthetic_only_removal_allowed": false
+  },
+  "first_release": {
+    "entry": "User completes card selection and starts the game; Agent takes over the active battle.",
+    "primary_priority": "stable_level_completion",
+    "required_basic_features": [
+      "right_sidebar_with_public_decision_summaries",
+      "tactical_timeline",
+      "in_app_llm_failure_video_analysis_and_layered_attribution_panel"
+    ],
+    "later_improvements": [
+      "polish_and_deepen_the_required_basic_features"
+    ],
+    "optional_later_version_features": [
+      "automatic_card_selection",
+      "automatic_start",
+      "automatic_restart"
+    ],
+    "optional_features_condition": "Consider after core scope if time permits; not required for first-release acceptance."
+  },
+  "failure_video_analysis": {
+    "delivery": "Software accepts a video and uses an integrated LLM to produce the analysis and panel.",
+    "chat_only_manual_analysis_satisfies_final_requirement": false,
+    "internal_causes_require_logs_or_uncertainty_label": true,
+    "runtime_logs_optional_for_video_submission": true,
+    "reference": "docs/失败归因面板.md"
+  },
+  "human_control": {
+    "takeover_method": "User presses the stop hotkey before taking control.",
+    "current_stop_hotkey": "F8",
+    "stop_semantics": "Stop Agent input; do not pause the game.",
+    "automatic_resume": false,
+    "resume_policy": "Explicit restart with fresh observation and validation; never replay old actions."
+  },
+  "acceptance": {
+    "level": "3-7",
+    "games_in_consecutive_recorded_series": 5,
+    "minimum_wins": 4,
+    "conditions": [
+      "same_agreed_initial_conditions",
+      "normal_game_speed",
+      "no_human_intervention_during_battle",
+      "all_five_games_recorded_including_failures",
+      "model_and_rule_contributions_reported_separately"
+    ],
+    "interpretation": "User-confirmed release criterion for this small series, not a guarantee of an 80% long-run win rate.",
+    "observed_results": null
+  },
+  "remaining_user_requirement_questions": [],
+  "integration_checks": [
+    "Verify exact model API ID, account access, endpoint and credentials at integration.",
+    "Confirm video analysis input path supported by the actual model/API; preserve video timestamps and source evidence.",
+    "Retest current focus behavior and capture/input geometry using live observations."
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "version": 2,
+  "date": "2026-10-21",
+  "status": "specified_not_implemented",
+  "source": "User phase-dependent objective request in this chat",
+  "required_for_first_release": true,
+  "profiles": [
+    {
+      "phase": "开局经济期",
+      "focus": "优先发展阳光生产能力",
+      "priorities": [
+        "economic_development",
+        "minimum_sufficient_defense",
+        "preserve_development_space"
+      ],
+      "public_goal_label": "经济发展优先"
+    },
+    {
+      "phase": "前期发育期",
+      "focus": "发育与减压并行",
+      "priorities": [
+        "balance_economy_and_threat_relief",
+        "cover_threatened_lanes",
+        "avoid_excessive_single_point_spending"
+      ],
+      "public_goal_label": "发育与减压并行"
+    },
+    {
+      "phase": "中期转型期",
+      "focus": "阵型建设",
+      "priorities": [
+        "complete_formation",
+        "cover_land_and_water_gaps",
+        "balance_output_and_blockers",
+        "sustain_resources"
+      ],
+      "public_goal_label": "补齐和巩固阵型"
+    },
+    {
+      "phase": "后期收尾期",
+      "focus": "保护阵容，防止突破",
+      "priorities": [
+        "prevent_breach",
+        "protect_key_output",
+        "repair_formation_losses",
+        "retain_emergency_resources"
+      ],
+      "public_goal_label": "保阵与防突破"
+    }
+  ],
+  "priority_semantics": "Context-dependent ordered preferences; no fixed percentage weights or scripted build order.",
+  "global_constraints": [
+    "legal_actions_only",
+    "revalidate_local_preconditions_and_freshness",
+    "observed_resources_and_card_state",
+    "do_not_pause_for_planning"
+  ],
+  "emergency_override": {
+    "enabled_in_specification": true,
+    "trigger": "Visible evidence of imminent breach or urgent threat requiring response.",
+    "temporary_goal": "threat_relief_and_formation_protection",
+    "must_log_reason": true,
+    "must_not_automatically_change_tactical_phase": true,
+    "resume_behavior": "Reassess the stage priorities when threat decreases; do not blindly replay canceled actions."
+  },
+  "uncertain_phase": {
+    "label": "阶段待确认",
+    "behavior": "Refresh observations, address explicit risks, avoid speculative high-cost action."
+  },
+  "decision_fields": [
+    "phase",
+    "phase_confidence",
+    "priority_profile_version",
+    "active_goal",
+    "goal_change_reason",
+    "evidence_refs",
+    "layout_preference_applied",
+    "layout_tradeoff_summary"
+  ],
+  "integration_days": {
+    "9": "Pass phase priorities to LLM and record chosen goal",
+    "10-12": "Validate goal relevance on fresh observations and log results",
+    "16": "Evaluate stage priorities, emergency overrides, low-threat aesthetic choices and justified asymmetry.",
+    "17-20": "Render goals and goal-change events in sidebar and timeline"
+  },
+  "requirements_document": "docs/分阶段战术目标.md",
+  "formation_aesthetics": {
+    "status": "specified_not_implemented",
+    "required_for_first_release": true,
+    "preference": "尽量对称、整齐、美观，允许合理不对称",
+    "mode": "soft_preference_among_tactically_suitable_choices",
+    "activation": "Threat is observed to be low, resources allow, and stage goals and necessary defenses remain satisfied.",
+    "unknown_threat_is_not_low": true,
+    "default_symmetry_reference": "Upper/lower balance across the horizontal centerline; coordinate mapping pending day03 calibration.",
+    "layout_preferences": [
+      "同类植物尽量成列对齐",
+      "上下对应位置相互呼应",
+      "水域和草地分别协调",
+      "经济、输出和阻挡分区清楚"
+    ],
+    "higher_priorities": [
+      "legal_actions",
+      "prevent_breach",
+      "substantive_phase_goal",
+      "necessary_resource_reserve"
+    ],
+    "allow_asymmetry_for": [
+      "unequal_lane_threats",
+      "land_water_differences",
+      "plant_availability",
+      "cooldown",
+      "resources",
+      "existing_effective_formation"
+    ],
+    "emergency_behavior": "Immediately permit asymmetric defense when tactically needed; reconsider appearance after stabilization.",
+    "restoration": "Improve symmetry through useful normal construction or replacement after losses, only when appropriate.",
+    "must_not": [
+      "Remove effective plants solely for symmetry",
+      "Repeatedly replant solely for appearance",
+      "Exhaust emergency reserve for matching decoration",
+      "Delay defense for symmetry",
+      "Force construction without tactical need"
+    ],
+    "fixed_score_or_exact_mirror_required": false,
+    "public_summary_mentions_tradeoff_when_relevant": true
+  }
+}

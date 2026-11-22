@@ -1,0 +1,270 @@
+{
+  "schema": "pvz-water-pose-annotations/1",
+  "source_scope": "A game development images only. Rows checked using the continuous entry/dive sequence. No B or old regression image is a template.",
+  "row_spacing_pixels": 85,
+  "pose_refs": [
+    {
+      "id": "WA-291.5",
+      "image": "data/day06/water-v1/a-291.5.png",
+      "row": 4,
+      "pose": "water_entry",
+      "head_xy": [
+        766,
+        330
+      ],
+      "parts": [
+        [
+          744,
+          309,
+          789,
+          349
+        ],
+        [
+          772,
+          351,
+          800,
+          385
+        ],
+        [
+          758,
+          391,
+          799,
+          429
+        ]
+      ],
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "sha256": "3e44828afc854bff4eabdd2743573b5188ca0f02f132890af7737fa60119a5f3",
+      "source_extraction": "data/day06/water-v1/dense-extraction.json",
+      "timestamp_seconds": 291.5
+    },
+    {
+      "id": "WA-291.75",
+      "image": "data/day06/water-v1/a-291.75.png",
+      "row": 4,
+      "pose": "water_jump",
+      "head_xy": [
+        746,
+        280
+      ],
+      "parts": [
+        [
+          725,
+          254,
+          768,
+          296
+        ],
+        [
+          746,
+          302,
+          777,
+          341
+        ],
+        [
+          730,
+          350,
+          777,
+          390
+        ]
+      ],
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "sha256": "1b9b3a678e819ec2c874d56b9c565f4ea93623136ed615dade611ac730f71869",
+      "source_extraction": "data/day06/water-v1/dense-extraction.json",
+      "timestamp_seconds": 291.75
+    },
+    {
+      "id": "WA-292",
+      "image": "data/day06/water-v1/a-292.png",
+      "row": 4,
+      "pose": "water_jump",
+      "head_xy": [
+        734,
+        270
+      ],
+      "parts": [
+        [
+          712,
+          244,
+          755,
+          286
+        ],
+        [
+          735,
+          286,
+          765,
+          318
+        ],
+        [
+          716,
+          319,
+          761,
+          347
+        ]
+      ],
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "sha256": "e5a7060eb8d644011e86c9219b873784311e7f2e734332761b8d6b7785628994",
+      "source_extraction": "data/day06/water-v1/extraction.json",
+      "timestamp_seconds": 292
+    },
+    {
+      "id": "WA-292.25",
+      "image": "data/day06/water-v1/a-292.25.png",
+      "row": 4,
+      "pose": "water_jump",
+      "head_xy": [
+        719,
+        288
+      ],
+      "parts": [
+        [
+          698,
+          264,
+          741,
+          304
+        ],
+        [
+          730,
+          306,
+          762,
+          341
+        ],
+        [
+          712,
+          342,
+          756,
+          376
+        ]
+      ],
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "sha256": "9a17ecb17dd38c6f429171aa78f3a1a9fdc4c9f701ff9bd4dc8c416c26954cf1",
+      "source_extraction": "data/day06/water-v1/dense-extraction.json",
+      "timestamp_seconds": 292.25
+    },
+    {
+      "id": "WA-292.5",
+      "image": "data/day06/water-v1/a-292.5.png",
+      "row": 4,
+      "pose": "water_dive",
+      "head_xy": [
+        718,
+        326
+      ],
+      "parts": [
+        [
+          697,
+          303,
+          740,
+          344
+        ],
+        [
+          730,
+          346,
+          761,
+          380
+        ],
+        [
+          710,
+          386,
+          750,
+          411
+        ]
+      ],
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "sha256": "467c5541d3a74f3eb2fea1ae0c746c3bed33199040e8534a942a18ec3103acf6",
+      "source_extraction": "data/day06/water-v1/dense-extraction.json",
+      "timestamp_seconds": 292.5
+    },
+    {
+      "id": "WA-293.25",
+      "image": "data/day06/water-v1/a-293.25.png",
+      "row": 4,
+      "pose": "water_submerged",
+      "head_xy": [
+        718,
+        407
+      ],
+      "parts": [
+        [
+          698,
+          386,
+          739,
+          425
+        ]
+      ],
+      "water_check_xyxy": [
+        709,
+        426,
+        729,
+        438
+      ],
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "sha256": "0dccda3e1fcb991bc77ff129992e6e055a538675a9ed91fc59a43f36ede8ec78",
+      "source_extraction": "data/day06/water-v1/dense-extraction.json",
+      "timestamp_seconds": 293.25
+    },
+    {
+      "id": "WA-294",
+      "image": "data/day06/water-v1/a-294.png",
+      "row": 4,
+      "pose": "water_submerged",
+      "head_xy": [
+        705,
+        410
+      ],
+      "parts": [
+        [
+          685,
+          390,
+          726,
+          428
+        ]
+      ],
+      "water_check_xyxy": [
+        696,
+        428,
+        716,
+        440
+      ],
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "sha256": "5c19bcff19a9b801b7869b6ae433d432bd7559072c0a851e21699f25ec094565",
+      "source_extraction": "data/day06/water-v1/extraction.json",
+      "timestamp_seconds": 294
+    },
+    {
+      "id": "WA-290-EAT",
+      "image": "data/day06/water-v1/a-290.png",
+      "row": 3,
+      "pose": "water_eating",
+      "head_xy": [
+        535,
+        280
+      ],
+      "parts": [
+        [
+          515,
+          257,
+          557,
+          299
+        ],
+        [
+          525,
+          302,
+          565,
+          336
+        ]
+      ],
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "sha256": "067366e8bf88427a59927793054fed94a0e8dae2548b0735629c4e8f8a366f80",
+      "source_extraction": "data/day06/water-v1/extraction.json",
+      "timestamp_seconds": 290
+    }
+  ],
+  "annotation_limits": "Approximate head and part rectangles from screenshots, single annotator. Learned row offset from pose is not a direct measurement of feet, shadow or future landing."
+}

@@ -1,0 +1,2759 @@
+{
+  "schema": "pvz-zombie-dataset/1",
+  "decoder": {
+    "opencv": "4.14.0",
+    "backend": "FFMPEG",
+    "time_check": "Frame index and backend POS_MSEC checked; not hardware presentation timestamps."
+  },
+  "split_note": "Development only: original Day06 development frames plus new game A. No B pixels used.",
+  "samples": [
+    {
+      "id": "D06-V040",
+      "sequence_id": "clip-40",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 40,
+      "decoded_media_time": 40.0,
+      "decoded_frame_index": 1200,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0040.00s.png",
+      "sha256": "93a12b4808e5945f1023ced96fa47e00fffb76fccf8975e7a57a53153a0d192f",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 2,
+            "head_xy": [
+              648,
+              155
+            ],
+            "identity": "a",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V041",
+      "sequence_id": "clip-40",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 41,
+      "decoded_media_time": 41.0,
+      "decoded_frame_index": 1230,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0041.00s.png",
+      "sha256": "7bbb399f35edf91f140254deb956f5b0dc07c5b2f0553c1bb9290cb4c68c9f75",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 2,
+            "head_xy": [
+              635,
+              151
+            ],
+            "identity": "a",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V042",
+      "sequence_id": "clip-40",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 42,
+      "decoded_media_time": 42.0,
+      "decoded_frame_index": 1260,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0042.00s.png",
+      "sha256": "43a6005000f0f7766e581bd2e60dc80fe846aa968c6fa7b983e349fa3872d862",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 2,
+            "head_xy": [
+              616,
+              153
+            ],
+            "identity": "a",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V043",
+      "sequence_id": "clip-40",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 43,
+      "decoded_media_time": 43.0,
+      "decoded_frame_index": 1290,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0043.00s.png",
+      "sha256": "6fe5b21cbeec2abc2434d76abf6c3fa07f35e5341e3e5c490ee5c56dd9f92ab5",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 2,
+            "head_xy": [
+              599,
+              158
+            ],
+            "identity": "a",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V044",
+      "sequence_id": "clip-40",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 44,
+      "decoded_media_time": 44.0,
+      "decoded_frame_index": 1320,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0044.00s.png",
+      "sha256": "3f6e899e64ad08cebb9e098e746e47ee195247eb6c3b309e087324dcb8fed694",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 2,
+            "head_xy": [
+              575,
+              149
+            ],
+            "identity": "a",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V080",
+      "sequence_id": "clip-80",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 80,
+      "decoded_media_time": 80.0,
+      "decoded_frame_index": 2400,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0080.00s.png",
+      "sha256": "e1ce60cbd7807fdfe4474f71ee4ea221815c13750efa7fd45539dfe11f89c291",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              690,
+              65
+            ],
+            "identity": "a",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V081",
+      "sequence_id": "clip-80",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 81,
+      "decoded_media_time": 81.0,
+      "decoded_frame_index": 2430,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0081.00s.png",
+      "sha256": "f3ff5507cbc0cf02e3b29f15696fdb50578610ebeaf3f219da072e566af14aba",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              674,
+              68
+            ],
+            "identity": "a",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V082",
+      "sequence_id": "clip-80",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 82,
+      "decoded_media_time": 82.0,
+      "decoded_frame_index": 2460,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0082.00s.png",
+      "sha256": "408d55d31f2c80ba8e54b12508f37c07583b66c852265ab08d248399ae031d6d",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              657,
+              68
+            ],
+            "identity": "a",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V083",
+      "sequence_id": "clip-80",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 83,
+      "decoded_media_time": 83.0,
+      "decoded_frame_index": 2490,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0083.00s.png",
+      "sha256": "28ecdf9e401117440aa064db357d975b77e1f24cc52be82f31cd1d663f1e89a5",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              641,
+              66
+            ],
+            "identity": "a",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V084",
+      "sequence_id": "clip-80",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 84,
+      "decoded_media_time": 84.0,
+      "decoded_frame_index": 2520,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0084.00s.png",
+      "sha256": "98d363ecc1f31a1a5dfe9f85fc9f56dbb665af3b2b669c4972bd06db7367b55a",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              627,
+              60
+            ],
+            "identity": "a",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V160",
+      "sequence_id": "clip-160",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 160,
+      "decoded_media_time": 160.0,
+      "decoded_frame_index": 4800,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0160.00s.png",
+      "sha256": "6d554a07358ca62447d7e4230c6bd07f362899863800bfa198bb9ad52dbb63a3",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              739,
+              65
+            ],
+            "identity": "a",
+            "template": true
+          },
+          {
+            "row": 2,
+            "head_xy": [
+              738,
+              149
+            ],
+            "identity": "b",
+            "template": true
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              767,
+              490
+            ],
+            "identity": "c",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V161",
+      "sequence_id": "clip-160",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 161,
+      "decoded_media_time": 161.0,
+      "decoded_frame_index": 4830,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0161.00s.png",
+      "sha256": "572d70d2e9045b8f6ab981eee6a6c73602bb5e1bef73623dc5e58fe8d563d8b9",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              733,
+              65
+            ],
+            "identity": "a",
+            "template": false
+          },
+          {
+            "row": 2,
+            "head_xy": [
+              723,
+              154
+            ],
+            "identity": "b",
+            "template": false
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              747,
+              491
+            ],
+            "identity": "c",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V162",
+      "sequence_id": "clip-160",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 162,
+      "decoded_media_time": 162.0,
+      "decoded_frame_index": 4860,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0162.00s.png",
+      "sha256": "9dd4fea32d52ebd177e0a58914e980254866f1ca3d257517f0184e08d04a046f",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              717,
+              65
+            ],
+            "identity": "a",
+            "template": true
+          },
+          {
+            "row": 2,
+            "head_xy": [
+              715,
+              151
+            ],
+            "identity": "b",
+            "template": true
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              739,
+              490
+            ],
+            "identity": "c",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V163",
+      "sequence_id": "clip-160",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 163,
+      "decoded_media_time": 163.0,
+      "decoded_frame_index": 4890,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0163.00s.png",
+      "sha256": "67a8f48d50713f3b781dca5b8dc540bb30c448a62f15016eaefae804de217850",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              698,
+              60
+            ],
+            "identity": "a",
+            "template": false
+          },
+          {
+            "row": 2,
+            "head_xy": [
+              704,
+              152
+            ],
+            "identity": "b",
+            "template": false
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              720,
+              490
+            ],
+            "identity": "c",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V164",
+      "sequence_id": "clip-160",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 164,
+      "decoded_media_time": 164.0,
+      "decoded_frame_index": 4920,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0164.00s.png",
+      "sha256": "93d1c78952155a27ce315eb0cc295f619e3b823eecc5bcaae2693ce4704ca9a7",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              688,
+              60
+            ],
+            "identity": "a",
+            "template": false
+          },
+          {
+            "row": 2,
+            "head_xy": [
+              700,
+              150
+            ],
+            "identity": "b",
+            "template": false
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              714,
+              490
+            ],
+            "identity": "c",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V180",
+      "sequence_id": "clip-180",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 180,
+      "decoded_media_time": 180.0,
+      "decoded_frame_index": 5400,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0180.00s.png",
+      "sha256": "d1c6f5959c15698792bafeac6458b9a3a3bbcfb2e52c9d6f01841fa02dca789a",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 4,
+            "head_xy": [
+              660,
+              363
+            ],
+            "identity": "a",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V181",
+      "sequence_id": "clip-180",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 181,
+      "decoded_media_time": 181.0,
+      "decoded_frame_index": 5430,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0181.00s.png",
+      "sha256": "d2d136f7cff5cf54d5a28b5074a90f0741732918b1ec69d075393af67121675e",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 4,
+            "head_xy": [
+              642,
+              365
+            ],
+            "identity": "a",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V182",
+      "sequence_id": "clip-180",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 182,
+      "decoded_media_time": 182.0,
+      "decoded_frame_index": 5460,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0182.00s.png",
+      "sha256": "7ba85a99f0bd27a65e8d666892624a8caab93d282f3a300f43c0a794f130eff2",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 4,
+            "head_xy": [
+              641,
+              366
+            ],
+            "identity": "a",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V183",
+      "sequence_id": "clip-180",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 183,
+      "decoded_media_time": 183.0,
+      "decoded_frame_index": 5490,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0183.00s.png",
+      "sha256": "35abf6dc83c37c1b213a419f55f00df4b3b3005e621d30c4174369b3f5f65426",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 4,
+            "head_xy": [
+              622,
+              367
+            ],
+            "identity": "a",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V184",
+      "sequence_id": "clip-180",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 184,
+      "decoded_media_time": 184.0,
+      "decoded_frame_index": 5520,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0184.00s.png",
+      "sha256": "f174c6b23c520453a402b00f44964eaa768d803ee00836daf9de0d88ef10c603",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 4,
+            "head_xy": [
+              608,
+              365
+            ],
+            "identity": "a",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V220",
+      "sequence_id": "clip-220",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 220,
+      "decoded_media_time": 220.0,
+      "decoded_frame_index": 6600,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0220.00s.png",
+      "sha256": "7092926fcd8cb9058d9d28694fec3bbb989ff6a6431705d7f0b54a0e0a1e2c4f",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": []
+      }
+    },
+    {
+      "id": "D06-V221",
+      "sequence_id": "clip-220",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 221,
+      "decoded_media_time": 221.0,
+      "decoded_frame_index": 6630,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0221.00s.png",
+      "sha256": "4f9c69570fa6a22053648fcb45eb85eb39d23fa3ab00bc8fc2837c640b494a8a",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 4,
+            "head_xy": [
+              790,
+              325
+            ],
+            "identity": "a",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V222",
+      "sequence_id": "clip-220",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 222,
+      "decoded_media_time": 222.0,
+      "decoded_frame_index": 6660,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0222.00s.png",
+      "sha256": "891c1e8518a115cf6a380fe0d8840b577de533d2be183e07dc35039fd9624f6f",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 3,
+            "head_xy": [
+              788,
+              240
+            ],
+            "identity": "b",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              769,
+              325
+            ],
+            "identity": "a",
+            "template": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V223",
+      "sequence_id": "clip-220",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 223,
+      "decoded_media_time": 223.0,
+      "decoded_frame_index": 6690,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0223.00s.png",
+      "sha256": "13f964bd7253a26efeeee4500784b2a49e922b0be16e69372aab951d408ab31c",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              799,
+              65
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 3,
+            "head_xy": [
+              763,
+              190
+            ],
+            "identity": "b",
+            "template": false
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              739,
+              325
+            ],
+            "identity": "a",
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V224",
+      "sequence_id": "clip-220",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 224,
+      "decoded_media_time": 224.0,
+      "decoded_frame_index": 6720,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0224.00s.png",
+      "sha256": "c07ae5608029add5e9d16a16c633c48ab4a5a787c057a9d92e1dc84ae69ee7bf",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              775,
+              65
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 2,
+            "head_xy": [
+              793,
+              150
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              720,
+              325
+            ],
+            "identity": "a",
+            "template": true
+          },
+          {
+            "row": 5,
+            "head_xy": [
+              798,
+              410
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              797,
+              490
+            ],
+            "identity": null,
+            "template": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "D06-V000",
+      "sequence_id": "scene-development",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 0,
+      "decoded_media_time": 0.0,
+      "decoded_frame_index": 0,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0000.00s.png",
+      "sha256": "b63a44fc6dd25ab49aed14f7ca1dbb225937f5b2f3f1f0a88afb391a06c06776",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "nonplaying",
+        "zombies": []
+      }
+    },
+    {
+      "id": "D06-V005",
+      "sequence_id": "scene-development",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 5,
+      "decoded_media_time": 5.0,
+      "decoded_frame_index": 150,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0005.00s.png",
+      "sha256": "278b5e112ccd1bd3db0a1defd7621bc2e8481b56a153373291e576268707ffc8",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "nonplaying",
+        "zombies": []
+      }
+    },
+    {
+      "id": "D06-V010",
+      "sequence_id": "scene-development",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 10,
+      "decoded_media_time": 10.0,
+      "decoded_frame_index": 300,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0010.00s.png",
+      "sha256": "4429ff87bceab92685f2ac44d3a9a720f1233d7b4f1f676bca6994a812082d4e",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "nonplaying",
+        "zombies": []
+      }
+    },
+    {
+      "id": "D06-V470",
+      "sequence_id": "scene-development",
+      "split": "development",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 470,
+      "decoded_media_time": 470.0,
+      "decoded_frame_index": 14100,
+      "fps": 30.0,
+      "image": "data/day06/images/video-0470.00s.png",
+      "sha256": "a6e2a8750eb0f76fd8d36c4f9dd8653ae17457d12946b571c7bcc51435340a42",
+      "normalization": {
+        "crop_xyxy": [
+          305,
+          94,
+          2101,
+          1442
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "nonplaying",
+        "zombies": []
+      }
+    },
+    {
+      "id": "D06-N001",
+      "sequence_id": "D05-N001",
+      "split": "development",
+      "source": "evidence/day04/actions/00a85ba6ef3346b1bd4ac5992f14e9ac/captures/day04-before-2026-10-21T14-32-10-331390+00-00-d44686.png",
+      "timestamp_seconds": null,
+      "decoded_media_time": null,
+      "image": "evidence/day04/actions/00a85ba6ef3346b1bd4ac5992f14e9ac/captures/day04-before-2026-10-21T14-32-10-331390+00-00-d44686.png",
+      "sha256": "531ebc22410ed51b81eebdf95006b0b0f734f45930b91639e22209ce70fbfe36",
+      "labels": {
+        "scene": "nonplaying",
+        "zombies": []
+      }
+    },
+    {
+      "id": "D06-N011",
+      "sequence_id": "D05-N011",
+      "split": "development",
+      "source": "evidence/day04/actions/2a0062b716984b9894e7b70b4ce52fdf/captures/day04-after-2026-10-21T14-25-07-889722+00-00-a9660d.png",
+      "timestamp_seconds": null,
+      "decoded_media_time": null,
+      "image": "evidence/day04/actions/2a0062b716984b9894e7b70b4ce52fdf/captures/day04-after-2026-10-21T14-25-07-889722+00-00-a9660d.png",
+      "sha256": "3b0ff442030ae6c0b20414c5fc1791e0308d196271abc1cf19bda6eae6460815",
+      "labels": {
+        "scene": "nonplaying",
+        "zombies": []
+      }
+    },
+    {
+      "id": "D06-N026",
+      "sequence_id": "D05-N026",
+      "split": "development",
+      "source": "evidence/day04/actions/a2576d6e580f402baad2fc463723f793/captures/day04-after-2026-10-21T14-34-14-118700+00-00-60a2c0.png",
+      "timestamp_seconds": null,
+      "decoded_media_time": null,
+      "image": "evidence/day04/actions/a2576d6e580f402baad2fc463723f793/captures/day04-after-2026-10-21T14-34-14-118700+00-00-60a2c0.png",
+      "sha256": "803dd08a8a19f5e65c4249d78bd9217202eda364634d455e00dd9c068acec7bc",
+      "labels": {
+        "scene": "nonplaying",
+        "zombies": []
+      }
+    },
+    {
+      "id": "D06-A-060.000",
+      "sequence_id": "a-60",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 60,
+      "decoded_media_time": 60.0,
+      "decoded_frame_index": 1800,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/060.000.png",
+      "sha256": "255cf3b4dc80986c8582766cd4d3cde6f73fa3da35001bd94f9a16f4470ef75b",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 2,
+            "head_xy": [
+              754,
+              151
+            ],
+            "identity": "a60",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-061.000",
+      "sequence_id": "a-60",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 61,
+      "decoded_media_time": 61.0,
+      "decoded_frame_index": 1830,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/061.000.png",
+      "sha256": "40157bb4960f641e0737b17e6d3a9f18efb90342d67977da3277e7911d88ae96",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 2,
+            "head_xy": [
+              731,
+              150
+            ],
+            "identity": "a60",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-062.000",
+      "sequence_id": "a-60",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 62,
+      "decoded_media_time": 62.0,
+      "decoded_frame_index": 1860,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/062.000.png",
+      "sha256": "9afc0f2a9d08e8a093e4d4ef1d96297365dfa73bace5cd0a3623953ee084d938",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 2,
+            "head_xy": [
+              729,
+              155
+            ],
+            "identity": "a60",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-120.000",
+      "sequence_id": "a-120",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 120,
+      "decoded_media_time": 120.0,
+      "decoded_frame_index": 3600,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/120.000.png",
+      "sha256": "fcea2d4aad912703cca4a59002a114e7adf719ab930b88de6045ec64d86b65e2",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 6,
+            "head_xy": [
+              510,
+              504
+            ],
+            "identity": "a120",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-121.000",
+      "sequence_id": "a-120",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 121,
+      "decoded_media_time": 121.0,
+      "decoded_frame_index": 3630,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/121.000.png",
+      "sha256": "25337110df5265d8674f8a107b9b9c1e502d9b6238ecf5a30e148831d763e362",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 6,
+            "head_xy": [
+              512,
+              505
+            ],
+            "identity": "a120",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-122.000",
+      "sequence_id": "a-120",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 122,
+      "decoded_media_time": 122.0,
+      "decoded_frame_index": 3660,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/122.000.png",
+      "sha256": "6396df284ce238db317d4c8733d132327042973849ed221f18432a629a23e221",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 6,
+            "head_xy": [
+              510,
+              507
+            ],
+            "identity": "a120",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-180.000",
+      "sequence_id": "a-180",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 180,
+      "decoded_media_time": 180.0,
+      "decoded_frame_index": 5400,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/180.000.png",
+      "sha256": "aaeb5e020abb2e8da66c3741bb8c02a73f409cafc7aeaf0af37882ff18fb2b71",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              698,
+              63
+            ],
+            "identity": "a180-1",
+            "template": true
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              729,
+              500
+            ],
+            "identity": "a180-6",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-181.000",
+      "sequence_id": "a-180",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 181,
+      "decoded_media_time": 181.0,
+      "decoded_frame_index": 5430,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/181.000.png",
+      "sha256": "2b9eab91088efe7e99ad10d639e198b62c238926f03aa74c096e99254df4021a",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              678,
+              69
+            ],
+            "identity": "a180-1",
+            "template": true
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              719,
+              502
+            ],
+            "identity": "a180-6",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-182.000",
+      "sequence_id": "a-180",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 182,
+      "decoded_media_time": 182.0,
+      "decoded_frame_index": 5460,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/182.000.png",
+      "sha256": "2aa61f790843eab689f9d067b7a2c622202194e205095adab090b729d43c61b1",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              662,
+              79
+            ],
+            "identity": "a180-1",
+            "template": true
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              699,
+              505
+            ],
+            "identity": "a180-6",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-240.000",
+      "sequence_id": "a-240",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 240,
+      "decoded_media_time": 240.0,
+      "decoded_frame_index": 7200,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/240.000.png",
+      "sha256": "ef1f593705bb4cd3dc030edbc231188164b43d127815f0ea2675ccabc766cfcb",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 3,
+            "head_xy": [
+              565,
+              272
+            ],
+            "identity": "a240-front",
+            "template": true
+          },
+          {
+            "row": 3,
+            "head_xy": [
+              665,
+              277
+            ],
+            "identity": "a240-back",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-241.000",
+      "sequence_id": "a-240",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 241,
+      "decoded_media_time": 241.0,
+      "decoded_frame_index": 7230,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/241.000.png",
+      "sha256": "bfe234493905264e61af2cf85470f607d1eb8cbdaf2d043d56cffae870ddff52",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              789,
+              73
+            ],
+            "identity": "a240-new1",
+            "template": true
+          },
+          {
+            "row": 3,
+            "head_xy": [
+              649,
+              280
+            ],
+            "identity": "a240-back",
+            "template": true
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              789,
+              492
+            ],
+            "identity": "a240-new6",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-242.000",
+      "sequence_id": "a-240",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 242,
+      "decoded_media_time": 242.0,
+      "decoded_frame_index": 7260,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/242.000.png",
+      "sha256": "3b75f7d8f8ec876e507121b2a901740d6df45ce76a74598b231de83230fa6d75",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              778,
+              68
+            ],
+            "identity": "a240-new1",
+            "template": true
+          },
+          {
+            "row": 3,
+            "head_xy": [
+              644,
+              272
+            ],
+            "identity": "a240-back",
+            "template": true
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              790,
+              489
+            ],
+            "identity": "a240-new6",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-300.000",
+      "sequence_id": "a-300",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 300,
+      "decoded_media_time": 300.0,
+      "decoded_frame_index": 9000,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/300.000.png",
+      "sha256": "37c80075554ea1a95b62ae54e01440367b0b2538915dacc5c7496c53d5d1d4ea",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 4,
+            "head_xy": [
+              584,
+              395
+            ],
+            "identity": "a300-snorkel",
+            "template": true,
+            "pose": "submerged"
+          }
+        ],
+        "negative_heads": [
+          [
+            714,
+            159
+          ]
+        ]
+      }
+    },
+    {
+      "id": "D06-A-301.000",
+      "sequence_id": "a-300",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 301,
+      "decoded_media_time": 301.0,
+      "decoded_frame_index": 9030,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/301.000.png",
+      "sha256": "105c144e0228a07b268cf8cbfb7467c9387a203cd2dc977e0fa0cb1947da1993",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              788,
+              55
+            ],
+            "identity": "a300-new1",
+            "template": true
+          },
+          {
+            "row": 3,
+            "head_xy": [
+              791,
+              227
+            ],
+            "identity": "a300-new3",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              565,
+              396
+            ],
+            "identity": "a300-snorkel",
+            "template": true,
+            "pose": "submerged"
+          },
+          {
+            "row": 5,
+            "head_xy": [
+              797,
+              390
+            ],
+            "identity": null,
+            "template": true
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              795,
+              480
+            ],
+            "identity": null,
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-302.000",
+      "sequence_id": "a-300",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 302,
+      "decoded_media_time": 302.0,
+      "decoded_frame_index": 9060,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/302.000.png",
+      "sha256": "00e75f1245cfbc165115027b6be4e46ad16c465547ae7bbdf0bde8f1a0e07622",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              775,
+              54
+            ],
+            "identity": "a300-new1",
+            "template": true
+          },
+          {
+            "row": 2,
+            "head_xy": [
+              790,
+              134
+            ],
+            "identity": null,
+            "template": true
+          },
+          {
+            "row": 3,
+            "head_xy": [
+              777,
+              230
+            ],
+            "identity": "a300-new3",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              545,
+              397
+            ],
+            "identity": "a300-snorkel",
+            "template": true,
+            "pose": "submerged"
+          },
+          {
+            "row": 5,
+            "head_xy": [
+              797,
+              393
+            ],
+            "identity": null,
+            "template": true
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              786,
+              479
+            ],
+            "identity": null,
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-360.000",
+      "sequence_id": "a-360",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 360,
+      "decoded_media_time": 360.0,
+      "decoded_frame_index": 10800,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/360.000.png",
+      "sha256": "3e188c18f4c8fcab1852f3dd87a6c4e5c97be0c437212d8f5435ee0e04370992",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-361.000",
+      "sequence_id": "a-360",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 361,
+      "decoded_media_time": 361.0,
+      "decoded_frame_index": 10830,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/361.000.png",
+      "sha256": "a3e5ad778fb2bdc2871e6360f1ba3978face485f776d88cf3f70d3a26189a958",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-362.000",
+      "sequence_id": "a-360",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 362,
+      "decoded_media_time": 362.0,
+      "decoded_frame_index": 10860,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/362.000.png",
+      "sha256": "1557396ab3f3b08a342c16a77f4766a78ff39d608b7d780ec02a29183c0cee26",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-420.000",
+      "sequence_id": "a-420",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 420,
+      "decoded_media_time": 420.0,
+      "decoded_frame_index": 12600,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/420.000.png",
+      "sha256": "3f5ac92123cbe5b421ad2a7da19ba3b2387f4d07b69db8ed8c2a96cf39b37114",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              770,
+              78
+            ],
+            "identity": "a420-bucket",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              737,
+              328
+            ],
+            "identity": "a420-cone",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              795,
+              333
+            ],
+            "identity": null,
+            "template": true
+          },
+          {
+            "row": 5,
+            "head_xy": [
+              764,
+              408
+            ],
+            "identity": "a420-5",
+            "template": true
+          }
+        ],
+        "negative_heads": [
+          [
+            785,
+            474
+          ]
+        ]
+      }
+    },
+    {
+      "id": "D06-A-421.000",
+      "sequence_id": "a-420",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 421,
+      "decoded_media_time": 421.0,
+      "decoded_frame_index": 12630,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/421.000.png",
+      "sha256": "5c99815d674e89ea2a778d1bed3ed8677a5b4eb0b91ca99d1b4c4ada58cb736f",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              750,
+              88
+            ],
+            "identity": "a420-bucket",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              728,
+              327
+            ],
+            "identity": "a420-cone",
+            "template": true
+          },
+          {
+            "row": 5,
+            "head_xy": [
+              747,
+              410
+            ],
+            "identity": "a420-5",
+            "template": true
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-422.000",
+      "sequence_id": "a-420",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 422,
+      "decoded_media_time": 422.0,
+      "decoded_frame_index": 12660,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/422.000.png",
+      "sha256": "6057c4db7478315f12e7831d3ce61d2a2f288df2aab208cb58edba4ba7373615",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 1,
+            "head_xy": [
+              744,
+              91
+            ],
+            "identity": "a420-bucket",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              715,
+              354
+            ],
+            "identity": "a420-cone",
+            "template": true
+          }
+        ],
+        "negative_heads": [
+          [
+            768,
+            478
+          ]
+        ]
+      }
+    },
+    {
+      "id": "D06-A-450.000",
+      "sequence_id": "a-450",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 450,
+      "decoded_media_time": 450.0,
+      "decoded_frame_index": 13500,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/450.000.png",
+      "sha256": "17b4cd48831c0dcd49f693a3bd02bff49c8a5a8482a1f9773ec137ca98a6b86f",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 3,
+            "head_xy": [
+              579,
+              273
+            ],
+            "identity": "a450-3",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              653,
+              360
+            ],
+            "identity": "a450-4",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              720,
+              345
+            ],
+            "identity": "a450-snorkel",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              795,
+              301
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 5,
+            "head_xy": [
+              772,
+              387
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              795,
+              480
+            ],
+            "identity": null,
+            "template": false
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-451.000",
+      "sequence_id": "a-450",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 451,
+      "decoded_media_time": 451.0,
+      "decoded_frame_index": 13530,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/451.000.png",
+      "sha256": "f065cf29f5c09df3550f690610582ccff14436f0397ce84826423154c506d9fe",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 3,
+            "head_xy": [
+              571,
+              264
+            ],
+            "identity": "a450-3",
+            "template": true
+          },
+          {
+            "row": 3,
+            "head_xy": [
+              790,
+              232
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              647,
+              357
+            ],
+            "identity": "a450-4",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              714,
+              409
+            ],
+            "identity": "a450-snorkel",
+            "template": true,
+            "pose": "submerged"
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              787,
+              313
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 5,
+            "head_xy": [
+              768,
+              404
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 6,
+            "head_xy": [
+              795,
+              481
+            ],
+            "identity": null,
+            "template": false
+          }
+        ],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-452.000",
+      "sequence_id": "a-450",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 452,
+      "decoded_media_time": 452.0,
+      "decoded_frame_index": 13560,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/452.000.png",
+      "sha256": "c037bd8ca6ad5963c95ac259b84ca7d0d8135d18b80d2c735e1728580aeac101",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [
+          {
+            "row": 3,
+            "head_xy": [
+              555,
+              276
+            ],
+            "identity": "a450-3",
+            "template": true
+          },
+          {
+            "row": 3,
+            "head_xy": [
+              784,
+              228
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              639,
+              367
+            ],
+            "identity": "a450-4",
+            "template": true
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              700,
+              412
+            ],
+            "identity": "a450-snorkel",
+            "template": true,
+            "pose": "submerged"
+          },
+          {
+            "row": 4,
+            "head_xy": [
+              781,
+              305
+            ],
+            "identity": null,
+            "template": false
+          },
+          {
+            "row": 5,
+            "head_xy": [
+              759,
+              409
+            ],
+            "identity": null,
+            "template": false
+          }
+        ],
+        "negative_heads": [
+          [
+            768,
+            482
+          ]
+        ]
+      }
+    },
+    {
+      "id": "D06-A-000.000",
+      "sequence_id": "a-scene-0",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 0,
+      "decoded_media_time": 0.0,
+      "decoded_frame_index": 0,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/000.000.png",
+      "sha256": "d3bd25e9acd26fcf9f0fef3dc0012917102e7d73d517e79fc9935598ba7e70a2",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "nonplaying",
+        "zombies": [],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-015.000",
+      "sequence_id": "a-scene-15",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 15,
+      "decoded_media_time": 15.0,
+      "decoded_frame_index": 450,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/015.000.png",
+      "sha256": "7aa67d10914b93a95463f2edfa28372b5b71672e8aa32edc62d8169b4afa7f4b",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "playing",
+        "zombies": [],
+        "negative_heads": []
+      }
+    },
+    {
+      "id": "D06-A-470.500",
+      "sequence_id": "a-scene-end",
+      "split": "development",
+      "run_id": "human-20261023-a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 470.5,
+      "decoded_media_time": 470.5,
+      "decoded_frame_index": 14115,
+      "fps": 30.0,
+      "image": "data/day06/crossgame-v1/a/images/470.500.png",
+      "sha256": "01802014b4c8da5e2c4c9b8d8a59d2910525103a4a8ba6ebc2ef267a708be22f",
+      "normalization": {
+        "crop_xyxy": [
+          0,
+          56,
+          1796,
+          1403
+        ],
+        "size": [
+          800,
+          600
+        ]
+      },
+      "labels": {
+        "scene": "nonplaying",
+        "zombies": [],
+        "negative_heads": []
+      }
+    }
+  ],
+  "annotation": {
+    "annotation_method": "Assistant visual review of all clip contact sheets and right-side strips before predictions. Approximate visible head reference centers, not exact full-body boxes. Row checked against body/water lane. No second annotator.",
+    "point_format": [
+      "row",
+      "head_x",
+      "head_y",
+      "identity_within_clip_or_null"
+    ],
+    "scope": "Visible headed entities only. Headless bodies, detached heads and corpses are negative examples. Occluded entities without a separately visible head are not exhaustively labeled; empty candidates never imply a clear lane. Helmet centers approximate head reference. Identity null in crowded or uncertain cases.",
+    "position_tolerance_pixels": 25,
+    "negative_scene_times": [
+      0,
+      5,
+      10,
+      470,
+      471,
+      475,
+      478
+    ],
+    "known_scene_defect_reuse": "470s reward was already a diagnosed Day05 failure and is explicitly development data here. Later reward frames are same-event regression, not independent validation."
+  },
+  "annotation_revision": {
+    "source": "data/day06/samples-v1.json",
+    "revision": 2,
+    "phase": "development only before held-out evaluation",
+    "corrections": [
+      {
+        "sample_id": "D06-V223",
+        "field": "zombies[2].head_xy",
+        "old": [
+          766,
+          325
+        ],
+        "new": [
+          739,
+          325
+        ],
+        "reason": "Visible flag zombie face centered at x739. Prior point was shifted onto body/right background.",
+        "evidence": "evidence/day06/development-review/223-water.png"
+      },
+      {
+        "sample_id": "D06-V181",
+        "field": "zombies[0].template",
+        "old": false,
+        "new": true,
+        "reason": "Development animation pose missed by v1/v2; add visible development crop."
+      }
+    ]
+  }
+}

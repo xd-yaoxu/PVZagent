@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-10-25T04:38:43.506487+00:00",
+  "artifacts": {
+    "src/pvz_agent/card_identity.py": "1cdcebad39cbf87d9e16a86835e3ef62d0f38f0fd96a255232667d5e69cf05a0",
+    "scripts/day06_cards_prepare.py": "4edf96425d358c15603e3621effd3940488db79879febe616e9b29496fd3989f",
+    "config/card-identity-v1.json": "9466c8687b2db5324a5cd38505b4ca7784725297f7fce44a0cb9ac8899ca68db",
+    "data/day06/card-identity-v1/catalog-v1.json": "fdf47f4ab53550d3fa936100fd3ac4f2acf154bb89c15e9ef49a8d1370181860",
+    "data/day06/crossgame-v1/a/images/120.000.png": "fcea2d4aad912703cca4a59002a114e7adf719ab930b88de6045ec64d86b65e2"
+  }
+}

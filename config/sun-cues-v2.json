@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "model": "data/day06/resource-review-v1/sun-cue-v2.npz",
+  "search_xyxy": [
+    0,
+    80,
+    800,
+    560
+  ],
+  "match_threshold": 0.82,
+  "cluster_radius": 28,
+  "core_radius": 10,
+  "bright_core_fraction_min": 0.25,
+  "yellow_fraction_min": 0.18
+}

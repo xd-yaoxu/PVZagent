@@ -1,0 +1,59 @@
+{
+  "template_refs": [
+    {
+      "id": "VEH-a-448",
+      "run_id": "a",
+      "split": "development",
+      "image": "data/day06/vehicle-v1/a-448.png",
+      "sha256": "b3d9545146e760bd098992db3379d38a56e2b5b7e88bc15fec5e771d04c4c48a",
+      "row": 1,
+      "front_xy": [
+        731,
+        123
+      ],
+      "ground_reference_y": 173,
+      "parts": [
+        [
+          731,
+          112,
+          763,
+          145
+        ],
+        [
+          736,
+          140,
+          760,
+          154
+        ]
+      ]
+    },
+    {
+      "id": "VEH-a-449",
+      "run_id": "a",
+      "split": "development",
+      "image": "data/day06/vehicle-v1/a-449.png",
+      "sha256": "009c202284a18d5f3eb7550dc8cb53636285d54ad82b99cffb8a5bcc8bb92299",
+      "row": 1,
+      "front_xy": [
+        704,
+        123
+      ],
+      "ground_reference_y": 173,
+      "parts": [
+        [
+          704,
+          112,
+          736,
+          145
+        ],
+        [
+          709,
+          140,
+          733,
+          154
+        ]
+      ]
+    }
+  ],
+  "training_source": "A only"
+}

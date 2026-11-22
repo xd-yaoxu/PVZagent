@@ -1,0 +1,20 @@
+{
+  "version": 5,
+  "status": "experimental_day05",
+  "model": "data/day05/model-v5.npz",
+  "dataset": "data/day05/samples-v2.json",
+  "sun_roi_xyxy": [24, 55, 68, 72],
+  "digit_distance_max": 0.20,
+  "digit_margin_min": 0.025,
+  "number_distance_max": 0.075,
+  "number_margin_min": 0.004,
+  "card_distance_max": 0.11,
+  "card_margin_min": 0.018,
+  "cell_distance_max": 0.12,
+  "cell_margin_min": 0.012,
+  "scene_distance_max": 0.20,
+  "scene_margin_min": 0.012,
+  "confidence_semantics": "Uncalibrated visual similarity score, not probability. Unknown on distance/margin failure.",
+  "scope": "Fixed 800x600 original PvZ 3-7 screenshots. Day02 video normalization and day04 native scene samples only; no autonomous input.",
+  "threshold_policy": "Initial conservative thresholds fixed before held-out evaluation; report abstentions and errors, do not tune to held-out labels."
+}

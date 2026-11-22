@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-10-24T14:47:28.255197+00:00",
+  "artifacts": {
+    "config/resource-attention-v1.json": "00fe0b36cfab04426a856f25a6493bbbd53616eb85d461677eeb7780dce3bc5c",
+    "scripts/day06_resource_live.py": "064041100b70cb72e478b99959d6126613816c4e011b7660f696c6ea1974683c",
+    "config/sun-cues-v2.json": "30b4f198614ee0e98d3b9886805f753db4d109f5e3fd453f2c611b04cc187ac2",
+    "data/day06/resource-review-v1/sun-cue-v2.npz": "fdf90687c3cb505ecef3137ec554e0e085c6010e5ee7b18ef5e485a95f4997e1",
+    "src/pvz_agent/sun_cues.py": "96bf769cc0986ded3aadafe7a86033164f6c966fe9ef4a66b3b8b3849204e2d0",
+    "src/pvz_agent/resource_review.py": "a026c1d79c7540b366ae2e2581afa743c52ab7b65af24ffa553abb67132d5a1f",
+    "src/pvz_agent/resource_runtime.py": "c6b0cf91feec6eeaac27bdfefc14ab8b903b6e034f98d92f4e94ec0717334cfe",
+    "src/pvz_agent/resource_stream.py": "28d71d8ce66c8cd90ab5bdd8a450de3c0f996f99eee2cf2ac3ce4850fa422d72",
+    "src/pvz_agent/strategy_profile.py": "d2011ed88e90dbbcf6b9a69b925ae8f9bc4098ef878cbe3c69f8eb4f38d13cc6",
+    "scripts/day06_resource_entry.py": "12262ce81f6a845ab379acecdb5c9a97b9966941eb99eb3828074e4623f3c741"
+  },
+  "input_age_seconds": 1.5,
+  "result_age_seconds": 2,
+  "historical_strategy_seconds": 30,
+  "source_dispatch_changed": false,
+  "defense_rule_changed": false,
+  "input_sent": false
+}

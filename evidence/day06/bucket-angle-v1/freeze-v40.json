@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-24T13:09:41.080664+00:00",
+  "artifacts": {
+    "data/day06/bucket-angle-v1/model-v40.npz": "d4f725b30efb57dfc63c2893a74dc22429ac50e88abdfea6cc0f41ccde44267f",
+    "data/day06/bucket-angle-v1/model-v40.json": "270053d0561cbc9e9cdd57435ea27376c7632175fe15569beb0792bc4bbff55b",
+    "config/zombie-perception-bucket-v40.json": "0d8201666c1cfaca32d145f37e0bd7de0577a103588608911324b7082e430d00",
+    "src/pvz_agent/bucket_water_interior.py": "88c2744c2523a4237a5976fbd6d268e9be5cb6737e3542c26f35092df419edf8",
+    "src/pvz_agent/bucket_water_oriented.py": "7e46888d5bc413a71603318433fe9caf065dc870636b3841deca73dee748b114",
+    "scripts/day06_bucket_angle_interior.py": "11e631d9eb545f59fc9aa858161aea3eafa3576239c42cf7e6f3fdabe87c3317"
+  },
+  "old_arrays_unchanged": true,
+  "new_template_pixels": false,
+  "inherited_thresholds_changed": false,
+  "added_tilted_interior_gate": true,
+  "known_v39_raw_proposals_seen": true,
+  "input_sent": false
+}

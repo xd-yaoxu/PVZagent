@@ -1,0 +1,17 @@
+{
+  "schema": "pvz-goal-review/1",
+  "policy": {
+    "left_warning_x": 200,
+    "other_lane_margin_px": 80
+  },
+  "geometry_basis": "Historical canonical grid x40, width720,9columns; left warning is x40+2*80, margin80. Read-only warning heuristic, not an action threshold or calibrated danger score.",
+  "supported_scoped_goal": "defend_lane",
+  "other_goals": "original full-field comparison",
+  "source_dispatch_gate": "unchanged original full known observed_basis",
+  "live_config": "config/llm-strategy-v1.json",
+  "max_result_age_seconds": 2,
+  "historical_review_window_seconds": 30,
+  "input_sent": false,
+  "action_eligible": false,
+  "experimental": true
+}

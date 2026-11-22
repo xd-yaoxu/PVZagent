@@ -1,0 +1,228 @@
+{
+  "vehicles.candidates": {
+    "source": "evidence/day06/edge-presence-v1/vehicles-v35/states/VEH-a-446.json",
+    "source_sha256": "fa8d48ced308d7363d02dae7de6ec9e601f77c55e38ed75ff657e1aa3eb0d96a",
+    "item": {
+      "kind": "vehicle_body_candidate",
+      "vehicle_class_hypothesis": "zamboni",
+      "row": 1,
+      "similarity": 0.92119,
+      "part_similarities": [
+        0.89294,
+        0.94944
+      ],
+      "visible_part_fractions": [
+        0.5625,
+        0.5416666666666666
+      ],
+      "vehicle_template_index": 0,
+      "box_xyxy": [
+        782,
+        112,
+        800,
+        154
+      ],
+      "box_semantics": "visible matched hood and chassis parts; not full body",
+      "truncated": true,
+      "row_evidence": "learned_hood_chassis_offset_to_land_row",
+      "row_evidence_limits": "Screenshot offset; no direct wheel contact or memory measurement.",
+      "alive": null,
+      "health": null,
+      "threat_level": null,
+      "empty_lane_verified": false,
+      "detection_id": "VEH-a-446:v1",
+      "color_context": {
+        "blue_area": 551,
+        "white_fraction": 0.66667,
+        "blue_reference_xy": [
+          779,
+          122
+        ],
+        "hud_pixels_excluded": [
+          590,
+          560,
+          800,
+          600
+        ]
+      },
+      "track_id": "vehicle-a:vehicles:z1",
+      "track_status": "tentative",
+      "association_reason": "observed_geometry",
+      "front_xy": [
+        782,
+        123
+      ]
+    }
+  },
+  "vehicles.tracks": {
+    "source": "evidence/day06/edge-presence-v1/vehicles-v35/states/VEH-a-446.json",
+    "source_sha256": "fa8d48ced308d7363d02dae7de6ec9e601f77c55e38ed75ff657e1aa3eb0d96a",
+    "item": {
+      "track_id": "vehicle-a:vehicles:z1",
+      "row": 1,
+      "last_seen_time": 446,
+      "last_seen_state_id": "VEH-a-446",
+      "velocity_x": null,
+      "hits": 1,
+      "status": "tentative",
+      "history": [
+        {
+          "state_id": "VEH-a-446",
+          "time": 446,
+          "front_xy": [
+            782,
+            123
+          ]
+        }
+      ],
+      "observed_this_frame": true,
+      "age_since_seen_seconds": 0,
+      "position_is_current_observation": true,
+      "velocity_semantics": "apparent_vehicle_front_x_change_not_measured_game_speed",
+      "confidence_semantics": "association_status_not_identity_probability",
+      "front_xy": [
+        782,
+        123
+      ]
+    }
+  },
+  "vehicles.uncertain_candidates": {
+    "source": "evidence/day06/edge-presence-v1/historical-v35/states/D06-S261.json",
+    "source_sha256": "9755ef905873ab4afc4816d5aaf5eb933eb000822d39309b62e716bc5627e2e9",
+    "item": {
+      "kind": "vehicle_body_candidate",
+      "vehicle_class_hypothesis": "zamboni",
+      "row": null,
+      "front_xy": [
+        764,
+        317
+      ],
+      "box_xyxy": [
+        764,
+        289,
+        779,
+        324
+      ],
+      "box_semantics": "visible hood and chassis color support, HUD excluded; not full vehicle extent",
+      "position_semantics": "left visible chassis reference; hood nose may project farther forward",
+      "similarity": null,
+      "score_semantics": "color geometry support; no template similarity or probability",
+      "color_context": {
+        "blue_area": 103,
+        "white_fraction": 0.38571,
+        "blue_reference_xy": [
+          764,
+          317
+        ],
+        "hud_pixels_excluded": [
+          590,
+          560,
+          800,
+          600
+        ]
+      },
+      "vehicle_template_index": null,
+      "truncated": false,
+      "row_evidence": "visible_white_hood_over_blue_chassis_land_band",
+      "row_evidence_limits": "Fixed screenshot color/height bands; no wheel contact, identity or speed guarantee.",
+      "alive": null,
+      "health": null,
+      "threat_level": null,
+      "empty_lane_verified": false,
+      "detection_id": "D06-S261:v1"
+    }
+  },
+  "zombies.uncertain_edge_presence": {
+    "source": "evidence/day06/edge-presence-v1/vehicles-v35/states/VEH-b-449.json",
+    "source_sha256": "7b28c5ea61b768165e038af24c26a2794541f069e918bf4167a9e5395ed59f90",
+    "item": {
+      "kind": "uncertain_right_edge_water_context",
+      "box_semantics": "visible red component only; not a head or body box",
+      "row": null,
+      "possible_rows": [
+        3,
+        4
+      ],
+      "row_semantics": "water-lane possibilities, not observed landing or feet",
+      "track_id": null,
+      "alive": null,
+      "health": null,
+      "type_identity": null,
+      "confidence": null,
+      "score_semantics": "uncalibrated color and spatial cues, not probability",
+      "relationship_to_detected_heads": "may overlap; not an additional entity count",
+      "fresh_observation": true,
+      "expires_after_frame": true,
+      "action_eligible": false,
+      "support": {
+        "skin_like": {
+          "roi_xyxy": [
+            776,
+            327,
+            800,
+            382
+          ],
+          "pixels": 390,
+          "fraction": 0.29545454545454547
+        },
+        "yellow_like": {
+          "roi_xyxy": [
+            738,
+            357,
+            800,
+            437
+          ],
+          "pixels": 245,
+          "fraction": 0.04939516129032258
+        },
+        "adjacent_water": {
+          "roi_xyxy": [
+            666,
+            342,
+            731,
+            437
+          ],
+          "fraction": 0.7757085020242915
+        }
+      },
+      "limitations": "Color coincidence possible; no confirmed zombie, flag identity, death, or empty-lane assurance.",
+      "visible_red_component_box_xyxy": [
+        746,
+        283,
+        795,
+        332
+      ],
+      "shape_evidence": {
+        "width": 49,
+        "height": 49,
+        "width_height_ratio": 1.0
+      },
+      "context_id": "VEH-b-449:edge1",
+      "state_id": "VEH-b-449",
+      "capture_time": "video:449",
+      "evidence": {
+        "image": "data/day06/vehicle-v1/b-449.png",
+        "image_sha256": "56e9d25ed4f0a3f1f831b09056edc7eedb28787b56678894b6f7f581d8631b8a",
+        "source": "evidence/day06/new-games-20261023/game-b.mp4",
+        "source_sha256": "f8603e7fbb0de5e2373798ec5225278b72ebd18a000c949f01ec16af0bf8404a",
+        "source_time_seconds": 449
+      }
+    }
+  },
+  "zombies.uncertain_water_candidates": {
+    "source": "src/pvz_agent/water_pose_perception.py:150",
+    "source_sha256": "3d2257e5f94fe19f2b8b49ae0ae5b7ebce85f1fadb4301718f4fe349a08dbbe0",
+    "item": {
+      "head_xy": [
+        510,
+        300
+      ],
+      "row": null,
+      "possible_rows": [
+        3,
+        4
+      ],
+      "reason": "multiple_visible_candidates_near_pose"
+    }
+  }
+}

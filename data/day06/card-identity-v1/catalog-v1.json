@@ -1,0 +1,74 @@
+{
+  "schema": "pvz-reviewed-card-catalog/1",
+  "created_at": "2026-10-25T04:38:43.390126+00:00",
+  "review": "Assistant visual review of native A120 image and existing run-cards record; known-source, not independent labels.",
+  "reference": {
+    "image": "data/day06/crossgame-v1/a/images/120.000.png",
+    "image_sha256": "fcea2d4aad912703cca4a59002a114e7adf719ab930b88de6045ec64d86b65e2",
+    "run_id": "human-20261023-a",
+    "timestamp_seconds": 120,
+    "split": "development"
+  },
+  "cards": [
+    {
+      "plant_id": "sunflower",
+      "display_name": "向日葵",
+      "display_cost": 50,
+      "reference_slot": 1
+    },
+    {
+      "plant_id": "lily_pad",
+      "display_name": "睡莲",
+      "display_cost": 25,
+      "reference_slot": 2
+    },
+    {
+      "plant_id": "potato_mine",
+      "display_name": "土豆雷",
+      "display_cost": 25,
+      "reference_slot": 3
+    },
+    {
+      "plant_id": "peashooter",
+      "display_name": "豌豆射手",
+      "display_cost": 100,
+      "reference_slot": 4
+    },
+    {
+      "plant_id": "cherry_bomb",
+      "display_name": "樱桃炸弹",
+      "display_cost": 150,
+      "reference_slot": 5
+    },
+    {
+      "plant_id": "repeater",
+      "display_name": "双发射手",
+      "display_cost": 200,
+      "reference_slot": 6
+    },
+    {
+      "plant_id": "tangle_kelp",
+      "display_name": "缠绕海草",
+      "display_cost": 25,
+      "reference_slot": 7
+    },
+    {
+      "plant_id": "squash",
+      "display_name": "窝瓜",
+      "display_cost": 50,
+      "reference_slot": 8
+    },
+    {
+      "plant_id": "wallnut",
+      "display_name": "坚果",
+      "display_cost": 50,
+      "reference_slot": 9
+    },
+    {
+      "plant_id": "spikeweed",
+      "display_name": "地刺",
+      "display_cost": 100,
+      "reference_slot": 10
+    }
+  ]
+}

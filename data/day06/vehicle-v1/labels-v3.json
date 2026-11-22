@@ -1,0 +1,832 @@
+{
+  "schema": "pvz-vehicle-labels/1",
+  "samples": [
+    {
+      "id": "VEH-a-436",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 436,
+      "decoded_media_time": 436.0,
+      "decoded_frame_index": 13080,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-436.png",
+      "sha256": "b3c79e8ccb8bed3ca756fd6946b1e28ebfe52f970e0e90b985cee66d4c4bd830",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-a-438",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 438,
+      "decoded_media_time": 438.0,
+      "decoded_frame_index": 13140,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-438.png",
+      "sha256": "1a25e8680521dbc99197a2517cc20cd7bae38211ad7287fa22b755fd1773f3f3",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-a-440",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 440,
+      "decoded_media_time": 440.0,
+      "decoded_frame_index": 13200,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-440.png",
+      "sha256": "3c91f80acee09d4db76c6cbeb586df487e31fc89e03a0c9f5dfb3a58f83b4d34",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-a-442",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 442,
+      "decoded_media_time": 442.0,
+      "decoded_frame_index": 13260,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-442.png",
+      "sha256": "74716368158a44191cefc39175804c381c989b0c8f660c426c82441141cce96f",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-a-444",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 444,
+      "decoded_media_time": 444.0,
+      "decoded_frame_index": 13320,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-444.png",
+      "sha256": "25f5a5d0e3e8eacdabac388bec9378bde444892fd2086145614fa7083f6cbcd9",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-a-446",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 446,
+      "decoded_media_time": 446.0,
+      "decoded_frame_index": 13380,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-446.png",
+      "sha256": "1ba56a9c07da2956ad034555ba5be29a0ead8d4c46eed8fa06dcee1a66c5e6d4",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 1,
+          "front_xy": [
+            779,
+            123
+          ],
+          "identity": "a-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Hood and chassis visible at right edge; corrected after first predictions."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-a-448",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 448,
+      "decoded_media_time": 448.0,
+      "decoded_frame_index": 13440,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-448.png",
+      "sha256": "b3d9545146e760bd098992db3379d38a56e2b5b7e88bc15fec5e771d04c4c48a",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 1,
+          "front_xy": [
+            731,
+            123
+          ],
+          "identity": "a-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Approximate hood/front reference, not complete body extent."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-a-449",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 449,
+      "decoded_media_time": 449.0,
+      "decoded_frame_index": 13470,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-449.png",
+      "sha256": "009c202284a18d5f3eb7550dc8cb53636285d54ad82b99cffb8a5bcc8bb92299",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 1,
+          "front_xy": [
+            704,
+            123
+          ],
+          "identity": "a-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Approximate hood/front reference, not complete body extent."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-a-450",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 450,
+      "decoded_media_time": 450.0,
+      "decoded_frame_index": 13500,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-450.png",
+      "sha256": "17b4cd48831c0dcd49f693a3bd02bff49c8a5a8482a1f9773ec137ca98a6b86f",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": "explosion_or_residual_smoke"
+    },
+    {
+      "id": "VEH-a-451",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 451,
+      "decoded_media_time": 451.0,
+      "decoded_frame_index": 13530,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-451.png",
+      "sha256": "f065cf29f5c09df3550f690610582ccff14436f0397ce84826423154c506d9fe",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": "explosion_or_residual_smoke"
+    },
+    {
+      "id": "VEH-a-452",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 452,
+      "decoded_media_time": 452.0,
+      "decoded_frame_index": 13560,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-452.png",
+      "sha256": "c037bd8ca6ad5963c95ac259b84ca7d0d8135d18b80d2c735e1728580aeac101",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": "explosion_or_residual_smoke"
+    },
+    {
+      "id": "VEH-a-453",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 453,
+      "decoded_media_time": 453.0,
+      "decoded_frame_index": 13590,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-453.png",
+      "sha256": "689693720530a0c008947a4a9da83330ed9b92d8cbd16e34d6247084e65fc3a4",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": "explosion_or_residual_smoke"
+    },
+    {
+      "id": "VEH-a-454",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 454,
+      "decoded_media_time": 454.0,
+      "decoded_frame_index": 13620,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-454.png",
+      "sha256": "fa7b3a92e85286602e7323ffa982f644c1f1be574ca46f42ad6d772e2406ce2f",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-a-460",
+      "run_id": "a",
+      "source": "evidence/day06/new-games-20261023/game-a.mp4",
+      "source_sha256": "6ce565ed2e41f57acbfcceda799026b76907af2d0d85d3a1d57491354f3891e4",
+      "timestamp_seconds": 460,
+      "decoded_media_time": 460.0,
+      "decoded_frame_index": 13800,
+      "fps": 30.0,
+      "crop_xyxy": [
+        0,
+        56,
+        1796,
+        1403
+      ],
+      "image": "data/day06/vehicle-v1/a-460.png",
+      "sha256": "f0a4750d84ce3be4932b656c7ff883e9a28cc596eff834f9a37a7d55c36888b7",
+      "split": "development",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-b-448",
+      "run_id": "b",
+      "source": "evidence/day06/new-games-20261023/game-b.mp4",
+      "source_sha256": "f8603e7fbb0de5e2373798ec5225278b72ebd18a000c949f01ec16af0bf8404a",
+      "timestamp_seconds": 448,
+      "decoded_media_time": 448.0,
+      "decoded_frame_index": 13440,
+      "fps": 30.0,
+      "crop_xyxy": [
+        4,
+        62,
+        1800,
+        1409
+      ],
+      "image": "data/day06/vehicle-v1/b-448.png",
+      "sha256": "8f4957af1afd8933e4dcb3dfe73bdd5a4b480fe5d4b85439b00f0a0155cdf3fc",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 5,
+          "front_xy": [
+            781,
+            461
+          ],
+          "identity": "b-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Clipped hood/chassis visible, confirmed at full resolution after diagnostic predictions."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-b-449",
+      "run_id": "b",
+      "source": "evidence/day06/new-games-20261023/game-b.mp4",
+      "source_sha256": "f8603e7fbb0de5e2373798ec5225278b72ebd18a000c949f01ec16af0bf8404a",
+      "timestamp_seconds": 449,
+      "decoded_media_time": 449.0,
+      "decoded_frame_index": 13470,
+      "fps": 30.0,
+      "crop_xyxy": [
+        4,
+        62,
+        1800,
+        1409
+      ],
+      "image": "data/day06/vehicle-v1/b-449.png",
+      "sha256": "56e9d25ed4f0a3f1f831b09056edc7eedb28787b56678894b6f7f581d8631b8a",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 5,
+          "front_xy": [
+            757,
+            463
+          ],
+          "identity": "b-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Approximate hood/front reference, not complete body extent."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-b-450",
+      "run_id": "b",
+      "source": "evidence/day06/new-games-20261023/game-b.mp4",
+      "source_sha256": "f8603e7fbb0de5e2373798ec5225278b72ebd18a000c949f01ec16af0bf8404a",
+      "timestamp_seconds": 450,
+      "decoded_media_time": 450.0,
+      "decoded_frame_index": 13500,
+      "fps": 30.0,
+      "crop_xyxy": [
+        4,
+        62,
+        1800,
+        1409
+      ],
+      "image": "data/day06/vehicle-v1/b-450.png",
+      "sha256": "62ac29981f0f4236b107cd8c94ba4c6cfa2359117559b55881c9930c511f1d97",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 5,
+          "front_xy": [
+            735,
+            463
+          ],
+          "identity": "b-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Approximate hood/front reference, not complete body extent."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-b-451",
+      "run_id": "b",
+      "source": "evidence/day06/new-games-20261023/game-b.mp4",
+      "source_sha256": "f8603e7fbb0de5e2373798ec5225278b72ebd18a000c949f01ec16af0bf8404a",
+      "timestamp_seconds": 451,
+      "decoded_media_time": 451.0,
+      "decoded_frame_index": 13530,
+      "fps": 30.0,
+      "crop_xyxy": [
+        4,
+        62,
+        1800,
+        1409
+      ],
+      "image": "data/day06/vehicle-v1/b-451.png",
+      "sha256": "3300abebc6b133fc4a4696d10272aacce70f9fca43aa324cb81093c36e7e64d1",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 5,
+          "front_xy": [
+            708,
+            463
+          ],
+          "identity": "b-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Approximate hood/front reference, not complete body extent."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-b-452",
+      "run_id": "b",
+      "source": "evidence/day06/new-games-20261023/game-b.mp4",
+      "source_sha256": "f8603e7fbb0de5e2373798ec5225278b72ebd18a000c949f01ec16af0bf8404a",
+      "timestamp_seconds": 452,
+      "decoded_media_time": 452.0,
+      "decoded_frame_index": 13560,
+      "fps": 30.0,
+      "crop_xyxy": [
+        4,
+        62,
+        1800,
+        1409
+      ],
+      "image": "data/day06/vehicle-v1/b-452.png",
+      "sha256": "0f1d64e0b33c95db7a1333c1bdce1dfe18fb0124194902ffdbc50434d0582f9b",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 5,
+          "front_xy": [
+            664,
+            463
+          ],
+          "identity": "b-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Approximate hood/front reference, not complete body extent."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-b-453",
+      "run_id": "b",
+      "source": "evidence/day06/new-games-20261023/game-b.mp4",
+      "source_sha256": "f8603e7fbb0de5e2373798ec5225278b72ebd18a000c949f01ec16af0bf8404a",
+      "timestamp_seconds": 453,
+      "decoded_media_time": 453.0,
+      "decoded_frame_index": 13590,
+      "fps": 30.0,
+      "crop_xyxy": [
+        4,
+        62,
+        1800,
+        1409
+      ],
+      "image": "data/day06/vehicle-v1/b-453.png",
+      "sha256": "3bd9e632da80c5aef9285d5f85944c8a17c252336b3470ca82c3845a5d6bfe08",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 5,
+          "front_xy": [
+            658,
+            463
+          ],
+          "identity": "b-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Approximate hood/front reference, not complete body extent."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-b-454",
+      "run_id": "b",
+      "source": "evidence/day06/new-games-20261023/game-b.mp4",
+      "source_sha256": "f8603e7fbb0de5e2373798ec5225278b72ebd18a000c949f01ec16af0bf8404a",
+      "timestamp_seconds": 454,
+      "decoded_media_time": 454.0,
+      "decoded_frame_index": 13620,
+      "fps": 30.0,
+      "crop_xyxy": [
+        4,
+        62,
+        1800,
+        1409
+      ],
+      "image": "data/day06/vehicle-v1/b-454.png",
+      "sha256": "6f7060437a7b4875637efd28cffdaa64b06b9d12324b2aa8bfdee1cd9805831e",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": "explosion_or_residual_smoke"
+    },
+    {
+      "id": "VEH-b-455",
+      "run_id": "b",
+      "source": "evidence/day06/new-games-20261023/game-b.mp4",
+      "source_sha256": "f8603e7fbb0de5e2373798ec5225278b72ebd18a000c949f01ec16af0bf8404a",
+      "timestamp_seconds": 455,
+      "decoded_media_time": 455.0,
+      "decoded_frame_index": 13650,
+      "fps": 30.0,
+      "crop_xyxy": [
+        4,
+        62,
+        1800,
+        1409
+      ],
+      "image": "data/day06/vehicle-v1/b-455.png",
+      "sha256": "d9a682e3ca5f5fb2dcb51fb3d7c1b4c920425b9d05d86b1e25e6a15bb6f596e9",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": "explosion_or_residual_smoke"
+    },
+    {
+      "id": "VEH-old-448",
+      "run_id": "old",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 448,
+      "decoded_media_time": 448.0,
+      "decoded_frame_index": 13440,
+      "fps": 30.0,
+      "crop_xyxy": [
+        305,
+        94,
+        2101,
+        1442
+      ],
+      "image": "data/day06/vehicle-v1/old-448.png",
+      "sha256": "5afc95761fba57d4567709ee5a19231c92d27656dd17725fafcc25a550377141",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-old-449",
+      "run_id": "old",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 449,
+      "decoded_media_time": 449.0,
+      "decoded_frame_index": 13470,
+      "fps": 30.0,
+      "crop_xyxy": [
+        305,
+        94,
+        2101,
+        1442
+      ],
+      "image": "data/day06/vehicle-v1/old-449.png",
+      "sha256": "1ace7a98c13d0d9d393ef1c67082a8e384d310001e99b936766a82dad667b142",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-old-450",
+      "run_id": "old",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 450,
+      "decoded_media_time": 450.0,
+      "decoded_frame_index": 13500,
+      "fps": 30.0,
+      "crop_xyxy": [
+        305,
+        94,
+        2101,
+        1442
+      ],
+      "image": "data/day06/vehicle-v1/old-450.png",
+      "sha256": "37623083a2c0ea54f04a778a2e03b1a61fc2a7d7967aa9df8b93622691c4bd78",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 6,
+          "front_xy": [
+            785,
+            543
+          ],
+          "identity": "old-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Clipped hood/chassis visible, confirmed at full resolution after diagnostic predictions."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-old-451",
+      "run_id": "old",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 451,
+      "decoded_media_time": 451.0,
+      "decoded_frame_index": 13530,
+      "fps": 30.0,
+      "crop_xyxy": [
+        305,
+        94,
+        2101,
+        1442
+      ],
+      "image": "data/day06/vehicle-v1/old-451.png",
+      "sha256": "f6eb5253e0110372c42e3728979a9a022d91a7845458bd8eb98e339b08bbae28",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 6,
+          "front_xy": [
+            769,
+            548
+          ],
+          "identity": "old-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Approximate hood/front reference, not complete body extent."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-old-452",
+      "run_id": "old",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 452,
+      "decoded_media_time": 452.0,
+      "decoded_frame_index": 13560,
+      "fps": 30.0,
+      "crop_xyxy": [
+        305,
+        94,
+        2101,
+        1442
+      ],
+      "image": "data/day06/vehicle-v1/old-452.png",
+      "sha256": "9473b7547cc83c879f9c0b6d15fa508c3d8634dffa0cc789a1a278e7e63c036e",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 6,
+          "front_xy": [
+            735,
+            548
+          ],
+          "identity": "old-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Approximate hood/front reference, not complete body extent."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-old-453",
+      "run_id": "old",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 453,
+      "decoded_media_time": 453.0,
+      "decoded_frame_index": 13590,
+      "fps": 30.0,
+      "crop_xyxy": [
+        305,
+        94,
+        2101,
+        1442
+      ],
+      "image": "data/day06/vehicle-v1/old-453.png",
+      "sha256": "654141f3a7cd359dbd70b76310177dc420504589a78ebc6943a460f2f2ca1d05",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [
+        {
+          "row": 6,
+          "front_xy": [
+            708,
+            548
+          ],
+          "identity": "old-final-wave-vehicle",
+          "kind": "zamboni_visible_body",
+          "truncated": true,
+          "annotation_note": "Approximate hood/front reference, not complete body extent."
+        }
+      ],
+      "negative_context": null
+    },
+    {
+      "id": "VEH-old-454",
+      "run_id": "old",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 454,
+      "decoded_media_time": 454.0,
+      "decoded_frame_index": 13620,
+      "fps": 30.0,
+      "crop_xyxy": [
+        305,
+        94,
+        2101,
+        1442
+      ],
+      "image": "data/day06/vehicle-v1/old-454.png",
+      "sha256": "0ded773429ec155b19c6ba99d72b821be51e72a64f797cc045eec510951b1855",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": "explosion_or_residual_smoke"
+    },
+    {
+      "id": "VEH-old-455",
+      "run_id": "old",
+      "source": "evidence/day02/gameplay-3-7.mp4",
+      "source_sha256": "61dc8cd4eb46d218fbf533ee6086c80da5e73834310188de48c71a31d167c992",
+      "timestamp_seconds": 455,
+      "decoded_media_time": 455.0,
+      "decoded_frame_index": 13650,
+      "fps": 30.0,
+      "crop_xyxy": [
+        305,
+        94,
+        2101,
+        1442
+      ],
+      "image": "data/day06/vehicle-v1/old-455.png",
+      "sha256": "574af0b872768cd95ebbc7f44bbf509df94a658cf34deb9fe973650ea6cedaa3",
+      "split": "known_regression",
+      "scene": "playing",
+      "vehicles": [],
+      "negative_context": "explosion_or_residual_smoke"
+    }
+  ],
+  "annotation": {
+    "author": "single visual reviewer",
+    "position_tolerance_pixels": 22,
+    "reference": "Front white/blue hood junction; approximate manual point.",
+    "excluded": "Explosion/smoke without intact white hood and blue chassis is not a current vehicle observation.",
+    "row_evidence": "Continuous video and hood/chassis/wheel position relative to the lawn/pool.",
+    "timing": "Registered before first vehicle-detector evaluation; sources already viewed in prior work."
+  },
+  "known_sources": true,
+  "independent_validation": false,
+  "input_sent": false
+}

@@ -1,0 +1,10 @@
+{
+  "right_space_physical_px": 382,
+  "display_dpi": 144,
+  "display_dip_scale": 1.5,
+  "reserved_margin_each_side_dip": 12,
+  "recommended_width_dip": 228,
+  "fits_compact_sidebar": true,
+  "behavior": "Use compact collapsible sidebar; do not resize or move game automatically.",
+  "ui_implemented": false
+}

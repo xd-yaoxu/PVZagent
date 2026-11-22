@@ -1,0 +1,25 @@
+{
+  "schema": "pvz-card-identity-config/1",
+  "version": 1,
+  "catalog": "data/day06/card-identity-v1/catalog-v1.json",
+  "catalog_sha256": "fdf47f4ab53550d3fa936100fd3ac4f2acf154bb89c15e9ef49a8d1370181860",
+  "icon_roi": [
+    5,
+    19,
+    43,
+    61
+  ],
+  "price_roi": [
+    8,
+    64,
+    41,
+    76
+  ],
+  "search_radius": 3,
+  "icon_similarity_min": 0.92,
+  "identity_margin_min": 0.06,
+  "price_similarity_min": 0.9,
+  "price_margin_min": 0.04,
+  "confidence_semantics": "Uncalibrated similarity; not a correctness probability.",
+  "status": "explicit_experiment_not_default_not_action_eligible"
+}

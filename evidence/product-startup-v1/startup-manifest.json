@@ -1,0 +1,33 @@
+{
+  "schema": "pvz-product-startup/1",
+  "scope": "File version check for this product entry only; no full dependency, security, live or action readiness assurance.",
+  "historical_freeze": {
+    "path": "evidence/day06/goal-review-v1/freeze.json",
+    "sha256": "78df4a0b4a13ef11694008019fe2917695b9774e659e01971b92d7e06b8749c7"
+  },
+  "historical_test_transition": {
+    "path": "tests/test_goal_review.py",
+    "old_sha256": "aff5f1bdb7bfd5d75859dcdb5ba7bf647e3c96f2d89eb2c86acd1de9ede8e655",
+    "old_backup": "backups/continuity-source-binding-20261104/test_goal_review.py",
+    "new_sha256": "c7410e890776cbd34274a712b0501ad57df56225a14545d9fbf4cdad83e1e04b",
+    "git_commit": "be959e1a8ac6733722012751c9b9e989ecb6ec34",
+    "reason": "Two fixture state IDs changed 0/1 to old/new to match observed source IDs under continuity source binding; historical freeze and test backup remain intact."
+  },
+  "artifacts": {
+    "config/strategy-goal-review-v1.json": "40bcc97739a358c26f021eb2e9042c38069cea9d400586da54fdf969dcb9b622",
+    "scripts/day06_goal_review.py": "7e9002ecadc034b17a4db9b3383d640c7cd7864a127d2e569fb1d3e1291b836b",
+    "scripts/day06_product_resource_live.py": "a9f4a5114397fa682e91482842dfbd3e953d962a5fe388efa97d36a064ba9761",
+    "scripts/run_product_agent.py": "b27b5a8e755404b3ea505bb3410c25a63e3e0ff5d873e9202859277d4daace1e",
+    "src/pvz_agent/continuity_frames.py": "2f0f92cb91e3afc65bd9cbc018c88e47d5b0fdce089e8fc2d4b444357a9bacb6",
+    "src/pvz_agent/goal_review.py": "e3b468cfac36045918ed48b20faf77aa02216a34a76d8cf51a08654ac7c2494b",
+    "src/pvz_agent/goal_runtime.py": "953c253d86efefb792638e2ff4decac8063f623164bc4c6b935f76242a31f36c",
+    "src/pvz_agent/observation_stream.py": "de8ef281f24fe8a304ecedf6c56b2c12d153b87913fbd70338a470236e119e49",
+    "src/pvz_agent/product_startup.py": "5eb0425c2ba5a974d79c77f9fba8cc3bd44e97897316f7bcc2626eb27a31349f",
+    "src/pvz_agent/readonly_longrun.py": "4a8275b9eb2df34d44230614409724ac87188fefedc68eacaf151b5215315547",
+    "src/pvz_agent/tracking.py": "10d645bc7fb0819e12b3257751c8c6f7b59f6d07481f5a612261ab04fe0ce4ca",
+    "src/pvz_agent/vehicle_perception.py": "4369ce7bb095f915af0e85255768a8f9edd56842f18049cf62e5004d6b75eeb0",
+    "tests/test_goal_review.py": "c7410e890776cbd34274a712b0501ad57df56225a14545d9fbf4cdad83e1e04b",
+    "tests/test_product_startup.py": "5457b9bce0baf9f38a68c492ae258c1ba6210a69ecf1e3a505c14a8646b2a067",
+    "tests/test_tracking_continuity_binding.py": "a1b6a848b7d1c7909db28feb747ec81422404d6e326ba0a26c661aadaf6f5dac"
+  }
+}
