@@ -17,6 +17,7 @@
 #include <cwchar>
 #include <limits>
 #include <memory>
+#include <vector>
 #include "pvz_wgc.h"
 #include "pvz_wgc_alpha_diag.hpp"
 #include "pvz_wgc_ts_gate.hpp"
@@ -28,9 +29,12 @@ namespace {
 constexpr const wchar_t* allowed_exe_names[] = {L"PVZ-Windowed.exe", L"PlantsVsZombies.exe", L"popcapgame1.exe"};
 bool match_pvz_exe_path(const wchar_t* full_path) {
     if (!full_path || !*full_path) return false;
-    wchar_t override_path[32768]{};
-    DWORD n = GetEnvironmentVariableW(L"PVZ_GAME_EXE", override_path, static_cast<DWORD>(std::size(override_path)));
-    if (n > 0 && n < std::size(override_path)) return _wcsicmp(full_path, override_path) == 0;
+    DWORD needed = GetEnvironmentVariableW(L"PVZ_GAME_EXE", nullptr, 0);
+    if (needed > 1 && needed < 32768) {
+        std::vector<wchar_t> override_path(needed, L'\0');
+        DWORD got = GetEnvironmentVariableW(L"PVZ_GAME_EXE", override_path.data(), needed);
+        if (got > 0 && got < needed) return _wcsicmp(full_path, override_path.data()) == 0;
+    }
     const wchar_t* base = full_path;
     for (const wchar_t* p = full_path; *p; ++p) { if (*p == L'\\' || *p == L'/') base = p + 1; }
     for (const wchar_t* allowed : allowed_exe_names) { if (_wcsicmp(base, allowed) == 0) return true; }

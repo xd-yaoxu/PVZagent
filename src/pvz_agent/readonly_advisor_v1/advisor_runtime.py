@@ -668,12 +668,15 @@ class AdvisorController:
                     if was_away:
                         self.phase_tracker.record_gap_event(self.clock(), "切回游戏恢复监测")
                         was_away = False
-                except Exception:
+                except Exception as exc:
                     self.wgc.close()
                     self.engine.source_lost("wgc_open_retry")
+                    err_tag = str(exc).strip() or type(exc).__name__
+                    if len(err_tag) > 64:
+                        err_tag = err_tag[:64]
                     with self._lock:
                         self._mode_state = "waiting_game"
-                        self._status_text = "等待原版游戏画面就绪..."
+                        self._status_text = f"等待原版游戏画面就绪... ({err_tag})"
                     self._stop_event.wait(0.25)
                     continue
 

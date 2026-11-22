@@ -87,12 +87,14 @@ pythonw scripts/pvz_readonly_advisor.py
 仓库内已附带 64 位 `src/pvz_agent/readonly_advisor_v1/native/build/pvz_wgc_continuous.dll`。如需自行验证并从 C++ 源码重编，在 **x64 Native Tools Command Prompt for VS 2022+** 中运行：
 
 ```bat
-cl /nologo /utf-8 /std:c++20 /EHsc /O2 /LD ^
+cl /nologo /c /utf-8 /std:c++20 /EHsc /O2 /W4 /MT /DUNICODE /D_UNICODE /DWINVER=0x0A00 /D_WIN32_WINNT=0x0A00 ^
   /I src\pvz_agent\readonly_advisor_v1\native ^
   src\pvz_agent\readonly_advisor_v1\native\pvz_wgc_continuous.cpp ^
-  /Fo:src\pvz_agent\readonly_advisor_v1\native\build\pvz_wgc_continuous.obj ^
-  /Fe:src\pvz_agent\readonly_advisor_v1\native\build\pvz_wgc_continuous.dll ^
-  d3d11.lib dxgi.lib dwmapi.lib runtimeobject.lib user32.lib windowsapp.lib
+  /Fo:src\pvz_agent\readonly_advisor_v1\native\build\pvz_wgc_continuous.obj
+link /NOLOGO /DLL /MACHINE:X64 /INCREMENTAL:NO /MANIFEST:NO /DYNAMICBASE /HIGHENTROPYVA /NXCOMPAT ^
+  /OUT:src\pvz_agent\readonly_advisor_v1\native\build\pvz_wgc_continuous.dll ^
+  src\pvz_agent\readonly_advisor_v1\native\build\pvz_wgc_continuous.obj ^
+  user32.lib d3d11.lib dxgi.lib dwmapi.lib runtimeobject.lib oleaut32.lib ole32.lib
 ```
 
 ---
