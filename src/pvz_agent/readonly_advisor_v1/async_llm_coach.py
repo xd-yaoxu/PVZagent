@@ -11,10 +11,12 @@ import base64
 from concurrent.futures import ThreadPoolExecutor
 import copy
 from dataclasses import dataclass
+import http.client
 import io
 import json
 import os
 from pathlib import Path
+import ssl
 import threading
 import time
 from typing import Any, Callable
@@ -38,12 +40,16 @@ DEFAULT_OPEN_SOURCE_CONFIG: dict[str, Any] = {
     "base_url": "https://api.openai.com/v1",
     "model": "gpt-4o-mini",
     "protocol": "responses",
+    "vision_mode": "text_only",
+    "reasoning_effort": "low",
     "api_key_environment_variable": "PVZ_LLM_API_KEY",
     "image_transfer_authorized": True,
     "timeout_seconds": 30,
-    "max_output_tokens": 220,
+    "max_output_tokens": 320,
 }
 SUPPORTED_PROTOCOLS = ("responses", "chat_completions")
+SUPPORTED_VISION_MODES = ("text_only", "low_jpeg", "high_png")
+SUPPORTED_REASONING_EFFORTS = ("low", "medium", "auto")
 
 
 def validate_base_url(url: str) -> str:
@@ -68,7 +74,144 @@ def encode_rgb_png_data_url(rgb_bytes: bytes, size: tuple[int, int] = (800, 600)
     return f"data:image/png;base64,{b64}"
 
 
-def _default_transport(url: str, body: dict[str, Any], key: str, timeout: float) -> dict[str, Any]:
+def encode_rgb_jpeg_data_url(
+    rgb_bytes: bytes,
+    size: tuple[int, int] = (800, 600),
+    target_size: tuple[int, int] = (512, 384),
+    quality: int = 75,
+) -> str:
+    """Encode an RGB frame purely in memory as a compact downscaled JPEG data URL (0 disk writes)."""
+    buf = io.BytesIO()
+    with Image.frombytes("RGB", size, rgb_bytes) as im:
+        small = im.resize(target_size, Image.Resampling.BILINEAR)
+        small.save(buf, format="JPEG", quality=quality, optimize=False)
+    b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+    return f"data:image/jpeg;base64,{b64}"
+
+
+class _KeepAlivePool:
+    """Thread-safe HTTP/HTTPS Keep-Alive connection pool (avoids repeated TCP+TLS handshakes)."""
+
+    def __init__(self):
+        self._lock = threading.Lock()
+        self._conns: dict[tuple[str, str, int, str], http.client.HTTPConnection] = {}
+        self._ssl_ctx = ssl.create_default_context()
+
+    def _open_conn(self, scheme: str, host: str, port: int, proxy_url: str, timeout: float) -> http.client.HTTPConnection:
+        if proxy_url:
+            pp = urllib.parse.urlsplit(proxy_url)
+            if pp.scheme in ("http", "https") and pp.hostname:
+                p_port = pp.port or (443 if pp.scheme == "https" else 80)
+                if scheme == "https":
+                    conn = http.client.HTTPSConnection(pp.hostname, p_port, timeout=timeout, context=self._ssl_ctx)
+                    conn.set_tunnel(host, port)
+                    return conn
+                return http.client.HTTPConnection(pp.hostname, p_port, timeout=timeout)
+        if scheme == "https":
+            return http.client.HTTPSConnection(host, port, timeout=timeout, context=self._ssl_ctx)
+        return http.client.HTTPConnection(host, port, timeout=timeout)
+
+    def post_json(self, url: str, body: dict[str, Any], key: str, timeout: float) -> dict[str, Any]:
+        parsed = urllib.parse.urlsplit(url)
+        scheme = parsed.scheme.lower()
+        host = parsed.hostname or ""
+        port = parsed.port or (443 if scheme == "https" else 80)
+        path = parsed.path or "/"
+        if parsed.query:
+            path = f"{path}?{parsed.query}"
+
+        proxies = urllib.request.getproxies()
+        proxy_url = "" if host in ("127.0.0.1", "localhost", "::1") else (proxies.get(scheme) or proxies.get("all") or "")
+        # Fallback to urllib if proxy is non-HTTP (e.g. socks5) or contains auth
+        if proxy_url:
+            pp = urllib.parse.urlsplit(proxy_url)
+            if pp.scheme not in ("http", "https") or pp.username or pp.password:
+                return _urllib_post_json(url, body, key, timeout)
+
+        payload = json.dumps(body, ensure_ascii=False, allow_nan=False).encode("utf-8")
+        headers = {
+            "Authorization": f"Bearer {key}",
+            "Content-Type": "application/json",
+            "Connection": "keep-alive",
+            "Content-Length": str(len(payload)),
+        }
+        req_target = url if (proxy_url and scheme == "http") else path
+        pool_key = (scheme, host, port, proxy_url)
+
+        for attempt in range(2):
+            with self._lock:
+                conn = self._conns.pop(pool_key, None)
+            reused = conn is not None
+            try:
+                if conn is None:
+                    conn = self._open_conn(scheme, host, port, proxy_url, timeout)
+                else:
+                    conn.timeout = timeout
+                    if conn.sock is not None:
+                        conn.sock.settimeout(timeout)
+                conn.request("POST", req_target, body=payload, headers=headers)
+                resp = conn.getresponse()
+                raw = resp.read(2 * 1024 * 1024 + 1)
+                status = resp.status
+                close_hdr = (resp.getheader("Connection") or "").lower()
+                if status < 400 and close_hdr != "close":
+                    with self._lock:
+                        old = self._conns.get(pool_key)
+                        self._conns[pool_key] = conn
+                    if old is not None and old is not conn:
+                        try:
+                            old.close()
+                        except Exception:
+                            pass
+                else:
+                    try:
+                        conn.close()
+                    except Exception:
+                        pass
+                if status >= 400:
+                    raise ProviderError("provider_http_error", status)
+                if len(raw) > 2 * 1024 * 1024:
+                    raise ProviderError("provider_response_too_large")
+                try:
+                    return json.loads(raw)
+                except (ValueError, UnicodeError):
+                    raise ProviderError("provider_invalid_json") from None
+            except ProviderError:
+                raise
+            except (http.client.RemoteDisconnected, http.client.BadStatusLine, ConnectionResetError, BrokenPipeError):
+                try:
+                    if conn is not None:
+                        conn.close()
+                except Exception:
+                    pass
+                if reused and attempt == 0:
+                    continue
+                raise ProviderError("provider_transport_error") from None
+            except Exception as exc:
+                try:
+                    if conn is not None:
+                        conn.close()
+                except Exception:
+                    pass
+                timed_out = isinstance(exc, TimeoutError) or isinstance(getattr(exc, "reason", None), TimeoutError)
+                raise ProviderError("provider_timeout" if timed_out else "provider_transport_error") from None
+        raise ProviderError("provider_transport_error")
+
+    def close_all(self) -> None:
+        with self._lock:
+            conns = list(self._conns.values())
+            self._conns.clear()
+        for c in conns:
+            try:
+                c.close()
+            except Exception:
+                pass
+
+
+_SHARED_KEEPALIVE_POOL = _KeepAlivePool()
+
+
+def _urllib_post_json(url: str, body: dict[str, Any], key: str, timeout: float) -> dict[str, Any]:
     req = urllib.request.Request(
         url,
         data=json.dumps(body, ensure_ascii=False, allow_nan=False).encode("utf-8"),
@@ -89,6 +232,10 @@ def _default_transport(url: str, body: dict[str, Any], key: str, timeout: float)
         return json.loads(raw)
     except (ValueError, UnicodeError):
         raise ProviderError("provider_invalid_json") from None
+
+
+def _default_transport(url: str, body: dict[str, Any], key: str, timeout: float) -> dict[str, Any]:
+    return _SHARED_KEEPALIVE_POOL.post_json(url, body, key, timeout)
 
 
 def _default_models_transport(url: str, key: str, timeout: float) -> dict[str, Any]:
@@ -160,6 +307,7 @@ class UserConfigurableProvider:
         self.protocol = protocol
         self._key_getter = key_getter
         self._transport = transport
+        self._reasoning_unsupported = False
 
     def complete(
         self,
@@ -172,40 +320,47 @@ class UserConfigurableProvider:
         key = self._key_getter()
         if not key:
             raise ProviderError("missing_local_api_key")
-        tokens = int(max_tokens or self.config.get("max_output_tokens", 512))
+        effort = str(self.config.get("reasoning_effort", "low")).strip().lower()
+        use_reasoning = (not self._reasoning_unsupported) and effort in ("low", "medium")
+        default_tokens = 320 if use_reasoning else 180
+        tokens = int(max_tokens or min(int(self.config.get("max_output_tokens", default_tokens)), default_tokens))
         timeout = float(self.config.get("timeout_seconds", 45))
+        vision_mode = str(self.config.get("vision_mode", "text_only")).strip()
+        img_detail = "high" if vision_mode == "high_png" else "low"
 
-        if self.protocol == "responses":
-            content: list[dict[str, Any]] = [{"type": "input_text", "text": prompt}]
-            if image_data_url:
-                content.append({"type": "input_image", "image_url": image_data_url, "detail": "high"})
-            body: dict[str, Any] = {
-                "model": self.model,
-                "input": [{"role": "user", "content": content}],
-                "max_output_tokens": tokens,
-            }
-            effort = self.config.get("reasoning_effort")
-            if effort in ("low", "medium", "high"):
-                body["reasoning"] = {"effort": effort}
-            if json_schema is not None:
-                body["text"] = {
-                    "format": {
-                        "type": "json_schema",
-                        "name": "pvz_readonly_strategy",
-                        "strict": True,
-                        "schema": json_schema,
-                    }
+        def _build_body(include_reasoning: bool) -> tuple[str, dict[str, Any]]:
+            if self.protocol == "responses":
+                content: list[dict[str, Any]] = [{"type": "input_text", "text": prompt}]
+                if image_data_url:
+                    content.append({"type": "input_image", "image_url": image_data_url, "detail": img_detail})
+                body: dict[str, Any] = {
+                    "model": self.model,
+                    "input": [{"role": "user", "content": content}],
+                    "max_output_tokens": tokens,
                 }
-            endpoint = f"{self.base_url}/responses"
-        else:
+                if include_reasoning and effort in ("low", "medium"):
+                    body["reasoning"] = {"effort": effort}
+                if json_schema is not None:
+                    body["text"] = {
+                        "format": {
+                            "type": "json_schema",
+                            "name": "pvz_readonly_strategy",
+                            "strict": True,
+                            "schema": json_schema,
+                        }
+                    }
+                return f"{self.base_url}/responses", body
+
             content = [{"type": "text", "text": prompt}]
             if image_data_url:
-                content.append({"type": "image_url", "image_url": {"url": image_data_url, "detail": "high"}})
+                content.append({"type": "image_url", "image_url": {"url": image_data_url, "detail": img_detail}})
             body = {
                 "model": self.model,
                 "messages": [{"role": "user", "content": content}],
                 "max_tokens": tokens,
             }
+            if include_reasoning and effort in ("low", "medium"):
+                body["reasoning_effort"] = effort
             if json_schema is not None:
                 body["response_format"] = {
                     "type": "json_schema",
@@ -215,9 +370,19 @@ class UserConfigurableProvider:
                         "schema": json_schema,
                     },
                 }
-            endpoint = f"{self.base_url}/chat/completions"
+            return f"{self.base_url}/chat/completions", body
 
-        raw = self._transport(endpoint, body, key, timeout)
+        endpoint, body = _build_body(use_reasoning)
+        try:
+            raw = self._transport(endpoint, body, key, timeout)
+        except ProviderError as exc:
+            # Some gateways/models reject reasoning/reasoning_effort with HTTP 400; retry once cleanly without it.
+            if use_reasoning and exc.code == "provider_http_error" and exc.http_status == 400:
+                self._reasoning_unsupported = True
+                endpoint, body = _build_body(False)
+                raw = self._transport(endpoint, body, key, timeout)
+            else:
+                raise
         text = extract_text(raw, self.protocol)
         return {
             "text": text,
@@ -239,6 +404,8 @@ class VerifiedLlmAdvice:
     latency_s: float
     verified_at: float
     epoch: int
+    possibly_stale: bool = False
+    stale_reason: str = ""
 
 
 class AsyncLlmCoach:
@@ -255,6 +422,8 @@ class AsyncLlmCoach:
         policy: dict[str, int] | None = None,
         enabled: bool = False,
         min_interval_s: float = 18.0,
+        vision_mode: str = "text_only",
+        reasoning_effort: str = "low",
     ):
         if config_path is not None:
             self.config_path = Path(config_path)
@@ -268,6 +437,8 @@ class AsyncLlmCoach:
         else:
             self.config_path = None
             self.config = dict(DEFAULT_OPEN_SOURCE_CONFIG)
+        self.config["vision_mode"] = vision_mode if vision_mode in SUPPORTED_VISION_MODES else "text_only"
+        self.config["reasoning_effort"] = reasoning_effort if reasoning_effort in SUPPORTED_REASONING_EFFORTS else "low"
         self.clock = clock
         self.policy = dict(policy or DEFAULT_POLICY)
         self._transport = transport
@@ -319,8 +490,10 @@ class AsyncLlmCoach:
         api_key: str | None = None,
         model: str | None = None,
         protocol: str | None = None,
+        vision_mode: str | None = None,
+        reasoning_effort: str | None = None,
     ) -> tuple[bool, str]:
-        """Apply user-supplied base_url / in-memory api_key / model / protocol without writing to disk."""
+        """Apply user-supplied base_url / in-memory api_key / model / protocol / speed options without writing to disk."""
         try:
             clean_url = validate_base_url(base_url)
         except ValueError as exc:
@@ -334,10 +507,20 @@ class AsyncLlmCoach:
         if clean_proto not in SUPPORTED_PROTOCOLS:
             return False, f"协议仅支持：{' / '.join(SUPPORTED_PROTOCOLS)}"
 
+        clean_vision = (vision_mode if vision_mode is not None else str(self.config.get("vision_mode", "text_only"))).strip()
+        if clean_vision not in SUPPORTED_VISION_MODES:
+            return False, f"请求模式仅支持：{' / '.join(SUPPORTED_VISION_MODES)}"
+
+        clean_effort = (reasoning_effort if reasoning_effort is not None else str(self.config.get("reasoning_effort", "low"))).strip()
+        if clean_effort not in SUPPORTED_REASONING_EFFORTS:
+            return False, f"推理强度仅支持：{' / '.join(SUPPORTED_REASONING_EFFORTS)}"
+
         with self._lock:
             self.config["base_url"] = clean_url
             self.config["model"] = clean_model
             self.config["protocol"] = clean_proto
+            self.config["vision_mode"] = clean_vision
+            self.config["reasoning_effort"] = clean_effort
             if api_key is not None:
                 self._override_api_key = api_key.strip()
             self._provider = None
@@ -354,7 +537,7 @@ class AsyncLlmCoach:
             else "本机环境变量 PVZ_LLM_API_KEY" if src == "local_env"
             else "未设置密钥"
         )
-        return True, f"已应用：{clean_url} | 模型 {clean_model} ({clean_proto}) | 密钥来源：{src_txt}"
+        return True, f"已应用：{clean_url} | {clean_model} ({clean_proto}/{clean_vision}/{clean_effort}) | {src_txt}"
 
     def clear_manual_api_key(self) -> str:
         with self._lock:
@@ -479,15 +662,18 @@ class AsyncLlmCoach:
             now = self.clock()
             if now < self._next_allowed_at:
                 return False
-            if not self.config.get("image_transfer_authorized"):
+            vision_mode = str(self.config.get("vision_mode", "text_only"))
+            if vision_mode != "text_only" and not self.config.get("image_transfer_authorized"):
                 self._status = "blocked_no_image_auth"
                 return False
             if self._provider is None and self._custom_provider_factory is None and not self.has_api_key():
                 self._status = "missing_api_key"
                 return False
             epoch = self._epoch
+            # Only copy/hold RGB bytes in memory when an image mode is active
+            frame_payload = rgb_bytes if vision_mode != "text_only" else b""
             try:
-                self._executor.submit(self._worker, snapshot, rgb_bytes, phase_copy, ch_copy, epoch, now)
+                self._executor.submit(self._worker, snapshot, frame_payload, phase_copy, ch_copy, epoch, now, vision_mode)
             except RuntimeError:
                 return False
             self._inflight = True
@@ -502,13 +688,19 @@ class AsyncLlmCoach:
         phase = phase_info.get("current_phase", "阶段待确认")
         focus = phase_info.get("current_focus", "持续观测")
         sun_str = str(ch["sun_estimate"]) if ch.get("sun_estimate") is not None else "未知"
+        per_lane = ch.get("per_lane") or {}
+        lane_str = "、".join(f"{r}路×{len(xs)}(x={int(round(min(xs)))})" for r, xs in sorted(per_lane.items())) or "无"
+        ready = ch.get("ready_plants") or []
+        ready_str = f"，可买：{','.join(ready[:6])}" if ready else ""
         return (
-            f"PVZ原版3-7实时只读顾问，只给一条中文战略建议，不给像素坐标，不执行点击。\n"
-            f"当前阶段：{phase}（重点：{focus}；低威胁时尽量对称整齐，有威胁优先守线）。\n"
-            f"当前观测摘要：阳光={sun_str}，亮卡={ch.get('cards_bright')}，确认僵尸头={ch.get('zombie_heads')}，"
-            f"最左x={ch.get('leftmost_head_x')}，已占格={ch.get('cells_occupied')}/54，地面阳光候选={ch.get('sun_cues')}。\n"
-            f"goal 仅选 collect_resources/defend_lane/develop_economy/hold；仅 defend_lane 填 focus_row(1..6)，其余 null。\n"
-            f"reason<=48字（1-2句具体可执行建议），uncertainties<=2条每条<=48字。未知不猜。原样回填 source_state_id={state['state_id']}"
+            f"PVZ 3-7只读顾问，给1条简短中文策略，不给坐标不点击。\n"
+            f"阶段：{phase}（重点：{focus}；低威胁尽量对称，高威胁优先守线）。\n"
+            f"局势：阳光={sun_str}，亮卡={ch.get('cards_bright')}{ready_str}；"
+            f"僵尸={ch.get('zombie_heads')}({lane_str})，最左x={ch.get('leftmost_head_x')}；"
+            f"已占={ch.get('cells_occupied')}/54，地面阳光={ch.get('sun_cues')}。\n"
+            f"goal选collect_resources/defend_lane/develop_economy/hold；仅defend_lane填focus_row(1..6)否则null。\n"
+            f"reason<=32字(1句具体建议)，uncertainties尽量空数组[](仅重大缺口写1条<=28字)。"
+            f"原样回填 source_state_id={state['state_id']}"
         )
 
     def _worker(
@@ -519,10 +711,16 @@ class AsyncLlmCoach:
         channel_info: dict[str, Any],
         epoch: int,
         started_at: float,
+        vision_mode: str = "text_only",
     ) -> None:
         try:
             provider = self._get_provider()
-            data_url = encode_rgb_png_data_url(rgb_bytes)
+            if vision_mode == "high_png" and rgb_bytes:
+                data_url: str | None = encode_rgb_png_data_url(rgb_bytes)
+            elif vision_mode == "low_jpeg" and rgb_bytes:
+                data_url = encode_rgb_jpeg_data_url(rgb_bytes)
+            else:
+                data_url = None
             prompt = self._build_prompt(source_state, phase_info, channel_info)
             res = provider.complete(prompt, image_data_url=data_url, json_schema=STRATEGY_SCHEMA)
             strategy = validate_strategy(strict_json(res["text"]), source_state["state_id"])
@@ -571,35 +769,32 @@ class AsyncLlmCoach:
                 if hyp["epoch"] != self._epoch:
                     self._rejected_count += 1
                     self._status = "rejected_stale"
-                elif not 0 <= now - hyp["source"]["frame_time_seconds"] <= 30.0:
-                    self._rejected_count += 1
-                    self._status = "rejected_expired"
                 else:
+                    src_age = now - hyp["source"]["frame_time_seconds"]
+                    age_ok = 0 <= src_age <= 30.0
                     ok, _reason = self._validate_hypothesis(hyp["source"], current_state, hyp["strategy"])
-                    if ok:
-                        st = hyp["strategy"]
-                        self._verified_advice = VerifiedLlmAdvice(
-                            source_state_id=hyp["source"]["state_id"],
-                            reviewed_state_id=current_state["state_id"],
-                            model=hyp["model"],
-                            phase=hyp["phase"],
-                            goal=st["goal"],
-                            focus_row=st["focus_row"],
-                            reason=st["reason"],
-                            uncertainties=tuple(st["uncertainties"]),
-                            latency_s=hyp["latency_s"],
-                            verified_at=now,
-                            epoch=hyp["epoch"],
-                        )
-                        self._verified_bundle = {"source": hyp["source"], "strategy": st}
-                        self._verified_count += 1
-                        self._status = "verified"
-                        newly_verified = True
-                    else:
-                        self._rejected_count += 1
-                        self._verified_advice = None
-                        self._verified_bundle = None
-                        self._status = f"rejected:{_reason}"
+                    stale = not (age_ok and ok)
+                    stale_reason = "" if not stale else ("expired" if not age_ok else _reason)
+                    st = hyp["strategy"]
+                    self._verified_advice = VerifiedLlmAdvice(
+                        source_state_id=hyp["source"]["state_id"],
+                        reviewed_state_id=current_state["state_id"],
+                        model=hyp["model"],
+                        phase=hyp["phase"],
+                        goal=st["goal"],
+                        focus_row=st["focus_row"],
+                        reason=st["reason"],
+                        uncertainties=tuple(st["uncertainties"]),
+                        latency_s=hyp["latency_s"],
+                        verified_at=now,
+                        epoch=hyp["epoch"],
+                        possibly_stale=stale,
+                        stale_reason=stale_reason,
+                    )
+                    self._verified_bundle = {"source": hyp["source"], "strategy": st}
+                    self._verified_count += 1
+                    self._status = "verified_stale" if stale else "verified"
+                    newly_verified = True
 
             if self._verified_advice is not None and not newly_verified:
                 if (
@@ -613,11 +808,24 @@ class AsyncLlmCoach:
                     ok_ret, reason_ret = self._validate_hypothesis(
                         self._verified_bundle["source"], current_state, self._verified_bundle["strategy"]
                     )
-                    if not ok_ret:
-                        self._verified_advice = None
-                        self._verified_bundle = None
-                        self._rejected_count += 1
-                        self._status = f"rejected:{reason_ret}"
+                    if not ok_ret and not self._verified_advice.possibly_stale:
+                        adv = self._verified_advice
+                        self._verified_advice = VerifiedLlmAdvice(
+                            source_state_id=adv.source_state_id,
+                            reviewed_state_id=adv.reviewed_state_id,
+                            model=adv.model,
+                            phase=adv.phase,
+                            goal=adv.goal,
+                            focus_row=adv.focus_row,
+                            reason=adv.reason,
+                            uncertainties=adv.uncertainties,
+                            latency_s=adv.latency_s,
+                            verified_at=adv.verified_at,
+                            epoch=adv.epoch,
+                            possibly_stale=True,
+                            stale_reason=reason_ret,
+                        )
+                        self._status = "verified_stale"
             return self._verified_advice
 
     def _validate_hypothesis(
@@ -630,8 +838,16 @@ class AsyncLlmCoach:
             elif goal == "collect_resources":
                 resource_evidence(source, current, self.policy)
             else:
-                if observed_basis(source)["headed_zones"] != observed_basis(current)["headed_zones"]:
-                    return False, "threats_changed"
+                # Macro planning advice (develop_economy / hold): tolerate routine far-right spawns
+                # so slower models remain useful, but withdraw immediately on urgent left-warning or wave surge.
+                observed_basis(current)
+                src_heads = source.get("zombies", {}).get("candidates", [])
+                cur_heads = current.get("zombies", {}).get("candidates", [])
+                left_warn = int(self.policy.get("left_warning_x", 200))
+                if any(float(c["head_xy"][0]) <= left_warn for c in cur_heads if isinstance(c, dict) and "head_xy" in c):
+                    return False, "urgent_threat_appeared"
+                if len(cur_heads) - len(src_heads) >= 3:
+                    return False, "threat_wave_surged"
             return True, "ok"
         except ReviewBlocked as exc:
             return False, exc.code
@@ -653,6 +869,8 @@ class AsyncLlmCoach:
                 "base_url": self.config.get("base_url", ""),
                 "model": self.config.get("model", ""),
                 "protocol": self.config.get("protocol", "responses"),
+                "vision_mode": self.config.get("vision_mode", "text_only"),
+                "reasoning_effort": self.config.get("reasoning_effort", "low"),
                 "has_api_key": self.has_api_key(),
                 "api_key_source": self.api_key_source(),
                 "interval_s": int(self._min_interval_s),

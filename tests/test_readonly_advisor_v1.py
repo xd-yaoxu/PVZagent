@@ -303,7 +303,13 @@ class ReadonlyAdvisorV1Tests(unittest.TestCase):
                     "model_returned": "gpt-6.1-sol",
                 }
 
-        coach = AsyncLlmCoach(clock=time.monotonic, provider_factory=lambda _c: _FakeProvider(), enabled=False, min_interval_s=10.0)
+        coach = AsyncLlmCoach(
+            clock=time.monotonic,
+            provider_factory=lambda _c: _FakeProvider(),
+            enabled=False,
+            min_interval_s=10.0,
+            vision_mode="high_png",
+        )
         self.addCleanup(coach.close)
         fake_perc = _FakePerception([{"row": 3, "head_x": 460, "heads": 1}])
         engine = ContinuousAdviceEngine(clock=time.monotonic, perception=fake_perc, root=REPO_ROOT, threaded_expiry=False)
@@ -446,7 +452,7 @@ class ReadonlyAdvisorV1Tests(unittest.TestCase):
         try:
             self.assertFalse(any(isinstance(c, tk.Toplevel) for c in root.winfo_children()))
             self.assertEqual(app._active_tab, "advice")
-            self.assertFalse(app._llm_enabled_var.get())  # Default pure-local
+            self.assertTrue(app._llm_enabled_var.get())  # Default LLM mode ON per user preference
             app.render_snapshot(s3)
             self.assertEqual(app._current_title_lbl.cget("text"), "关注第 4 路防守")
             app.show_tab("timeline")
@@ -753,7 +759,7 @@ class ReadonlyAdvisorV1Tests(unittest.TestCase):
             self.assertEqual(app2._model_var.get(), "gpt-6.1-sol")
             self.assertEqual(app2._protocol_var.get(), "chat_completions")
             self.assertEqual(app2._llm_interval_var.get(), "25")
-            self.assertFalse(app2._llm_enabled_var.get())  # Still default OFF!
+            self.assertTrue(app2._llm_enabled_var.get())  # Default LLM mode ON per user preference
             self.assertEqual(coach2.status_snapshot()["base_url"], "https://remember.example.com/v1")
             self.assertEqual(coach2.status_snapshot()["api_key_source"], "manual_memory")
             self.assertEqual(len(net_calls), 0, "Startup restore must not make unsolicited network calls")
@@ -807,13 +813,20 @@ class ReadonlyAdvisorV1Tests(unittest.TestCase):
             time.sleep(0.02)
         self.assertIsNotNone(coach.recheck_against_current(engine.current_published_state()))
 
-        # Frame 2: row 3 still threatened -> retained advice still valid
+        # Frame 2: row 3 still threatened -> retained advice still fresh (possibly_stale=False)
         engine.ingest_canonical_rgb(rgb, (1200, 900))
-        self.assertIsNotNone(coach.recheck_against_current(engine.current_published_state()))
+        ret2 = coach.recheck_against_current(engine.current_published_state())
+        self.assertIsNotNone(ret2)
+        self.assertFalse(ret2.possibly_stale)
 
-        # Frame 3: row 3 cleared -> retained advice MUST be withdrawn immediately (fail-closed)
+        # Frame 3: row 3 cleared -> retained advice stays visible per user preference, tagged possibly_stale=True
         engine.ingest_canonical_rgb(rgb, (1200, 900))
-        self.assertIsNone(coach.recheck_against_current(engine.current_published_state()))
+        ret3 = coach.recheck_against_current(engine.current_published_state())
+        self.assertIsNotNone(ret3)
+        self.assertTrue(ret3.possibly_stale)
+        self.assertEqual(coach.status_snapshot()["status"], "verified_stale")
+        # Pause / epoch invalidation still withdraws cleanly
+        coach.invalidate("game_paused")
         self.assertIsNone(coach.status_snapshot()["advice"])
 
         # 2. Blocking #2: PhaseTracker concurrent start_new_run / update / snapshot / elapsed_text must be thread-safe
@@ -911,6 +924,210 @@ class ReadonlyAdvisorV1Tests(unittest.TestCase):
             self.assertFalse(ok_dp)
             self.assertIn("拒绝明文保存", msg_dp)
             self.assertFalse(settings_path.exists())
+
+    def test_11_speed_optimizations_text_jpeg_reasoning_and_macro_recheck(self):
+        from pvz_agent.llm_provider import ProviderError
+        from pvz_agent.readonly_advisor_v1.async_llm_coach import (
+            encode_rgb_jpeg_data_url,
+            encode_rgb_png_data_url,
+        )
+
+        # 1. JPEG 512x384 payload must be dramatically smaller than 800x600 PNG on real frame bytes
+        ref_bgr = cv2.imread(str(REAL_FRAMES[0]), cv2.IMREAD_COLOR)
+        ref_rgb = cv2.cvtColor(cv2.resize(ref_bgr, (800, 600)), cv2.COLOR_BGR2RGB).tobytes()
+        png_url = encode_rgb_png_data_url(ref_rgb)
+        jpg_url = encode_rgb_jpeg_data_url(ref_rgb)
+        self.assertTrue(jpg_url.startswith("data:image/jpeg;base64,"))
+        self.assertLess(len(jpg_url), len(png_url) * 0.25, "Downscaled JPEG should be <25% of PNG size")
+
+        # 2. Default text_only sends NO image + reasoning.effort='low'; low_jpeg sends detail='low' JPEG;
+        #    HTTP 400 on reasoning triggers automatic 1-time fallback retry without reasoning.
+        sent_bodies = []
+        fail_reasoning_once = {"flag": True}
+
+        def fake_transport(url, body, key, timeout):
+            sent_bodies.append((url, body))
+            if fail_reasoning_once["flag"] and ("reasoning" in body or "reasoning_effort" in body):
+                fail_reasoning_once["flag"] = False
+                raise ProviderError("provider_http_error", 400)
+            # Extract state_id from prompt
+            if "input" in body:
+                txt = body["input"][0]["content"][0]["text"]
+            else:
+                txt = body["messages"][0]["content"][0]["text"]
+            sid = txt.split("source_state_id=")[-1].strip()
+            payload = json.dumps({
+                "source_state_id": sid,
+                "goal": "develop_economy",
+                "focus_row": None,
+                "reason": "前排稳固，继续补向日葵提升阳光产速。",
+                "uncertainties": [],
+            }, ensure_ascii=False)
+            if url.endswith("/chat/completions"):
+                return {"model": body["model"], "choices": [{"finish_reason": "stop", "message": {"content": payload}}]}
+            return {"status": "completed", "model": body["model"], "output": [{"type": "message", "content": [{"type": "output_text", "text": payload}]}]}
+
+        coach = AsyncLlmCoach(clock=time.monotonic, transport=fake_transport, enabled=True, min_interval_s=10.0)
+        self.addCleanup(coach.close)
+        ok_cfg, _ = coach.configure_connection(
+            base_url="https://fast.example.com/v1",
+            api_key="sk-fast-test",
+            model="gpt-6.2-sol",
+            protocol="responses",
+            vision_mode="text_only",
+            reasoning_effort="low",
+        )
+        self.assertTrue(ok_cfg)
+
+        # Frame 1: calm board (no zombies), Frame 2: single far-right spawn (x=720), Frame 3: urgent left threat (x=180)
+        fake_perc = _FakePerception([
+            {"row": 1, "head_x": 750, "heads": 0, "sun": 100},
+            {"row": 2, "head_x": 720, "heads": 1, "sun": 100},
+            {"row": 2, "head_x": 180, "heads": 1, "sun": 100},
+        ])
+        engine = ContinuousAdviceEngine(clock=time.monotonic, perception=fake_perc, root=REPO_ROOT, threaded_expiry=False)
+        self.addCleanup(engine.close)
+        pub1, ch1, _ = engine.ingest_canonical_rgb(ref_rgb, (1200, 900))
+        self.assertTrue(coach.maybe_dispatch(state=pub1, rgb_bytes=ref_rgb, phase_info=PhaseTracker().snapshot(time.monotonic()), channel_info=ch1))
+        for _ in range(60):
+            if not coach.status_snapshot()["inflight"]:
+                break
+            time.sleep(0.02)
+
+        # Verify: first attempt sent reasoning={"effort":"low"} with text_only (1 content item, no image),
+        # got HTTP 400, and auto-retried cleanly without reasoning!
+        self.assertEqual(len(sent_bodies), 2)
+        self.assertEqual(sent_bodies[0][1].get("reasoning"), {"effort": "low"})
+        self.assertEqual(len(sent_bodies[0][1]["input"][0]["content"]), 1)
+        self.assertNotIn("reasoning", sent_bodies[1][1])
+        self.assertIsNotNone(coach.recheck_against_current(engine.current_published_state()))
+
+        # Frame 2 (routine far-right zombie at x=720): macro develop_economy advice SURVIVES fresh
+        engine.ingest_canonical_rgb(ref_rgb, (1200, 900))
+        m2 = coach.recheck_against_current(engine.current_published_state())
+        self.assertIsNotNone(m2)
+        self.assertFalse(m2.possibly_stale)
+
+        # Frame 3 (urgent left threat x=180 <= 200): stays visible but tagged possibly_stale=True
+        engine.ingest_canonical_rgb(ref_rgb, (1200, 900))
+        m3 = coach.recheck_against_current(engine.current_published_state())
+        self.assertIsNotNone(m3)
+        self.assertTrue(m3.possibly_stale)
+
+        # 3. Verify low_jpeg mode sends JPEG with detail='low' on chat_completions + reasoning_effort='low'
+        sent_bodies.clear()
+        fail_reasoning_once["flag"] = False
+        coach.configure_connection(
+            base_url="https://fast.example.com/v1",
+            api_key="sk-fast-test",
+            model="gpt-6.2-sol",
+            protocol="chat_completions",
+            vision_mode="low_jpeg",
+            reasoning_effort="low",
+        )
+        coach._next_allowed_at = 0.0
+        pub_now = engine.current_published_state()
+        self.assertTrue(coach.maybe_dispatch(state=pub_now, rgb_bytes=ref_rgb, phase_info=PhaseTracker().snapshot(time.monotonic()), channel_info=ch1))
+        for _ in range(60):
+            if not coach.status_snapshot()["inflight"]:
+                break
+            time.sleep(0.02)
+        self.assertEqual(len(sent_bodies), 1)
+        body_cc = sent_bodies[0][1]
+        self.assertEqual(body_cc.get("reasoning_effort"), "low")
+        img_part = body_cc["messages"][0]["content"][1]
+        self.assertEqual(img_part["image_url"]["detail"], "low")
+        self.assertTrue(img_part["image_url"]["url"].startswith("data:image/jpeg;base64,"))
+
+        # 4. Verify UI + DPAPI LocalSettingsStore persist & restore vision_mode + reasoning_effort
+        import tkinter as tk
+        tmp_dir = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp_dir.cleanup)
+        store = LocalSettingsStore(Path(tmp_dir.name) / "speed_prefs.json")
+        ctrl1 = AdvisorController(root=REPO_ROOT, llm_coach=coach)
+        self.addCleanup(ctrl1.close)
+        r1 = tk.Tk()
+        r1.withdraw()
+        app1 = ReadonlyAdvisorSidebarApp(r1, ctrl1, settings_store=store)
+        try:
+            app1._base_url_var.set("https://fast.example.com/v1")
+            app1._api_key_var.set("sk-speed-persist")
+            app1._model_var.set("gpt-6.2-sol")
+            app1._vision_mode_var.set("轻量看图(512px·low)")
+            app1._reasoning_effort_var.set("auto(模型默认)")
+            ok_u, _ = app1._apply_connection_settings()
+            self.assertTrue(ok_u)
+        finally:
+            app1.close()
+
+        coach2 = AsyncLlmCoach(clock=time.monotonic, transport=fake_transport, enabled=False)
+        self.addCleanup(coach2.close)
+        ctrl2 = AdvisorController(root=REPO_ROOT, llm_coach=coach2)
+        self.addCleanup(ctrl2.close)
+        r2 = tk.Tk()
+        r2.withdraw()
+        app2 = ReadonlyAdvisorSidebarApp(r2, ctrl2, settings_store=store)
+        try:
+            self.assertEqual(app2._selected_vision_mode(), "low_jpeg")
+            self.assertEqual(app2._selected_reasoning_effort(), "auto")
+            self.assertEqual(coach2.status_snapshot()["vision_mode"], "low_jpeg")
+            self.assertEqual(coach2.status_snapshot()["reasoning_effort"], "auto")
+        finally:
+            app2.close()
+
+    def test_12_llm_only_display_and_possibly_stale_tag(self):
+        from pvz_agent.resource_sidebar import Advice
+        from pvz_agent.readonly_advisor_v1.async_llm_coach import VerifiedLlmAdvice
+
+        clock = _FakeClock(300.0)
+        coach = AsyncLlmCoach(clock=clock, enabled=True, min_interval_s=10.0)
+        self.addCleanup(coach.close)
+        ctrl = AdvisorController(root=REPO_ROOT, clock=clock, llm_coach=coach)
+        self.addCleanup(ctrl.close)
+
+        # Feed a local frame while LLM is enabled -> local advice MUST NOT show or enter rich_history!
+        ch = {"summary_text": "ev-live", "leftmost_head_x": 450, "per_lane": {2: [450.0]}}
+        adv_local = Advice("defend_lane", 2, "s1", "s1", 302.0)
+        ctrl._update_display_from_frame(ch_info=ch, advice=adv_local, reason_text="本地第2路防守", rel_time_text="00:05", now=300.0)
+        snap_wait = ctrl.ui_snapshot()
+        self.assertNotIn("本地即时", " ".join(snap_wait["rich_history"]))
+        self.assertNotEqual(snap_wait["current_advice_title"], "关注第 2 路防守")
+        self.assertEqual(snap_wait["current_advice_title"], "暂无 LLM 建议")
+
+        # Inject a possibly_stale LLM advice -> stays displayed with （可能过时） right after ]
+        with coach._lock:
+            coach._verified_advice = VerifiedLlmAdvice(
+                source_state_id="s1",
+                reviewed_state_id="s2",
+                model="gpt-6.2-sol",
+                phase="中期转型期",
+                goal="defend_lane",
+                focus_row=4,
+                reason="水路4路补双发射手稳住输出。",
+                uncertainties=(),
+                latency_s=3.8,
+                verified_at=300.0,
+                epoch=coach._epoch,
+                possibly_stale=True,
+                stale_reason="focus_lane_cleared",
+            )
+            coach._status = "verified_stale"
+        with ctrl._lock:
+            ctrl._llm_history.append("[00:05] [gpt-6.2-sol · 3.8s]（可能过时） 关注第 4 路防守 — 水路4路补双发射手稳住输出。")
+
+        snap_llm = ctrl.ui_snapshot()
+        self.assertTrue(snap_llm["has_active_advice"])
+        self.assertEqual(snap_llm["current_advice_title"], "关注第 4 路防守")
+        self.assertIn("[gpt-6.2-sol · 3.8s]（可能过时）", snap_llm["current_advice_meta"])
+        self.assertIn("水路4路补双发射手", snap_llm["current_reason_text"])
+        self.assertEqual(len(snap_llm["rich_history"]), 1)
+        self.assertIn("[gpt-6.2-sol · 3.8s]（可能过时）", snap_llm["rich_history"][0])
+        self.assertNotIn("本地即时", snap_llm["rich_history"][0])
+
+        # Turning LLM OFF cleanly restores pure-local mode
+        coach.set_enabled(False)
+        snap_local = ctrl.ui_snapshot()
+        self.assertEqual(snap_local["current_advice_title"], "关注第 2 路防守")
 
 
 if __name__ == "__main__":

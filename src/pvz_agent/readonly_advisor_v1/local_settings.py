@@ -14,7 +14,12 @@ import os
 from pathlib import Path
 from typing import Any
 
-from .async_llm_coach import SUPPORTED_PROTOCOLS, validate_base_url
+from .async_llm_coach import (
+    SUPPORTED_PROTOCOLS,
+    SUPPORTED_REASONING_EFFORTS,
+    SUPPORTED_VISION_MODES,
+    validate_base_url,
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 _DPAPI_ENTROPY = b"PVZagent.ReadonlyAdvisor.v1.ApiKey"
@@ -172,6 +177,8 @@ class LocalSettingsStore:
             result["remember_enabled"] = data["remember_enabled"]
         if isinstance(data.get("topmost"), bool):
             result["topmost"] = data["topmost"]
+        if isinstance(data.get("llm_enabled"), bool):
+            result["llm_enabled"] = data["llm_enabled"]
         if isinstance(data.get("base_url"), str) and data["base_url"].strip():
             try:
                 result["base_url"] = validate_base_url(data["base_url"])
@@ -181,6 +188,10 @@ class LocalSettingsStore:
             result["model"] = data["model"].strip()
         if isinstance(data.get("protocol"), str) and data["protocol"] in SUPPORTED_PROTOCOLS:
             result["protocol"] = data["protocol"]
+        if isinstance(data.get("vision_mode"), str) and data["vision_mode"] in SUPPORTED_VISION_MODES:
+            result["vision_mode"] = data["vision_mode"]
+        if isinstance(data.get("reasoning_effort"), str) and data["reasoning_effort"] in SUPPORTED_REASONING_EFFORTS:
+            result["reasoning_effort"] = data["reasoning_effort"]
         if isinstance(data.get("min_interval_s"), (int, float)):
             result["min_interval_s"] = max(10.0, min(60.0, float(data["min_interval_s"])))
 
@@ -202,6 +213,9 @@ class LocalSettingsStore:
         model: str,
         protocol: str,
         min_interval_s: float,
+        vision_mode: str = "text_only",
+        reasoning_effort: str = "low",
+        llm_enabled: bool = True,
         topmost: bool = True,
         remember_enabled: bool = True,
     ) -> tuple[bool, str]:
@@ -226,12 +240,17 @@ class LocalSettingsStore:
                 return False, "本机 DPAPI 加密失败，为保护密钥已拒绝明文保存"
 
         clean_proto = protocol if protocol in SUPPORTED_PROTOCOLS else "responses"
+        clean_vision = vision_mode if vision_mode in SUPPORTED_VISION_MODES else "text_only"
+        clean_effort = reasoning_effort if reasoning_effort in SUPPORTED_REASONING_EFFORTS else "low"
         payload = {
             "schema_version": 1,
             "remember_enabled": True,
             "base_url": clean_url,
             "model": (model or "").strip(),
             "protocol": clean_proto,
+            "vision_mode": clean_vision,
+            "reasoning_effort": clean_effort,
+            "llm_enabled": bool(llm_enabled),
             "min_interval_s": max(10.0, min(60.0, float(min_interval_s))),
             "topmost": bool(topmost),
             "api_key_dpapi_b64": enc_key,

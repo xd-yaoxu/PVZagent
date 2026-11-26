@@ -389,19 +389,24 @@ class _NativeWgcSession:
         width, height = self.size
         alpha_diag = {k: int(getattr(res.alpha_diag, k)) for k in ALPHA_DIAG_FIELDS}
         rect_now = tuple(int(getattr(res, k)) for k, _ in RECT_FIELDS)
-        if (
-            int(res.size) != ct.sizeof(res)
-            or int(res.identity_before) != 1
-            or int(res.identity_after) != 1
-            or (int(res.client_w), int(res.client_h)) != self.size
-            or int(res.stride) != width * 4
-            or int(res.bytes_written) != width * height * 4
-            or not perimeter_alpha_ok(int(res.alpha_nonopaque), alpha_diag, self.size)
-            or int(res.frame_qpc_100ns) <= self.last_qpc
-            or rect_now != self.expected_rect
-        ):
+        reject_reason = None
+        if int(res.size) != ct.sizeof(res):
+            reject_reason = "res_size"
+        elif int(res.identity_before) != 1 or int(res.identity_after) != 1:
+            reject_reason = "identity"
+        elif (int(res.client_w), int(res.client_h)) != self.size:
+            reject_reason = f"client_size:{int(res.client_w)}x{int(res.client_h)}"
+        elif int(res.stride) != width * 4 or int(res.bytes_written) != width * height * 4:
+            reject_reason = "stride_or_bytes"
+        elif not perimeter_alpha_ok(int(res.alpha_nonopaque), alpha_diag, self.size):
+            reject_reason = f"alpha:n={int(res.alpha_nonopaque)},int={alpha_diag.get('interior',0)},out={alpha_diag.get('outer_1px',0)}"
+        elif int(res.frame_qpc_100ns) <= self.last_qpc:
+            reject_reason = "qpc_nonmono"
+        elif rect_now != self.expected_rect:
+            reject_reason = "rect_moved"
+        if reject_reason is not None:
             self.buffer.fill(0)
-            raise RuntimeError("wgc_frame_gate_rejected")
+            raise RuntimeError(f"wgc_frame_gate_rejected:{reject_reason}")
         self.accepted_frames += 1
         self.last_qpc = int(res.frame_qpc_100ns)
         frame_copy = self.buffer.reshape(height, width, 4).copy()

@@ -18,6 +18,21 @@ COLLAPSED_H = 220
 RIGHT_MARGIN = 12
 TOP_MARGIN = 36
 
+_VISION_LABEL_TO_CODE = {
+    "纯文本极速(不传图)": "text_only",
+    "轻量看图(512px·low)": "low_jpeg",
+    "高清看图(原画·high)": "high_png",
+}
+_VISION_CODE_TO_LABEL = {v: k for k, v in _VISION_LABEL_TO_CODE.items()}
+_VISION_SHORT = {"text_only": "纯文本", "low_jpeg": "轻量图", "high_png": "高清图"}
+
+_EFFORT_LABEL_TO_CODE = {
+    "low(极速)": "low",
+    "medium(标准)": "medium",
+    "auto(模型默认)": "auto",
+}
+_EFFORT_CODE_TO_LABEL = {v: k for k, v in _EFFORT_LABEL_TO_CODE.items()}
+
 
 class ReadonlyAdvisorSidebarApp:
     """Single right-hand collapsible sidebar with Advice (default), Timeline, and Settings tabs."""
@@ -52,17 +67,22 @@ class ReadonlyAdvisorSidebarApp:
         init_key = saved.get("api_key", "")
         init_model = saved.get("model") or llm_init.get("model", "")
         init_proto = saved.get("protocol") or llm_init.get("protocol", "responses")
+        init_vision = saved.get("vision_mode") or llm_init.get("vision_mode", "text_only")
+        init_effort = saved.get("reasoning_effort") or llm_init.get("reasoning_effort", "low")
         init_interval = int(round(float(saved.get("min_interval_s", llm_init.get("interval_s", 18.0)))))
 
+        init_llm_enabled = bool(saved.get("llm_enabled", True))
         self._remember_var = tk.BooleanVar(master=root, value=bool(saved.get("remember_enabled", True)))
         self._topmost_var = tk.BooleanVar(master=root, value=bool(saved.get("topmost", True)))
-        self._llm_enabled_var = tk.BooleanVar(master=root, value=False)  # Default pure-local per user choice 2
+        self._llm_enabled_var = tk.BooleanVar(master=root, value=init_llm_enabled)
         self._llm_interval_var = tk.StringVar(master=root, value=str(init_interval))
         self._base_url_var = tk.StringVar(master=root, value=init_url)
         self._api_key_var = tk.StringVar(master=root, value=init_key)
         self._show_key_var = tk.BooleanVar(master=root, value=False)
         self._model_var = tk.StringVar(master=root, value=init_model)
         self._protocol_var = tk.StringVar(master=root, value=init_proto)
+        self._vision_mode_var = tk.StringVar(master=root, value=_VISION_CODE_TO_LABEL.get(init_vision, "纯文本极速(不传图)"))
+        self._reasoning_effort_var = tk.StringVar(master=root, value=_EFFORT_CODE_TO_LABEL.get(init_effort, "low(极速)"))
 
         self._initial_conn_feedback = "尚未修改默认连接配置"
         if saved:
@@ -73,6 +93,8 @@ class ReadonlyAdvisorSidebarApp:
                     api_key=init_key if init_key else None,
                     model=init_model,
                     protocol=init_proto,
+                    vision_mode=init_vision,
+                    reasoning_effort=init_effort,
                 )
             if init_url and init_key:
                 try:
@@ -87,6 +109,7 @@ class ReadonlyAdvisorSidebarApp:
                 self._initial_conn_feedback = "已自动恢复上次记住的 Base URL 与模型"
 
         self._build_ui()
+        self.controller.llm_coach.set_enabled(init_llm_enabled)
         self._apply_topmost(persist=False)
         self._position_window(EXPANDED_W, EXPANDED_H)
         self.root.protocol("WM_DELETE_WINDOW", self.close)
@@ -101,7 +124,7 @@ class ReadonlyAdvisorSidebarApp:
             pass
 
     def _build_ui(self) -> None:
-        self.root.title("PVZagent 只读实时建议助手 v1.0")
+        self.root.title("PVZagent 只读实时建议助手 v1.1.0")
         self.root.minsize(COLLAPSED_W, COLLAPSED_H)
         try:
             self.root.attributes("-topmost", True)
@@ -307,7 +330,7 @@ class ReadonlyAdvisorSidebarApp:
 
         ttk.Checkbutton(
             self._page_settings,
-            text="启用后台异步 LLM 战术建议（默认关闭，0 外网请求）",
+            text="启用后台异步 LLM 战术建议（默认开启，取消勾选切回纯本地 0 外网）",
             variable=self._llm_enabled_var,
             command=self._apply_llm_toggle,
         ).pack(anchor="w", pady=(0, 6))
@@ -357,12 +380,35 @@ class ReadonlyAdvisorSidebarApp:
 
         int_row = ttk.Frame(conn_box)
         int_row.pack(fill="x", pady=(0, 4))
-        ttk.Label(int_row, text="请求间隔（秒）：").pack(side="left")
+        ttk.Label(int_row, text="间隔(秒)：").pack(side="left")
         combo = ttk.Combobox(
-            int_row, textvariable=self._llm_interval_var, values=("15", "18", "25", "30"), width=6, state="readonly"
+            int_row, textvariable=self._llm_interval_var, values=("10", "15", "18", "25", "30"), width=4, state="readonly"
         )
-        combo.pack(side="left")
+        combo.pack(side="left", padx=(0, 6))
         combo.bind("<<ComboboxSelected>>", lambda _e: self._apply_llm_interval())
+        ttk.Label(int_row, text="推理强度：").pack(side="left")
+        self._effort_combo = ttk.Combobox(
+            int_row,
+            textvariable=self._reasoning_effort_var,
+            values=tuple(_EFFORT_LABEL_TO_CODE.keys()),
+            width=12,
+            state="readonly",
+        )
+        self._effort_combo.pack(side="left", fill="x", expand=True)
+        self._effort_combo.bind("<<ComboboxSelected>>", lambda _e: self._on_model_or_proto_changed())
+
+        vis_row = ttk.Frame(conn_box)
+        vis_row.pack(fill="x", pady=(0, 4))
+        ttk.Label(vis_row, text="请求模式：").pack(side="left")
+        self._vision_combo = ttk.Combobox(
+            vis_row,
+            textvariable=self._vision_mode_var,
+            values=tuple(_VISION_LABEL_TO_CODE.keys()),
+            width=22,
+            state="readonly",
+        )
+        self._vision_combo.pack(side="left", fill="x", expand=True)
+        self._vision_combo.bind("<<ComboboxSelected>>", lambda _e: self._on_model_or_proto_changed())
 
         ttk.Checkbutton(
             conn_box,
@@ -430,6 +476,12 @@ class ReadonlyAdvisorSidebarApp:
             self._main_frame.pack(fill="both", expand=True)
             self._position_window(EXPANDED_W, EXPANDED_H)
 
+    def _selected_vision_mode(self) -> str:
+        return _VISION_LABEL_TO_CODE.get(self._vision_mode_var.get().strip(), "text_only")
+
+    def _selected_reasoning_effort(self) -> str:
+        return _EFFORT_LABEL_TO_CODE.get(self._reasoning_effort_var.get().strip(), "low")
+
     def _persist_settings(self) -> tuple[bool, str]:
         try:
             interval_s = float(self._llm_interval_var.get())
@@ -441,6 +493,9 @@ class ReadonlyAdvisorSidebarApp:
             model=self._model_var.get(),
             protocol=self._protocol_var.get(),
             min_interval_s=interval_s,
+            vision_mode=self._selected_vision_mode(),
+            reasoning_effort=self._selected_reasoning_effort(),
+            llm_enabled=bool(self._llm_enabled_var.get()),
             topmost=bool(self._topmost_var.get()),
             remember_enabled=bool(self._remember_var.get()),
         )
@@ -456,14 +511,18 @@ class ReadonlyAdvisorSidebarApp:
     def _on_model_or_proto_changed(self) -> None:
         if self._closed:
             return
-        ok, _ = self.controller.llm_coach.configure_connection(
+        ok, msg = self.controller.llm_coach.configure_connection(
             base_url=self._base_url_var.get(),
             api_key=self._api_key_var.get() if self._api_key_var.get().strip() else None,
             model=self._model_var.get(),
             protocol=self._protocol_var.get(),
+            vision_mode=self._selected_vision_mode(),
+            reasoning_effort=self._selected_reasoning_effort(),
         )
-        if ok and self._remember_var.get():
-            self._persist_settings()
+        if ok:
+            if self._remember_var.get():
+                self._persist_settings()
+            self._conn_feedback_lbl.configure(text=msg)
 
     def _cancel_pending_fetch(self) -> None:
         self._fetch_seq += 1
@@ -484,6 +543,8 @@ class ReadonlyAdvisorSidebarApp:
 
     def _apply_llm_toggle(self) -> None:
         self.controller.llm_coach.set_enabled(bool(self._llm_enabled_var.get()))
+        if self._remember_var.get():
+            self._persist_settings()
 
     def _apply_llm_interval(self) -> None:
         try:
@@ -504,6 +565,8 @@ class ReadonlyAdvisorSidebarApp:
             api_key=self._api_key_var.get(),
             model=self._model_var.get(),
             protocol=self._protocol_var.get(),
+            vision_mode=self._selected_vision_mode(),
+            reasoning_effort=self._selected_reasoning_effort(),
         )
         if ok and self._remember_var.get():
             saved_ok, saved_msg = self._persist_settings()
@@ -595,6 +658,8 @@ class ReadonlyAdvisorSidebarApp:
                         api_key=raw_key if raw_key else None,
                         model=self._model_var.get().strip(),
                         protocol=self._protocol_var.get(),
+                        vision_mode=self._selected_vision_mode(),
+                        reasoning_effort=self._selected_reasoning_effort(),
                     )
                     if self._remember_var.get():
                         saved_ok, _ = self._persist_settings()
@@ -723,17 +788,21 @@ class ReadonlyAdvisorSidebarApp:
             self._llm_advice_lbl.configure(text="")
         else:
             if llm["inflight"]:
-                st_str = f"等待 {llm['model']} 返回（已用 {llm['waiting_s']:.1f}s，本地监测不阻塞）"
+                st_str = f"等待 {llm['model']} 返回（已用 {llm['waiting_s']:.1f}s）"
             elif llm["status"] == "missing_api_key":
-                st_str = "缺少 API Key（请在「设置」填写或配置 PVZ_LLM_API_KEY，已保持纯本地模式）"
+                st_str = "缺少 API Key（请在「设置」填写或配置 PVZ_LLM_API_KEY）"
             elif llm["status"] == "verified":
-                st_str = f"{llm['model']} 已返回并通过当前新帧复核（通过 {llm['verified_count']} / 过期拒收 {llm['rejected_count']}）"
+                st_str = f"{llm['model']} 已返回并展示（共 {llm['verified_count']} 条）"
+            elif llm["status"] == "verified_stale":
+                st_str = f"{llm['model']} 已返回并展示（局势变动，已标可能过时 · 共 {llm['verified_count']} 条）"
             elif llm["status"].startswith("rejected"):
                 st_str = f"{llm['model']} 上一条建议因局势变化/过期已撤回（{llm['status']}）"
             elif llm["status"] == "error":
-                st_str = f"{llm['model']} 请求异常（{llm['last_error']}），继续纯本地建议"
+                st_str = f"{llm['model']} 请求异常（{llm['last_error']}），等待下一轮重试"
             else:
-                st_str = f"{llm['model']} 就绪（间隔 {llm['interval_s']}s）"
+                v_tag = _VISION_SHORT.get(llm.get("vision_mode", "text_only"), "纯文本")
+                e_tag = llm.get("reasoning_effort", "low")
+                st_str = f"{llm['model']} 就绪（{v_tag}·{e_tag}·间隔 {llm['interval_s']}s）"
             self._llm_status_lbl.configure(text=f"模型通道：{st_str}")
 
             adv = llm["advice"]

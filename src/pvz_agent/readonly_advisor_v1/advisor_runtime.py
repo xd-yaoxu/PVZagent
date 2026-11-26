@@ -42,6 +42,16 @@ RESULT_AGE = 2.0
 POLICY = {"left_warning_x": 200, "other_lane_margin_px": 80}
 
 
+def _goal_title(goal: str, focus_row: int | None) -> str:
+    if goal == "defend_lane" and focus_row is not None:
+        return f"关注第 {focus_row} 路防守"
+    if goal == "collect_resources":
+        return "优先收取地面阳光"
+    if goal == "develop_economy":
+        return "继续发展经济"
+    return "稳固当前阵型"
+
+
 @dataclass(frozen=True)
 class _Arm:
     selection: object
@@ -476,6 +486,7 @@ class AdvisorController:
         self._last_frame_ms = 0.0
         self._last_norm_mode = "-"
         self._frames_processed = 0
+        self._last_wgc_error = ""
         self._last_llm_history_key: str | None = None
 
         # Visual stabilization state (prevents 1-frame flicker & rapid ping-pong while remaining fail-closed)
@@ -485,8 +496,10 @@ class AdvisorController:
         self._display_evidence: str = NO_EVIDENCE_TEXT
         self._display_since: float = 0.0
         self._display_last_fresh_at: float = 0.0
+        self._last_obs_at: float = 0.0
         self._consecutive_uncertain: int = 0
         self._stable_history: deque[str] = deque(maxlen=40)
+        self._llm_history: deque[str] = deque(maxlen=40)
         self._last_stable_hist_key: tuple[str, int | None] | None = None
 
     def _clear_display_locked(self) -> None:
@@ -496,6 +509,7 @@ class AdvisorController:
         self._display_evidence = NO_EVIDENCE_TEXT
         self._display_since = 0.0
         self._display_last_fresh_at = 0.0
+        self._last_obs_at = 0.0
         self._consecutive_uncertain = 0
 
     def _update_display_from_frame(
@@ -507,10 +521,12 @@ class AdvisorController:
         rel_time_text: str,
         now: float,
     ) -> None:
+        llm_enabled = bool(self.llm_coach.status_snapshot().get("enabled"))
         with self._lock:
             if ch_info is None:
                 self._clear_display_locked()
                 return
+            self._last_obs_at = now
             if advice is None:
                 self._consecutive_uncertain += 1
                 self._display_evidence = ch_info["summary_text"]
@@ -547,7 +563,7 @@ class AdvisorController:
                 self._display_key = new_key
                 self._display_title = _advice_text(advice)
                 self._display_reason = reason_text
-                if new_key != self._last_stable_hist_key:
+                if not llm_enabled and new_key != self._last_stable_hist_key:
                     self._last_stable_hist_key = new_key
                     self._stable_history.append(
                         f"[{rel_time_text}] [本地即时] {self._display_title} — {reason_text}"
@@ -655,7 +671,8 @@ class AdvisorController:
                 with self._lock:
                     self._clear_display_locked()
                     self._mode_state = "waiting_game"
-                    self._status_text = "游戏已切出或暂停 · 当前建议已撤下，切回游戏自动恢复"
+                    diag_tail = f"（上次状态：{self._last_wgc_error}）" if (self._frames_processed == 0 and self._last_wgc_error) else ""
+                    self._status_text = f"游戏已切出或暂停 · 切回游戏自动恢复{diag_tail}"
                 self._stop_event.wait(0.15)
                 continue
 
@@ -671,22 +688,26 @@ class AdvisorController:
                 except Exception as exc:
                     self.wgc.close()
                     self.engine.source_lost("wgc_open_retry")
-                    err_tag = str(exc).strip() or type(exc).__name__
-                    if len(err_tag) > 64:
-                        err_tag = err_tag[:64]
+                    err_tag = (str(exc).strip() or type(exc).__name__)[:60]
                     with self._lock:
+                        self._last_wgc_error = f"open:{err_tag}"
                         self._mode_state = "waiting_game"
-                        self._status_text = f"等待原版游戏画面就绪... ({err_tag})"
+                        self._status_text = f"等待原版游戏画面就绪... ({self._last_wgc_error})"
                     self._stop_event.wait(0.25)
                     continue
 
             t_frame = time.perf_counter()
             try:
                 cap = self.wgc.read_frame(timeout=3.0)
-            except Exception:
+            except Exception as exc:
                 self.wgc.close()
                 self.engine.source_lost("wgc_read_reset")
                 self.llm_coach.invalidate("wgc_read_reset")
+                err_tag = (str(exc).strip() or type(exc).__name__)[:60]
+                with self._lock:
+                    self._last_wgc_error = f"read:{err_tag}"
+                    self._mode_state = "waiting_game"
+                    self._status_text = f"等待原版游戏帧... ({self._last_wgc_error})"
                 self._stop_event.wait(0.15)
                 continue
 
@@ -738,12 +759,15 @@ class AdvisorController:
                     key = f"{verified_llm.source_state_id}:{verified_llm.reviewed_state_id}"
                     if key != self._last_llm_history_key:
                         self._last_llm_history_key = key
+                        stale_tag = "（可能过时）" if verified_llm.possibly_stale else ""
                         with self._lock:
-                            self._stable_history.append(
-                                f"[{rel_txt}] [LLM·{verified_llm.model}] {verified_llm.reason}"
+                            self._llm_history.append(
+                                f"[{rel_txt}] [{verified_llm.model} · {verified_llm.latency_s:.1f}s]{stale_tag} "
+                                f"{_goal_title(verified_llm.goal, verified_llm.focus_row)} — {verified_llm.reason}"
                             )
                 with self._lock:
                     self._frames_processed += 1
+                    self._last_wgc_error = ""
                     self._last_frame_ms = elapsed_ms
                     self._last_norm_mode = str(norm_diag.get("mode", "-"))
                     self._mode_state = "monitoring"
@@ -775,17 +799,52 @@ class AdvisorController:
         phase = self.phase_tracker.snapshot(now)
 
         with self._lock:
-            # Fail-closed stale guard: if no fresh valid advice arrived within display_stale_s, withdraw!
+            # Fail-closed stale guard: if no fresh valid observation/advice arrived within display_stale_s, withdraw!
             if self._display_key is not None and (now - self._display_last_fresh_at) >= self.display_stale_s:
                 self._clear_display_locked()
-            has_active = self._display_key is not None
-            dwell_s = max(0.0, now - self._display_since) if has_active else 0.0
-            fresh_age_s = max(0.0, now - self._display_last_fresh_at) if has_active else 0.0
-            display_meta = (
-                f"持续有效 · 已展示 {dwell_s:.1f}s（最近确认 {fresh_age_s:.1f}s 前）"
-                if has_active else "当前无有效建议（暂停、切窗或等待新帧）"
-            )
-            verified_llm: VerifiedLlmAdvice | None = llm["advice"] if has_active else None
+
+            if llm["enabled"]:
+                # When LLM tactical advice is enabled, hide local-instant advice & history cleanly.
+                live_obs_ok = (
+                    self._display_evidence != NO_EVIDENCE_TEXT
+                    and self._last_obs_at > 0.0
+                    and (now - self._last_obs_at) < self.display_stale_s
+                )
+                verified_llm: VerifiedLlmAdvice | None = llm["advice"] if live_obs_ok else None
+                if verified_llm is not None:
+                    has_active = True
+                    title_out = _goal_title(verified_llm.goal, verified_llm.focus_row)
+                    age_s = max(0.0, now - verified_llm.verified_at)
+                    stale_tag = "（可能过时）" if verified_llm.possibly_stale else ""
+                    display_meta = (
+                        f"[{verified_llm.model} · {verified_llm.latency_s:.1f}s]{stale_tag} · 已展示 {age_s:.1f}s"
+                    )
+                    unc = "；".join(verified_llm.uncertainties)
+                    reason_out = verified_llm.reason + (f"\n不确定项：{unc}" if unc else "")
+                else:
+                    has_active = False
+                    if live_obs_ok and llm["inflight"]:
+                        title_out = "等待 LLM 建议..."
+                        display_meta = f"正在请求 {llm['model']}（已用 {llm['waiting_s']:.1f}s）"
+                    else:
+                        title_out = "暂无 LLM 建议"
+                        display_meta = "当前无有效 LLM 建议（暂停、切窗或等待下一轮返回）"
+                    reason_out = ""
+                history_out = list(self._llm_history)
+                llm_out = {**llm, "advice": None}
+            else:
+                has_active = self._display_key is not None
+                dwell_s = max(0.0, now - self._display_since) if has_active else 0.0
+                fresh_age_s = max(0.0, now - self._display_last_fresh_at) if has_active else 0.0
+                title_out = self._display_title
+                display_meta = (
+                    f"持续有效 · 已展示 {dwell_s:.1f}s（最近确认 {fresh_age_s:.1f}s 前）"
+                    if has_active else "当前无有效建议（暂停、切窗或等待新帧）"
+                )
+                reason_out = self._display_reason
+                history_out = list(self._stable_history)
+                llm_out = {**llm, "advice": None}
+
             return {
                 "mode_state": self._mode_state,
                 "status_text": self._status_text,
@@ -795,15 +854,15 @@ class AdvisorController:
                 "last_frame_ms": self._last_frame_ms,
                 "last_norm_mode": self._last_norm_mode,
                 "has_active_advice": has_active,
-                "current_advice_title": self._display_title,
+                "current_advice_title": title_out,
                 "current_advice_meta": display_meta,
-                "current_reason_text": self._display_reason,
+                "current_reason_text": reason_out,
                 "evidence_text": self._display_evidence,
-                "rich_history": list(self._stable_history),
+                "rich_history": history_out,
                 "watchdog_retire_count": wd_count,
                 "withdrawn_count": withdrawn_count,
                 "phase": phase,
-                "llm": {**llm, "advice": verified_llm},
+                "llm": llm_out,
             }
 
     def close(self) -> None:
