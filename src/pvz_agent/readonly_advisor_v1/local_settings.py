@@ -192,8 +192,10 @@ class LocalSettingsStore:
             result["vision_mode"] = data["vision_mode"]
         if isinstance(data.get("reasoning_effort"), str) and data["reasoning_effort"] in SUPPORTED_REASONING_EFFORTS:
             result["reasoning_effort"] = data["reasoning_effort"]
+        if isinstance(data.get("stream_enabled"), bool):
+            result["stream_enabled"] = data["stream_enabled"]
         if isinstance(data.get("min_interval_s"), (int, float)):
-            result["min_interval_s"] = max(10.0, min(60.0, float(data["min_interval_s"])))
+            result["min_interval_s"] = max(3.0, min(60.0, float(data["min_interval_s"])))
 
         enc_key = data.get("api_key_dpapi_b64")
         if isinstance(enc_key, str) and enc_key.strip():
@@ -215,6 +217,7 @@ class LocalSettingsStore:
         min_interval_s: float,
         vision_mode: str = "text_only",
         reasoning_effort: str = "low",
+        stream_enabled: bool = False,
         llm_enabled: bool = True,
         topmost: bool = True,
         remember_enabled: bool = True,
@@ -250,8 +253,9 @@ class LocalSettingsStore:
             "protocol": clean_proto,
             "vision_mode": clean_vision,
             "reasoning_effort": clean_effort,
+            "stream_enabled": bool(stream_enabled),
             "llm_enabled": bool(llm_enabled),
-            "min_interval_s": max(10.0, min(60.0, float(min_interval_s))),
+            "min_interval_s": max(3.0, min(60.0, float(min_interval_s))),
             "topmost": bool(topmost),
             "api_key_dpapi_b64": enc_key,
         }

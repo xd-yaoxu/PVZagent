@@ -8,7 +8,7 @@ from tkinter import ttk
 from typing import Any
 
 from .advisor_runtime import AdvisorController
-from .async_llm_coach import validate_base_url
+from .async_llm_coach import SUPPORTED_PROTOCOLS, SUPPORTED_REASONING_EFFORTS, validate_base_url
 from .local_settings import LocalSettingsStore
 
 EXPANDED_W = 420
@@ -27,6 +27,8 @@ _VISION_CODE_TO_LABEL = {v: k for k, v in _VISION_LABEL_TO_CODE.items()}
 _VISION_SHORT = {"text_only": "纯文本", "low_jpeg": "轻量图", "high_png": "高清图"}
 
 _EFFORT_LABEL_TO_CODE = {
+    "none(关闭思考)": "none",
+    "minimal(最少思考)": "minimal",
     "low(极速)": "low",
     "medium(标准)": "medium",
     "auto(模型默认)": "auto",
@@ -69,13 +71,14 @@ class ReadonlyAdvisorSidebarApp:
         init_proto = saved.get("protocol") or llm_init.get("protocol", "responses")
         init_vision = saved.get("vision_mode") or llm_init.get("vision_mode", "text_only")
         init_effort = saved.get("reasoning_effort") or llm_init.get("reasoning_effort", "low")
-        init_interval = int(round(float(saved.get("min_interval_s", llm_init.get("interval_s", 18.0)))))
+        init_stream = saved.get("stream_enabled", llm_init.get("stream_enabled", False))
+        init_interval = float(saved.get("min_interval_s", llm_init.get("interval_s", 18.0)))
 
         init_llm_enabled = bool(saved.get("llm_enabled", True))
         self._remember_var = tk.BooleanVar(master=root, value=bool(saved.get("remember_enabled", True)))
         self._topmost_var = tk.BooleanVar(master=root, value=bool(saved.get("topmost", True)))
         self._llm_enabled_var = tk.BooleanVar(master=root, value=init_llm_enabled)
-        self._llm_interval_var = tk.StringVar(master=root, value=str(init_interval))
+        self._llm_interval_var = tk.StringVar(master=root, value=f"{init_interval:g}")
         self._base_url_var = tk.StringVar(master=root, value=init_url)
         self._api_key_var = tk.StringVar(master=root, value=init_key)
         self._show_key_var = tk.BooleanVar(master=root, value=False)
@@ -83,6 +86,7 @@ class ReadonlyAdvisorSidebarApp:
         self._protocol_var = tk.StringVar(master=root, value=init_proto)
         self._vision_mode_var = tk.StringVar(master=root, value=_VISION_CODE_TO_LABEL.get(init_vision, "纯文本极速(不传图)"))
         self._reasoning_effort_var = tk.StringVar(master=root, value=_EFFORT_CODE_TO_LABEL.get(init_effort, "low(极速)"))
+        self._stream_var = tk.BooleanVar(master=root, value=init_stream)
 
         self._initial_conn_feedback = "尚未修改默认连接配置"
         if saved:
@@ -95,6 +99,7 @@ class ReadonlyAdvisorSidebarApp:
                     protocol=init_proto,
                     vision_mode=init_vision,
                     reasoning_effort=init_effort,
+                    stream_enabled=init_stream,
                 )
             if init_url and init_key:
                 try:
@@ -124,7 +129,7 @@ class ReadonlyAdvisorSidebarApp:
             pass
 
     def _build_ui(self) -> None:
-        self.root.title("PVZagent 只读实时建议助手 v1.1.0")
+        self.root.title("PVZagent 只读实时建议助手 v1.2.0")
         self.root.minsize(COLLAPSED_W, COLLAPSED_H)
         try:
             self.root.attributes("-topmost", True)
@@ -272,12 +277,12 @@ class ReadonlyAdvisorSidebarApp:
         ttk.Label(self._page_advice, text="分层真实证据评估（卡片／威胁／位置）", anchor="w").pack(fill="x")
         self._evidence_box = tk.Frame(
             self._page_advice,
-            height=96,
+            height=112,
             background="#fafafa",
             highlightbackground="#dddddd",
             highlightthickness=1,
             padx=6,
-            pady=4,
+            pady=1,
         )
         self._evidence_box.pack(fill="x", pady=(3, 8))
         self._evidence_box.pack_propagate(False)
@@ -373,7 +378,7 @@ class ReadonlyAdvisorSidebarApp:
         self._model_combo.bind("<FocusOut>", lambda _e: self._on_model_or_proto_changed())
         ttk.Label(mp_row, text="协议：").pack(side="left")
         self._proto_combo = ttk.Combobox(
-            mp_row, textvariable=self._protocol_var, values=("responses", "chat_completions"), width=13, state="readonly"
+            mp_row, textvariable=self._protocol_var, values=SUPPORTED_PROTOCOLS, width=19, state="readonly"
         )
         self._proto_combo.pack(side="left")
         self._proto_combo.bind("<<ComboboxSelected>>", lambda _e: self._on_model_or_proto_changed())
@@ -382,7 +387,8 @@ class ReadonlyAdvisorSidebarApp:
         int_row.pack(fill="x", pady=(0, 4))
         ttk.Label(int_row, text="间隔(秒)：").pack(side="left")
         combo = ttk.Combobox(
-            int_row, textvariable=self._llm_interval_var, values=("10", "15", "18", "25", "30"), width=4, state="readonly"
+            int_row, textvariable=self._llm_interval_var,
+            values=("3", "4", "6", "10", "12", "15", "18", "25", "30"), width=4, state="readonly"
         )
         combo.pack(side="left", padx=(0, 6))
         combo.bind("<<ComboboxSelected>>", lambda _e: self._apply_llm_interval())
@@ -390,7 +396,7 @@ class ReadonlyAdvisorSidebarApp:
         self._effort_combo = ttk.Combobox(
             int_row,
             textvariable=self._reasoning_effort_var,
-            values=tuple(_EFFORT_LABEL_TO_CODE.keys()),
+            values=tuple(_EFFORT_CODE_TO_LABEL[code] for code in SUPPORTED_REASONING_EFFORTS),
             width=12,
             state="readonly",
         )
@@ -409,6 +415,9 @@ class ReadonlyAdvisorSidebarApp:
         )
         self._vision_combo.pack(side="left", fill="x", expand=True)
         self._vision_combo.bind("<<ComboboxSelected>>", lambda _e: self._on_model_or_proto_changed())
+        ttk.Checkbutton(
+            vis_row, text="流式接收", variable=self._stream_var, command=self._on_model_or_proto_changed,
+        ).pack(side="left", padx=(6, 0))
 
         ttk.Checkbutton(
             conn_box,
@@ -495,6 +504,7 @@ class ReadonlyAdvisorSidebarApp:
             min_interval_s=interval_s,
             vision_mode=self._selected_vision_mode(),
             reasoning_effort=self._selected_reasoning_effort(),
+            stream_enabled=bool(self._stream_var.get()),
             llm_enabled=bool(self._llm_enabled_var.get()),
             topmost=bool(self._topmost_var.get()),
             remember_enabled=bool(self._remember_var.get()),
@@ -518,6 +528,7 @@ class ReadonlyAdvisorSidebarApp:
             protocol=self._protocol_var.get(),
             vision_mode=self._selected_vision_mode(),
             reasoning_effort=self._selected_reasoning_effort(),
+            stream_enabled=bool(self._stream_var.get()),
         )
         if ok:
             if self._remember_var.get():
@@ -567,6 +578,7 @@ class ReadonlyAdvisorSidebarApp:
             protocol=self._protocol_var.get(),
             vision_mode=self._selected_vision_mode(),
             reasoning_effort=self._selected_reasoning_effort(),
+            stream_enabled=bool(self._stream_var.get()),
         )
         if ok and self._remember_var.get():
             saved_ok, saved_msg = self._persist_settings()
@@ -660,6 +672,7 @@ class ReadonlyAdvisorSidebarApp:
                         protocol=self._protocol_var.get(),
                         vision_mode=self._selected_vision_mode(),
                         reasoning_effort=self._selected_reasoning_effort(),
+                        stream_enabled=bool(self._stream_var.get()),
                     )
                     if self._remember_var.get():
                         saved_ok, _ = self._persist_settings()

@@ -14,9 +14,10 @@ from weakref import WeakValueDictionary, ref
 from PIL import Image
 
 from ..resource_runtime import ResourceStrategySupervisor
-from ..resource_sidebar import Advice, ReadonlyResourceSidebar, _SidebarFrames
+from ..resource_sidebar import Advice, ReadonlyResourceSidebar, _Presentation, _SidebarFrames
 from ..resource_sidebar_tk import _advice_text
 from ..snapshot_frames import SnapshotFrames
+from ..strategy_review import fresh
 from .async_llm_coach import AsyncLlmCoach, VerifiedLlmAdvice
 from .fast_perception import (
     CANONICAL_SIZE,
@@ -36,6 +37,7 @@ from .wgc_capture import (
     OriginalPvzWindowSelector,
     WindowLease,
 )
+from .zombie_intel import supplementary_snorkels
 
 INPUT_AGE = 1.5
 RESULT_AGE = 2.0
@@ -50,6 +52,21 @@ def _goal_title(goal: str, focus_row: int | None) -> str:
     if goal == "develop_economy":
         return "继续发展经济"
     return "稳固当前阵型"
+
+
+def _conflicts_with_defense(goal, focus_row, defense):
+    if not defense:
+        return False
+    if goal == "defend_lane" and defense.get("by_row", {}).get(focus_row, {}).get("verdict") == "sufficient":
+        return True
+    rows = defense.get("needs_defense_rows", ())
+    if rows:
+        return (goal, focus_row) != ("defend_lane", rows[0])
+    return goal == "defend_lane"
+
+
+def _local_advice_text(advice):
+    return "维持当前阵型" if advice.goal == "hold_formation" else _advice_text(advice)
 
 
 @dataclass(frozen=True)
@@ -169,6 +186,7 @@ class _AdvisorSidebar(ReadonlyResourceSidebar):
         super().__init__()
         self._clock = clock
         self._history_epoch = None
+        self._direct_tag = object()
         self.expiry: _ExpiryWatchdog | None = None
         self._active_selection = None
         self.presentations_accepted = 0
@@ -193,6 +211,8 @@ class _AdvisorSidebar(ReadonlyResourceSidebar):
         return min(captured + RESULT_AGE, published_expiry, result.source_time + result.review_window)
 
     def _is_current_locked(self, result, now: float) -> bool:
+        if result is not None and result.reviewer is self._direct_tag:
+            return self._is_direct_current_locked(result, now)
         return (
             result is not None
             and type(now) in (int, float)
@@ -201,6 +221,62 @@ class _AdvisorSidebar(ReadonlyResourceSidebar):
             and super()._is_current_locked(result, now)
         )
 
+    def _is_direct_current_locked(self, result: _Presentation, now: float) -> bool:
+        registry = self._registry
+        if self.expiry.closed or registry._source_ended or registry._error is not None or registry._published is None:
+            return False
+        generation, state, captured, expires = registry._published
+        return (
+            generation == registry._generation
+            and fresh(state, now)
+            and captured <= now < expires
+            and now < self._deadline(result)
+            and (generation, registry._epoch, state["run_id"], state["state_id"],
+                 captured, expires, registry._strategy_context_version) == result.token
+        )
+
+    def present_direct_locked(self, strategy: dict[str, Any], state: dict[str, Any]) -> bool:
+        """Present a local strategy from the current registry publication."""
+        if self.expiry.enforce_locked() or self.expiry.closed:
+            return False
+        selected = self._active_selection()
+        registry = self._registry
+        if selected is None or registry._published is None:
+            return False
+        generation, current, captured, expires = registry._published
+        if current["state_id"] != state["state_id"] or current["continuity"]["epoch"] != registry._epoch:
+            return False
+        token = (generation, registry._epoch, state["run_id"], state["state_id"],
+                 captured, expires, registry._strategy_context_version)
+        deadline = min(captured + RESULT_AGE, expires)
+        advice = Advice(strategy["goal"], strategy.get("focus_row"), strategy["source_state_id"],
+                        state["state_id"], deadline)
+        result = _Presentation(self._binding, advice, token, 0, self._direct_tag, captured, 30.0)
+        if not self._is_current_locked(result, self._clock()):
+            return False
+        previous = tuple(self._history)
+        self._current = result
+        if not self._history or self._history[-1] != advice:
+            self._history.append(advice)
+        self._record_presentation_locked(selected, result, deadline, previous)
+        return True
+
+    def _record_presentation_locked(self, selected, result, deadline, previous) -> None:
+        self.presentations_accepted += 1
+        self.expiry.arm_locked(selected, result, deadline)
+        epoch = result.token[1]
+        old = previous[-1] if previous else None
+        if (
+            old is not None
+            and self._history_epoch == epoch
+            and (old.goal, old.focus_row) == (result.advice.goal, result.advice.focus_row)
+        ):
+            self._history.clear()
+            self._history.extend(previous)
+            self.duplicate_coalesced_count += 1
+        else:
+            self._history_epoch = epoch
+
     def _present(self, reviewer, result):
         with self._registry._condition:
             if self.expiry.enforce_locked() or self.expiry.closed:
@@ -208,6 +284,16 @@ class _AdvisorSidebar(ReadonlyResourceSidebar):
             selected = self._active_selection()
             if selected is None:
                 return
+            if self._registry._published is not None:
+                state = self._registry._published[1]
+                defense = state.get("lane_defense") or {}
+                local_hold = result.advice.goal == "hold" and (
+                    defense.get("all_threatened_sufficient") or defense.get("unknown_threat_rows")
+                )
+                # Publish the assessed formation hold via the direct path so
+                # it keeps its specific reason and a single history entry.
+                if local_hold or _conflicts_with_defense(result.advice.goal, result.advice.focus_row, defense):
+                    return
             deadline = self._deadline(result)
             if deadline < result.advice.expires_monotonic:
                 result = replace(result, advice=replace(result.advice, expires_monotonic=deadline))
@@ -215,20 +301,7 @@ class _AdvisorSidebar(ReadonlyResourceSidebar):
             super()._present(reviewer, result)
             if self._current is not result:
                 return
-            self.presentations_accepted += 1
-            self.expiry.arm_locked(selected, result, deadline)
-            epoch = result.token[1]
-            old = previous[-1] if previous else None
-            if (
-                old is not None
-                and self._history_epoch == epoch
-                and (old.goal, old.focus_row) == (result.advice.goal, result.advice.focus_row)
-            ):
-                self._history.clear()
-                self._history.extend(previous)
-                self.duplicate_coalesced_count += 1
-            else:
-                self._history_epoch = epoch
+            self._record_presentation_locked(selected, result, deadline, previous)
 
 
 @dataclass
@@ -260,7 +333,7 @@ class ContinuousAdviceEngine:
         self.journal: deque[dict[str, Any]] = deque(maxlen=100)
         self.supervisor = ResourceStrategySupervisor(
             self.registry,
-            lambda st: evaluate_local_strategy(st, self.policy),
+            self._supervisor_strategy,
             policy=self.policy,
             record_sink=self.journal.append,
             clock=clock,
@@ -283,6 +356,12 @@ class ContinuousAdviceEngine:
         self.published_frames = 0
         self.stale_rejected = 0
         self._engine_uid = f"{id(self) & 0xFFFF:04x}"
+
+    def _supervisor_strategy(self, state):
+        proposal = evaluate_local_strategy(state, self.policy)
+        if proposal["strategy"]["goal"] == "hold_formation":
+            proposal["strategy"]["goal"] = "hold"
+        return proposal
 
     def _expire_locked(self, expected) -> bool:
         if self._selection is not expected:
@@ -349,6 +428,7 @@ class ContinuousAdviceEngine:
             serial = sel.last_serial
             state_id = f"live/{self._engine_uid}/{sel.version}/{serial}"
             ticket = self.registry.admit_frame(state_id, stamp_ns)
+            capture_epoch = ticket.item["_continuity_epoch"]
 
         stamp = stamp_ns / 1e9
         run_id = f"live-source/{self._engine_uid}/{sel.version}"
@@ -364,12 +444,12 @@ class ContinuousAdviceEngine:
                 capture_time=capture_time,
                 frame_time_seconds=stamp,
                 evidence=evidence,
-                tracking_epoch=sel.version,
+                tracking_epoch=capture_epoch,
             )
 
         with self.registry._condition:
             self.expiry.enforce_locked()
-            if self._selection is not sel:
+            if self._selection is not sel or ticket.generation != self.registry._generation:
                 self.stale_rejected += 1
                 return None, None, None
             now_after = self.clock()
@@ -377,7 +457,14 @@ class ContinuousAdviceEngine:
                 self._retire_locked("observation_expired")
                 self.stale_rejected += 1
                 return None, None, None
-            if ticket.item.get("_continuity_epoch") != self.registry._epoch:
+            if capture_epoch != self.registry._epoch:
+                # Only a prior presentation expiring may carry an in-flight frame across the break.
+                if (
+                    self.registry._epoch != capture_epoch + 1
+                    or self.registry._continuity_events[-1]["reason"] != "deadline_expired"
+                ):
+                    self.stale_rejected += 1
+                    return None, None, None
                 ticket = self.registry.admit_frame(state_id, stamp_ns)
             published = self.registry.publish_observation(
                 ticket,
@@ -396,9 +483,12 @@ class ContinuousAdviceEngine:
             self.published_frames += 1
 
         ch_info = evaluate_three_channels(self.root, published, frame_index=self.published_frames)
+        local_strategy: dict[str, Any] | None
         try:
-            local_reason = evaluate_local_strategy(published, self.policy)["strategy"]["reason"]
+            local_strategy = evaluate_local_strategy(published, self.policy)["strategy"]
+            local_reason = local_strategy["reason"]
         except Exception:
+            local_strategy = None
             local_reason = ""
 
         req_before = self.supervisor.requests
@@ -413,8 +503,23 @@ class ContinuousAdviceEngine:
             self.supervisor.poll()
 
         with self.registry._condition:
-            now_settle = self.clock()
-            if self.sidebar._is_current_locked(self.sidebar._current, now_settle):
+            self.expiry.enforce_locked()
+            if ticket.generation != self.registry._generation or published["continuity"]["epoch"] != self.registry._epoch:
+                return published, ch_info, None
+            current = self.sidebar._current
+            is_current = self.sidebar._is_current_locked(current, self.clock())
+            defense = ch_info.get("lane_defense") or {}
+            defense_reviewed = (defense.get("all_threatened_sufficient") or defense.get("needs_defense_rows")
+                                or defense.get("unknown_threat_rows"))
+            supplemental = ch_info.get("confirmed_vehicles", 0) > 0 or bool(
+                supplementary_snorkels(ch_info.get("zombie_intel") or {})
+            )
+            if local_strategy is not None and ch_info.get("uncertain_threats", 0) == 0:
+                current_key = (current.advice.goal, current.advice.focus_row) if is_current else None
+                local_key = local_strategy["goal"], local_strategy["focus_row"]
+                if (defense_reviewed and current_key != local_key) or (supplemental and not is_current):
+                    self.sidebar.present_direct_locked(local_strategy, published)
+            if self.sidebar._is_current_locked(self.sidebar._current, self.clock()):
                 self.sidebar.current_evidence_text = ch_info["summary_text"]
                 self.sidebar.current_reason_text = local_reason
                 advice = self.sidebar._current.advice
@@ -422,7 +527,7 @@ class ContinuousAdviceEngine:
                 if len(self.sidebar._history) != hist_before and key != self.sidebar._last_rich_key:
                     self.sidebar._last_rich_key = key
                     self.sidebar.rich_history.append(
-                        f"[{rel_time_text}] [本地即时] {_advice_text(advice)} — {local_reason}"
+                        f"[{rel_time_text}] [本地即时] {_local_advice_text(advice)} — {local_reason}"
                     )
                 return published, ch_info, advice
             if self.sidebar._current is not None:
@@ -496,6 +601,7 @@ class AdvisorController:
         self._display_evidence: str = NO_EVIDENCE_TEXT
         self._display_since: float = 0.0
         self._display_last_fresh_at: float = 0.0
+        self._display_result_deadline: float | None = None
         self._last_obs_at: float = 0.0
         self._consecutive_uncertain: int = 0
         self._stable_history: deque[str] = deque(maxlen=40)
@@ -509,6 +615,7 @@ class AdvisorController:
         self._display_evidence = NO_EVIDENCE_TEXT
         self._display_since = 0.0
         self._display_last_fresh_at = 0.0
+        self._display_result_deadline = None
         self._last_obs_at = 0.0
         self._consecutive_uncertain = 0
 
@@ -527,6 +634,12 @@ class AdvisorController:
                 self._clear_display_locked()
                 return
             self._last_obs_at = now
+            lane_defense = ch_info.get("lane_defense") or {}
+            display_conflict = (
+                self._display_key is not None and _conflicts_with_defense(*self._display_key, lane_defense)
+            )
+            if advice is not None and _conflicts_with_defense(advice.goal, advice.focus_row, lane_defense):
+                advice = None
             if advice is None:
                 self._consecutive_uncertain += 1
                 self._display_evidence = ch_info["summary_text"]
@@ -534,7 +647,12 @@ class AdvisorController:
                 # withdraw immediately on 2 consecutive uncertain frames or when stale budget is reached.
                 if (
                     self._display_key is not None
-                    and (self._consecutive_uncertain >= 2 or (now - self._display_last_fresh_at) >= self.display_stale_s)
+                    and (
+                        display_conflict
+                        or self._display_result_deadline is not None
+                        or self._consecutive_uncertain >= 2
+                        or (now - self._display_last_fresh_at) >= self.display_stale_s
+                    )
                 ):
                     self._clear_display_locked()
                 return
@@ -543,25 +661,41 @@ class AdvisorController:
             self._display_last_fresh_at = now
             self._display_evidence = ch_info["summary_text"]
             new_key = (advice.goal, advice.focus_row)
-            is_urgent = ch_info.get("leftmost_head_x") is not None and ch_info["leftmost_head_x"] <= 200
+            by_lane = ch_info.get("zombie_intel", {}).get("by_lane", {})
+            primary = by_lane.get(ch_info.get("priority_row"), {}).get("primary_entity", {})
+            leftmost_threat = ch_info.get("leftmost_threat_x")
+            has_vehicles = ch_info.get("confirmed_vehicles", 0) > 0
+            is_high_threat = (
+                has_vehicles
+                or (leftmost_threat is not None and leftmost_threat <= 200)
+                or (
+                    primary.get("species_id") in ("zomboni", "buckethead_zombie", "gargantuar", "football_zombie")
+                    and primary["x"] <= 560
+                )
+            )
+            leftmost_head = ch_info.get("leftmost_head_x")
+            is_urgent = (leftmost_head is not None and leftmost_head <= 200) or is_high_threat
             focus_lane_gone = (
                 self._display_key is not None
                 and self._display_key[0] == "defend_lane"
                 and self._display_key[1] is not None
                 and not ch_info.get("per_lane", {}).get(self._display_key[1])
+                and not by_lane.get(self._display_key[1])
             )
             can_switch = (
                 self._display_key is None
                 or new_key == self._display_key
                 or is_urgent
                 or focus_lane_gone
+                or display_conflict
                 or (now - self._display_since) >= self.min_dwell_s
             )
             if can_switch:
                 if new_key != self._display_key:
                     self._display_since = now
                 self._display_key = new_key
-                self._display_title = _advice_text(advice)
+                self._display_result_deadline = advice.expires_monotonic if has_vehicles or lane_defense else None
+                self._display_title = _local_advice_text(advice)
                 self._display_reason = reason_text
                 if not llm_enabled and new_key != self._last_stable_hist_key:
                     self._last_stable_hist_key = new_key
@@ -600,6 +734,7 @@ class AdvisorController:
             self._stop_event.clear()
             self._mode_state = "waiting_game"
             self._status_text = "正在加载感知模型并等待切回原版游戏..."
+            self.llm_coach.warmup_connection_async()
             self._worker = threading.Thread(target=self._loop, name="pvz-readonly-advisor-loop", daemon=True)
             self._worker.start()
             return True, "已启动整局只读监测，请切回原版游戏窗口"
@@ -800,7 +935,10 @@ class AdvisorController:
 
         with self._lock:
             # Fail-closed stale guard: if no fresh valid observation/advice arrived within display_stale_s, withdraw!
-            if self._display_key is not None and (now - self._display_last_fresh_at) >= self.display_stale_s:
+            if self._display_key is not None and (
+                (now - self._display_last_fresh_at) >= self.display_stale_s
+                or (self._display_result_deadline is not None and now >= self._display_result_deadline)
+            ):
                 self._clear_display_locked()
 
             if llm["enabled"]:

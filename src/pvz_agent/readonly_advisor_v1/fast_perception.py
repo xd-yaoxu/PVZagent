@@ -20,12 +20,24 @@ import numpy as np
 from PIL import Image
 
 from ..card_identity import CardIdentityPerception, gray as card_gray, source_run
-from ..goal_review import ReviewBlocked, lane_observations
+from ..goal_review import ReviewBlocked
 from ..product_card_strategy import card_context
 from ..product_startup import verify_product_startup
 from ..resource_review import sun_cue_ids
 from ..resource_stream import create_product_resource_stream
 from ..resource_threat_v2 import validate_threat_context
+from .lane_defense import evaluate_all_lanes
+from .plant_intel import PlantBoardClassifier, WATER_ROWS
+from .zombie_intel import (
+    DEFAULT_LEFT_WARNING_X,
+    ZombieSpeciesClassifier,
+    classify_state_metadata,
+    is_localized_vehicle,
+    prioritize_zombie_intel,
+    recommend_counter_plan,
+    supplementary_snorkels,
+    threat_detail,
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 REFERENCE_PNG = REPO_ROOT / "evidence/day06/new-material-a-20261107-v1/canonical/frame-0000.png"
@@ -275,6 +287,13 @@ class FastSinglePassPerception:
         self.base = create_product_resource_stream(self.root)
         self.cards = CardIdentityPerception(self.root, self.config)
         self.catalog = copy.deepcopy(self.cards.catalog)
+        self.zombie_classifier = ZombieSpeciesClassifier(self.root)
+        self._plant_classifier = PlantBoardClassifier(self.root)
+        self._plant_epoch = None
+
+    def reset(self) -> None:
+        self._plant_classifier.reset()
+        self._plant_epoch = None
 
     def _observe_cards_in_memory(self, image: Image.Image, state: dict[str, Any]) -> dict[str, Any]:
         started = time.perf_counter()
@@ -335,16 +354,40 @@ class FastSinglePassPerception:
                     c["raw_visual_state"] = raw_vs
                     if known_bd >= 5 and raw_vs not in ("bright", "dim"):
                         c["visual_state"] = "dim"
+        playing = state.get("scene", {}).get("value") == "playing"
+        rgb_arr = np.asarray(image if image.mode == "RGB" else image.convert("RGB"), dtype=np.uint8) if playing else None
+        intel = self.zombie_classifier.classify_frame(rgb_arr, state)
+        if playing:
+            state["zombie_intel"] = intel
+            epoch = (state["run_id"], kwargs.get("tracking_epoch"))
+            if epoch != self._plant_epoch:
+                self.reset()
+                self._plant_epoch = epoch
+            plants = self._plant_classifier.classify_board(
+                cv2.cvtColor(rgb_arr, cv2.COLOR_RGB2BGR), fields, zombie_intel=intel,
+                timestamp_s=state["frame_time_seconds"],
+            )
+            state["plant_intel"] = plants
+            defense = evaluate_all_lanes(plants, intel, fields)
+            state["lane_defense"] = defense
+            sun_field = fields.get("sun", {})
+            sun = sun_field.get("raw_value", sun_field.get("value"))
+            state["counter_plan"] = recommend_counter_plan(
+                intel, state.get("loadout", {}).get("slots", []),
+                sun if type(sun) is int and 0 <= sun <= 999 else None,
+                raw_cards=cards, cells=fields.get("cells"), lane_defense=defense,
+            )
+        else:
+            self.reset()
         # Preserve raw sun OCR value for truthful 3-channel display; if sun digits are transiently
-        # occluded while a visible zombie head or sun cue is present, allow defend_lane/collect_resources
+        # occluded while a localized threat or sun cue is present, allow defend_lane/collect_resources
         # evaluation without blanking the live sidebar (defense/resource reviews do not depend on sun OCR).
         sun_obj = fields.get("sun")
         if isinstance(sun_obj, dict):
             raw_sun = sun_obj.get("raw_value", sun_obj.get("value"))
             sun_obj["raw_value"] = raw_sun
-            has_heads = bool(state.get("zombies", {}).get("candidates"))
             has_cues = bool(state.get("resources", {}).get("sun_appearance", {}).get("candidates"))
-            if (raw_sun is None or type(raw_sun) is not int) and (has_heads or has_cues):
+            if type(raw_sun) is not int and (intel["priority_row"] is not None or has_cues):
                 sun_obj["value"] = 0
         state["processing_ms"] = (time.perf_counter() - t0) * 1000.0
         return state
@@ -358,13 +401,14 @@ def evaluate_three_channels(
 ) -> dict[str, Any]:
     """Separately evaluate Cards, Threats, and Positions from real single-frame evidence."""
     fields = state.get("fields", {})
-    raw_cards = fields.get("cards", [])
+    raw_cards = fields.get("cards")
+    visual_cards = raw_cards or []
     sun_obj = fields.get("sun", {})
     sun_val = sun_obj.get("raw_value", sun_obj.get("value")) if isinstance(sun_obj, dict) else None
     sun_known = type(sun_val) is int and 0 <= sun_val <= 999
 
-    cards_bright = sum(1 for c in raw_cards if isinstance(c, dict) and c.get("raw_visual_state", c.get("visual_state")) == "bright")
-    cards_dim = sum(1 for c in raw_cards if isinstance(c, dict) and c.get("raw_visual_state", c.get("visual_state")) == "dim")
+    cards_bright = sum(1 for c in visual_cards if isinstance(c, dict) and c.get("raw_visual_state", c.get("visual_state")) == "bright")
+    cards_dim = sum(1 for c in visual_cards if isinstance(c, dict) and c.get("raw_visual_state", c.get("visual_state")) == "dim")
     cards_unknown = max(0, 10 - cards_bright - cards_dim)
 
     if "loadout" in state and state.get("loadout", {}).get("status") == "observed" and "continuity" in state:
@@ -392,10 +436,15 @@ def evaluate_three_channels(
 
     id_obs = sum(1 for s in cc_slots if s.get("status") == "observed")
     budget_ok = sum(1 for s in cc_slots if s.get("status") == "observed" and s.get("observed_budget_sufficient") is True)
+    bright_slots = {
+        c.get("slot") for c in visual_cards
+        if isinstance(c, dict) and c.get("raw_visual_state", c.get("visual_state")) == "bright"
+    }
     ready_plants = [
         f"{s['plant_id']}({s['printed_cost']})"
         for s in cc_slots
         if s.get("status") == "observed" and s.get("observed_budget_sufficient") is True
+        and s.get("slot") in bright_slots
     ][:4]
 
     validate_threat_context(state)
@@ -411,24 +460,60 @@ def evaluate_three_channels(
     ue = len(zombies["uncertain_edge_presence"])
     vc = len(vehicles["candidates"])
     uv = len(vehicles["uncertain_candidates"])
-    uncertain_total = uw + ue + vc + uv
+    confirmed_vehicles = sum(is_localized_vehicle(item) for item in vehicles["candidates"])
+    uncertain_total = uw + ue + uv + (vc - confirmed_vehicles)
+    intel = state.get("zombie_intel")
+    if intel is None:
+        intel = classify_state_metadata(state)
+    for row, x in supplementary_snorkels(intel):
+        per_lane.setdefault(row, []).append(x)
+    plant_intel = state.get("plant_intel")
+    lane_defense = state.get("lane_defense")
+    counter_plan = recommend_counter_plan(
+        intel, cc_slots, sun_val if sun_known else None, raw_cards=raw_cards, cells=fields.get("cells"),
+        lane_defense=lane_defense,
+    )
+    priority_row = counter_plan["priority_row"]
+    leftmost_threat_x = min((lane["leftmost_x"] for lane in intel["by_lane"].values()), default=None)
 
-    cells = fields.get("cells", [])
+    cells = fields.get("cells") or []
     occ = sum(1 for c in cells if isinstance(c, dict) and c.get("occupancy") in ("ground_occupied", "base_only", "base_and_upper"))
     emp = sum(1 for c in cells if isinstance(c, dict) and c.get("occupancy") == "empty")
     unk = max(0, 54 - occ - emp)
+    rescued = {
+        (p["row"], p["column"])
+        for row in (plant_intel or {}).get("cells_by_row", {}).values() for p in row
+        if p.get("source") == "low_profile_scan"
+    }
+    rescued_empty = sum(c["occupancy"] == "empty" for c in cells
+                        if isinstance(c, dict) and (c.get("row"), c.get("column")) in rescued)
+    occ += len(rescued)
+    emp -= rescued_empty
+    unk = max(0, unk - (len(rescued) - rescued_empty))
 
     try:
         sun_cues = len(sun_cue_ids(state))
     except ReviewBlocked:
         sun_cues = 0
 
-    lane_desc = "、".join(f"{r}路×{len(xs)}(最左x={int(round(min(xs)))})" for r, xs in sorted(per_lane.items())) or "无确认头部"
+    if not intel["by_lane"]:
+        threat_text = f"确认威胁=0（无确认僵尸/载具）| 水路/边缘/车辆不确定={uncertain_total}"
+    else:
+        threat_text = intel["summary_short"]
+        if lane_defense:
+            threat_text += f"｜{lane_defense['summary_zh']}"
+        if priority_row is not None:
+            primary = intel["by_lane"][priority_row]["primary_entity"]
+            threat_text += f"｜{priority_row}路x={round(primary['x'])}"
+        if counter_plan["action_text"]:
+            threat_text += f"→建议：{counter_plan['action_text']}"
+        if uncertain_total:
+            threat_text += f" | 水路/边缘/车辆不确定={uncertain_total}"
     sun_str = str(sun_val) if sun_known else "未知"
     ready_str = f" | 可买参考：{', '.join(ready_plants)}" if ready_plants else ""
     summary_text = (
         f"【卡片】阳光={sun_str} | 亮={cards_bright}, 暗={cards_dim}, 冷却/未知={cards_unknown} | 身份一致={id_obs}/10, 够买={budget_ok}{ready_str}\n"
-        f"【威胁】确认僵尸头={zombie_heads}（{lane_desc}）| 水路/边缘/车辆不确定={uncertain_total}\n"
+        f"【威胁】{threat_text}\n"
         f"【位置】54格：已占={occ}, 空={emp}, 未知={unk} | 地面阳光候选={sun_cues}"
     )
     return {
@@ -444,6 +529,14 @@ def evaluate_three_channels(
         "leftmost_head_x": leftmost_x,
         "per_lane": {r: sorted(xs) for r, xs in per_lane.items()},
         "uncertain_threats": uncertain_total,
+        "confirmed_vehicles": confirmed_vehicles,
+        "zombie_intel": intel,
+        "plant_intel": plant_intel,
+        "lane_defense": lane_defense,
+        "counter_plan": counter_plan,
+        "species_counts": intel["species_counts"],
+        "priority_row": priority_row,
+        "leftmost_threat_x": round(leftmost_threat_x) if leftmost_threat_x is not None else None,
         "cells_occupied": occ,
         "cells_empty": emp,
         "cells_unknown": unk,
@@ -452,29 +545,106 @@ def evaluate_three_channels(
     }
 
 
+def _economy_option(state, intel, sun):
+    fields = state.get("fields", {})
+    bright = {c["slot"] for c in fields.get("cards") or () if c.get("visual_state") == "bright"}
+    occupied = {(p["row"], p["column"]) for row in state["plant_intel"]["cells_by_row"].values() for p in row}
+    opening = set()
+    for cell in fields.get("cells") or ():
+        row, col = cell["row"], cell["column"]
+        if cell.get("occupancy") != "empty" or col > 3 or (row, col) in occupied:
+            continue
+        lane = intel["by_lane"].get(row)
+        if lane is None or lane["leftmost_x"] > col * 80 + 160:
+            opening.add("lily_pad" if row in WATER_ROWS else "sunflower")
+    if type(sun) is not int or not 0 <= sun <= 999:
+        return None
+    slots = state.get("loadout", {}).get("slots", [])
+    for plant, name in (("sunflower", "向日葵"), ("lily_pad", "睡莲")):
+        if plant in opening and any(
+            s.get("status") == "observed" and s.get("plant_id") == plant and s.get("slot") in bright
+            and type(s.get("display_cost")) is int and s["display_cost"] <= sun for s in slots
+        ):
+            return name
+    return None
+
+
 def evaluate_local_strategy(state: dict[str, Any], policy: dict[str, int] | None = None) -> dict[str, Any]:
     """Deterministic real-evidence strategy backend (zero external network latency)."""
-    pol = policy or {"left_warning_x": 200, "other_lane_margin_px": 80}
-    rows = lane_observations(state)
-    active = [(min(xs), -len(xs), row) for row, xs in rows.items() if xs]
-    if active:
-        active.sort()
-        left_x, neg_cnt, focus_row = active[0]
-        count = -neg_cnt
-        warn = "（靠左紧急告警）" if left_x <= pol["left_warning_x"] else ""
+    if state.get("scene", {}).get("value") != "playing":
+        raise ReviewBlocked("nonplaying_scene")
+    try:
+        validate_threat_context(state)
+    except ValueError as exc:
+        raise ReviewBlocked("threat_context_invalid") from exc
+    zombies, vehicles = state["zombies"], state["vehicles"]
+    if zombies["uncertain_edge_presence"] or zombies["uncertain_water_candidates"] or vehicles["uncertain_candidates"]:
+        raise ReviewBlocked("unlocalized_threat_context")
+    if any(not is_localized_vehicle(item) for item in vehicles["candidates"]):
+        raise ReviewBlocked("vehicle_position_unknown")
+
+    fields = state.get("fields", {})
+    sun_field = fields.get("sun", {})
+    sun = sun_field.get("raw_value", sun_field.get("value"))
+    left_warning_x = (policy or {}).get("left_warning_x", DEFAULT_LEFT_WARNING_X)
+    intel = state.get("zombie_intel")
+    if intel is None:
+        intel = classify_state_metadata(state, left_warning_x=left_warning_x)
+    else:
+        intel = prioritize_zombie_intel(intel, left_warning_x)
+    defense = state.get("lane_defense")
+    plan = recommend_counter_plan(
+        intel, state.get("loadout", {}).get("slots", []),
+        sun if type(sun) is int and 0 <= sun <= 999 else None, raw_cards=fields.get("cards"),
+        cells=fields.get("cells"), lane_defense=defense,
+    )
+    focus_row = plan["priority_row"]
+    if focus_row is not None:
+        primary = intel["by_lane"][focus_row]["primary_entity"]
+        detail = threat_detail(primary) or primary["armor_stage"]
+        if detail in ("满甲", "破损", "受损"):
+            hp = f"{detail}约{primary['hp_est']}血"
+        else:
+            hp = f"约{primary['hp_est']}血·{detail}"
+        reason = f"第{focus_row}路{primary['name_cn']}({hp},x={round(primary['x'])})：{plan['action_text']}"
+        if defense is not None:
+            lane = defense["by_row"][focus_row]
+            reason += f"；{lane['verdict_zh']}，{lane['reason_zh']}"
+            covered = defense.get("sufficient_threat_rows", ())
+            if covered:
+                reason += f"；{'、'.join(map(str, covered))}路已稳守"
         return {
             "strategy": {
                 "source_state_id": state["state_id"],
                 "goal": "defend_lane",
                 "focus_row": focus_row,
-                "reason": f"第 {focus_row} 路观测到 {count} 个僵尸头，最左 x={int(round(left_x))}{warn}，优先关注该路防线。",
-                "uncertainties": ["未核实僵尸品种、血量与完整冷却状态"],
+                "reason": reason[:96],
+                "uncertainties": ["血量按外观护甲阶段估算，未读取游戏内存"],
             }
         }
     try:
         cues = sun_cue_ids(state)
     except ReviewBlocked:
         cues = []
+    if plan["status"] == "observe_unknown":
+        return {"strategy": {
+            "source_state_id": state["state_id"], "goal": "hold_formation", "focus_row": None,
+            "reason": plan["action_hint"][:96], "uncertainties": ["部分占格待识别"],
+        }}
+    if plan["status"] == "all_sufficient":
+        safe_cues = cues and all(lane["leftmost_x"] > left_warning_x for lane in intel["by_lane"].values())
+        option = _economy_option(state, intel, sun) if not safe_cues and state.get("plant_intel") else None
+        summary = defense["summary_zh"]
+        if safe_cues:
+            goal, reason = "collect_resources", f"受威胁路均已稳守，可优先收取场上{len(cues)}处可见阳光。"
+        elif option:
+            goal, reason = "develop_economy", f"受威胁路均已稳守，后排有合适空位，可补{option}发育。"
+        else:
+            goal, reason = "hold_formation", "受威胁路均已稳守，维持阵型并留阳应对后续波次。"
+        return {"strategy": {
+            "source_state_id": state["state_id"], "goal": goal, "focus_row": None,
+            "reason": f"{reason}{summary}"[:96], "uncertainties": ["部署和阳光基于当前画面估算"],
+        }}
     if cues:
         return {
             "strategy": {
@@ -485,8 +655,6 @@ def evaluate_local_strategy(state: dict[str, Any], policy: dict[str, int] | None
                 "uncertainties": ["未核实阳光归属与可点击状态"],
             }
         }
-    sun_field = state.get("fields", {}).get("sun", {})
-    sun = sun_field.get("raw_value", sun_field.get("value"))
     if type(sun) is int and sun < 150:
         return {
             "strategy": {
