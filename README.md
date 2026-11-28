@@ -1,22 +1,22 @@
 # PVZagent — 纯视觉只读实时战术助手（v1.2.0）
 
-[![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11%20x64-0078D6)]()
-[![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB)]()
-[![Safety](https://img.shields.io/badge/Mode-Read--Only%20%7C%200%20Input%20%7C%200%20Memory%20R%2FW-16A34A)]()
-[![Tests](https://img.shields.io/badge/Tests-59%20Baseline%20%2B%2027%20Unit%20Tests-2563EB)]()
+![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11%20x64-0078D6)
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB)
+![Safety](https://img.shields.io/badge/Mode-Read--Only%20%7C%200%20Input%20%7C%200%20Memory%20R%2FW-16A34A)
+![Tests](https://img.shields.io/badge/Tests-59%20Baseline%20%2B%2027%20Unit%20Tests-2563EB)
 [![License](https://img.shields.io/badge/License-MIT-64748B)](LICENSE)
 
 面向原版《植物大战僵尸》（Plants vs. Zombies，重点适配 **3-7 泳池十卡槽** 复杂场景）的 **纯视觉、严格只读** 实时人机协同战术侧栏系统。
 
 ---
 
-## 一、项目解决了什么问题？
+## 一、30 秒看懂：项目解决了什么问题？
 
 在实时策略游戏的辅助决策与人机协同场景中，本项目聚焦解决三个核心工程与算法问题：
 
 1. **无侵入实时感知（替代外挂式读内存）**：不读游戏内存、不发键鼠输入、不落盘截图像素。通过自研 C++ 原生 **Windows Graphics Capture (WGC)** DLL 纯内存直采显存帧，结合 7 块非数字锚点仿射配准与单遍视觉感知，在单帧 **`< 0.8s`** 内结构化提取阳光、10 卡槽状态、僵尸物种/护甲/姿态与 54 格植物阵型。
 2. **抑制策略幻觉与冗余建议（定量物理仿真 + 硬约束护栏）**：
-   - **防冗余增防**：内置 PVZ1 逐路火力定量结算器（[`lane_defense.py`](src/pvz_agent/readonly_advisor_v1/lane_defense.py)），按有效射程 DPS、一次性陷阱消耗、潜水露头窗口与坚果缓冲时间判定每路状态（`稳守 / 吃紧 / 缺口 / 未知`），**对已稳守路自动拦截重复增防建议**；
+   - **防冗余增防**：内置 PVZ1 逐路火力定量结算器（[`lane_defense.py`](src/pvz_agent/readonly_advisor_v1/lane_defense.py)），按有效射程 DPS、一次性陷阱消耗、潜水露头窗口与坚果缓冲时间判定每路状态（5 档：`无威胁 / 稳守 / 吃紧 / 缺口 / 未知`），**对已稳守路自动拦截重复增防建议**；
    - **防地形幻觉**：在本地规则与大模型输出双侧施加 **3-7 水陆地形铁律**（陆路禁海草/睡莲，水路禁土豆雷/地刺、陆生植物须先垫睡莲），彻底拦截跨地形非法建议。
 3. **兼顾大模型推理深度与实时对局体验（本地保底 + 异步低延迟 LLM）**：本地确定性策略与四阶段时间轴实时兜底；异步 LLM 通道采用静态 System/Instructions Prompt Cache 拆分、思考强度自适应降级（`none`/`minimal`/`low`）、事件驱动提前触发与 2.0s 看门狗时效撤回，同时支持一键切回 **0 外网纯本地模式**。
 
@@ -49,18 +49,18 @@
 
 ```mermaid
 flowchart LR
-    G["原版 PVZ 窗口\n800x600 / 1200x900"]
-    --> L1["L1 原生采集\nWGC C++ DLL 显存直采\n用后 fill(0) 清零"]
-    --> L2["L2 几何与视觉感知\n仿射配准 + 7 块 NCC\n单遍感知 < 0.8s"]
-    --> L3A["L3 细粒度态势建模\n僵尸物种/护甲/潜水三态\n54 格植物 + 低矮陷阱补扫"]
-    --> L3B["逐路火力定量结算\n稳守 / 吃紧 / 缺口 / 未知\n+ 水陆地形合法性校验"]
+    G["原版 PVZ 窗口<br/>800x600 / 1200x900"]
+    --> L1["L1 原生采集<br/>WGC C++ DLL 显存直采<br/>用后 fill(0) 清零"]
+    --> L2["L2 几何与视觉感知<br/>仿射配准 + 7 块 NCC<br/>单遍感知 < 0.8s"]
+    --> L3A["L3 细粒度态势建模<br/>僵尸物种/护甲/潜水三态<br/>54 格植物 + 低矮陷阱补扫"]
+    --> L3B["逐路火力定量结算<br/>无威胁 / 稳守 / 吃紧 / 缺口 / 未知<br/>+ 水陆地形合法性校验"]
 
-    L3B --> LOCAL["本地确定性策略\n稳守路拦截增防\n三通道证据 + 四阶段时间轴"]
-    L3B --> LLM["异步低延迟 LLM 教练\nPrompt Cache / 事件驱动触发\n输出前地形与稳守双复核"]
+    L3B --> LOCAL["本地确定性策略<br/>稳守路拦截增防<br/>三通道证据 + 四阶段时间轴"]
+    L3B --> LLM["异步低延迟 LLM 教练<br/>Prompt Cache / 事件驱动触发<br/>输出前地形与稳守双复核"]
 
-    LOCAL --> L4["L4 时效与稳定性控制\n2.0s OS 看门狗 · 3.5s 稳定器\n切窗/暂停即时撤回并释放 WGC"]
+    LOCAL --> L4["L4 时效与稳定性控制<br/>2.0s OS 看门狗 · 3.5s 稳定器<br/>切窗/暂停即时撤回并释放 WGC"]
     LLM --> L4
-    L4 --> L5["L5 单右侧防跳动侧栏\n建议 / 时间轴 / 设置三页\nWindows DPAPI 加密配置"]
+    L4 --> L5["L5 单右侧防跳动侧栏<br/>建议 / 时间轴 / 设置三页<br/>Windows DPAPI 加密配置"]
 ```
 
 ---
