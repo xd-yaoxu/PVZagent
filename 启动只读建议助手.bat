@@ -7,7 +7,8 @@ if not exist "%ENTRY%" (
     exit /b 1
 )
 set "PYW="
-if exist "%~dp0.venv\Scripts\pythonw.exe" set "PYW=%~dp0.venv\Scripts\pythonw.exe"
+if defined PVZ_PYTHONW if exist "%PVZ_PYTHONW%" set "PYW=%PVZ_PYTHONW%"
+if not defined PYW if exist "%~dp0.venv\Scripts\pythonw.exe" set "PYW=%~dp0.venv\Scripts\pythonw.exe"
 if not defined PYW (
     for /f "delims=" %%I in ('where pythonw.exe 2^>nul') do (
         if not defined PYW set "PYW=%%I"
@@ -18,9 +19,8 @@ if not defined PYW (
         if not defined PYW set "PYW=%%I"
     )
 )
-if not defined PYW if exist "D:\Python\pythonw.exe" set "PYW=D:\Python\pythonw.exe"
 if not defined PYW (
-    echo [PVZagent] pythonw.exe not found. Install Python 3.11+ and run: pip install -r requirements.txt
+    echo [PVZagent] pythonw.exe not found. Install Python 3.11+ or set PVZ_PYTHONW, then run: pip install -r requirements.txt
     pause
     exit /b 1
 )
